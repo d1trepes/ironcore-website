@@ -139,11 +139,13 @@
   $$('[data-svc]').forEach(function (root) {
     var btns = $$('.svc__btn', root), imgs = $$('.svc__media img', root);
     function open(btn) {
+      var closing = btn.getAttribute('aria-expanded') === 'true';
       btns.forEach(function (b) {
-        var on = b === btn;
+        var on = b === btn && !closing;
         b.setAttribute('aria-expanded', String(on));
         document.getElementById(b.getAttribute('aria-controls')).hidden = !on;
       });
+      if (closing) return;
       var id = btn.getAttribute('aria-controls');
       imgs.forEach(function (im) { im.classList.toggle('is-on', im.getAttribute('data-for') === id); });
     }
