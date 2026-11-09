@@ -5,14 +5,14 @@
 - `docs/archive/` — старые правила бренда, прежний hero-бриф и промпты изображений.
 - `docs/visual-direction.md` — описания двух присланных в чат свежих концепций.
 - В `d1trepes/ironcore-landing` имеются прежние картинки, рендеры, SVG и скриншоты ТЗ. Их не считать автоматически утверждёнными для нового сайта.
-- **Новых согласованных SVG и изображений в `assets/` пока нет.**
+- **Новые SVG утверждены дизайнером и добавлены:** основной логотип и знак (включая тёмную и монохромную версии) в `assets/logos/current/`; резервные — в `assets/logos/concepts/`. См. `docs/brand-identity.md`. Новые рендеры сайта ещё не утверждены.
 
 ## План организации (создавать по мере появления файлов)
 ```
 assets/
   logos/
-    concepts/     # candidate-a.svg, candidate-b.svg, candidate-c.svg
-    current/      # ironcore-logo.svg, ironcore-symbol.svg, favicon.svg
+    concepts/     # ironcore-alternative*.svg (резервный)
+    current/      # ironcore-logo*.svg, ironcore-symbol*.svg (основной)
   images/
     hero/         # hero-overview.webp; hero-cutaway.webp (если согласовано)
     security/     # security-01..06.webp или авторские схемы SVG
