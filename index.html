@@ -28,10 +28,32 @@
     </nav>
     <div class="header__end">
       <button class="btn btn--red btn--sm" type="button" data-modal="Связаться">Связаться</button>
-      <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Открыть меню"><span></span><span></span></button>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Открыть меню"><span></span><span></span></button>
     </div>
   </div>
 </header>
+
+<div class="drawer" id="drawer" hidden>
+  <div class="drawer__scrim" data-drawer-close></div>
+  <div class="drawer__panel" role="dialog" aria-modal="true" aria-label="Меню">
+    <div class="drawer__top">
+      <img src="assets/logos/current/ironcore-logo-on-dark.svg" alt="" width="150" height="34">
+      <button class="drawer__close" type="button" data-drawer-close aria-label="Закрыть меню"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4,4 16,16 M16,4 4,16"/></svg></button>
+    </div>
+    <nav class="drawer__nav" aria-label="Меню разделов">
+      <a href="#solutions">Решения</a>
+      <a href="#services">Услуги</a>
+      <a href="#process">Как мы работаем</a>
+      <a href="#why">Почему IronCore</a>
+      <a href="#materials">Для заказчика</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <div class="drawer__end">
+      <a class="drawer__phone" href="tel:+79284160938">8 (928) 416-09-38</a>
+      <button class="btn btn--red btn--block" type="button" data-modal="Обсудить проект">Обсудить проект</button>
+    </div>
+  </div>
+</div>
 
 <main id="main">
 
@@ -198,19 +220,19 @@
     </div>
     <div class="formats">
       <figure class="format">
-        <div class="format__img reveal"><img decoding="async" src="assets/images/formats/format-classic-1024w.webp" srcset="assets/images/formats/format-classic-640w.webp 640w, assets/images/formats/format-classic-1024w.webp 1024w, assets/images/formats/format-classic.webp 1448w" sizes="(max-width: 960px) 50vw, 320px" width="1448" height="1086" loading="lazy" alt="Капитальное здание ЦОД"></div>
+        <div class="format__img reveal"><img decoding="async" src="assets/images/formats/format-classic-1024w.webp" srcset="assets/images/formats/format-classic-640w.webp 640w, assets/images/formats/format-classic-1024w.webp 1024w, assets/images/formats/format-classic.webp 1448w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 320px" width="1448" height="1086" loading="lazy" alt="Капитальное здание ЦОД"></div>
         <figcaption><b>Классический</b>Отдельное здание: архитектура, конструкции и инженерия в одной концепции.</figcaption>
       </figure>
       <figure class="format">
-        <div class="format__img reveal"><img decoding="async" src="assets/images/formats/format-modular-1024w.webp" srcset="assets/images/formats/format-modular-640w.webp 640w, assets/images/formats/format-modular-1024w.webp 1024w, assets/images/formats/format-modular.webp 1448w" sizes="(max-width: 960px) 50vw, 320px" width="1448" height="1086" loading="lazy" alt="Ряд модулей ЦОД и площадка под следующий модуль"></div>
+        <div class="format__img reveal"><img decoding="async" src="assets/images/formats/format-modular-1024w.webp" srcset="assets/images/formats/format-modular-640w.webp 640w, assets/images/formats/format-modular-1024w.webp 1024w, assets/images/formats/format-modular.webp 1448w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 320px" width="1448" height="1086" loading="lazy" alt="Ряд модулей ЦОД и площадка под следующий модуль"></div>
         <figcaption><b>Модульный</b>Объект из функциональных модулей с поэтапным развитием, если его подтверждают требования.</figcaption>
       </figure>
       <figure class="format">
-        <div class="format__img reveal"><img decoding="async" src="assets/images/formats/format-container-1024w.webp" srcset="assets/images/formats/format-container-640w.webp 640w, assets/images/formats/format-container-1024w.webp 1024w, assets/images/formats/format-container.webp 1448w" sizes="(max-width: 960px) 50vw, 320px" width="1448" height="1086" loading="lazy" alt="Контейнерные модули ЦОД на бетонной площадке"></div>
+        <div class="format__img reveal"><img decoding="async" src="assets/images/formats/format-container-1024w.webp" srcset="assets/images/formats/format-container-640w.webp 640w, assets/images/formats/format-container-1024w.webp 1024w, assets/images/formats/format-container.webp 1448w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 320px" width="1448" height="1086" loading="lazy" alt="Контейнерные модули ЦОД на бетонной площадке"></div>
         <figcaption><b>Контейнерный</b>Оборудование в контейнерных блоках с учетом транспортировки, обслуживания, климата и подключений.</figcaption>
       </figure>
       <figure class="format">
-        <div class="format__img reveal"><img decoding="async" src="assets/images/formats/format-underground-1024w.webp" srcset="assets/images/formats/format-underground-640w.webp 640w, assets/images/formats/format-underground-1024w.webp 1024w, assets/images/formats/format-underground.webp 1448w" sizes="(max-width: 960px) 50vw, 320px" width="1448" height="1086" loading="lazy" alt="Обвалованный ЦОД: въездной портал и разрез с серверным залом"></div>
+        <div class="format__img reveal"><img decoding="async" src="assets/images/formats/format-underground-1024w.webp" srcset="assets/images/formats/format-underground-640w.webp 640w, assets/images/formats/format-underground-1024w.webp 1024w, assets/images/formats/format-underground.webp 1448w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 320px" width="1448" height="1086" loading="lazy" alt="Обвалованный ЦОД: въездной портал и разрез с серверным залом"></div>
         <figcaption><b>Подземный</b>Когда заглубление обосновано оценкой рисков, геологией, гидрогеологией и расчетами.</figcaption>
       </figure>
     </div>
@@ -240,31 +262,37 @@
       <div class="svc__list">
         <button class="svc__btn" type="button" id="sv-t1" aria-controls="sv-p1" aria-expanded="true"><b>Разработка концепции ЦОД</b><i>Отправная точка проекта</i></button>
         <div class="svc__panel" id="sv-p1">
+          <figure class="svc__pic" aria-hidden="true"><img decoding="async" src="assets/images/services/service-concept-1024w.webp" srcset="assets/images/services/service-concept-640w.webp 640w, assets/images/services/service-concept-1024w.webp 1024w, assets/images/services/service-concept.webp 1536w" sizes="100vw" width="1536" height="1024" loading="lazy" alt=""></figure>
           <p>Основные параметры объекта, сравнение вариантов размещения и исполнения, предварительная оценка площадей, мощности и инфраструктуры.</p>
           <p class="res"><span>Результат</span>Концептуальные решения и исходные параметры для проектирования.</p>
         </div>
         <button class="svc__btn" type="button" id="sv-t2" aria-controls="sv-p2" aria-expanded="false"><b>Архитектурное и конструктивное проектирование</b><i>Здание, планировка и конструкции</i></button>
         <div class="svc__panel" id="sv-p2" hidden>
+          <figure class="svc__pic" aria-hidden="true"><img decoding="async" src="assets/images/services/service-architecture-1024w.webp" srcset="assets/images/services/service-architecture-640w.webp 640w, assets/images/services/service-architecture-1024w.webp 1024w, assets/images/services/service-architecture.webp 1536w" sizes="100vw" width="1536" height="1024" loading="lazy" alt=""></figure>
           <p>Функциональное зонирование, планировка, конструктивная схема и взаимное расположение технических помещений.</p>
           <p class="res"><span>Результат</span>Архитектурные и конструктивные проектные решения.</p>
         </div>
         <button class="svc__btn" type="button" id="sv-t3" aria-controls="sv-p3" aria-expanded="false"><b>Проектирование инженерной инфраструктуры</b><i>Электроснабжение, охлаждение и технические системы</i></button>
         <div class="svc__panel" id="sv-p3" hidden>
+          <figure class="svc__pic" aria-hidden="true"><img decoding="async" src="assets/images/interior/interior-hall-1024w.webp" srcset="assets/images/interior/interior-hall-640w.webp 640w, assets/images/interior/interior-hall-1024w.webp 1024w, assets/images/interior/interior-hall.webp 1672w" sizes="100vw" width="1672" height="941" loading="lazy" alt=""></figure>
           <p>Электроснабжение, охлаждение, вентиляция, водоснабжение и водоотведение, другие системы по составу работ.</p>
           <p class="res"><span>Результат</span>Увязанные между собой инженерные решения и разделы документации.</p>
         </div>
         <button class="svc__btn" type="button" id="sv-t4" aria-controls="sv-p4" aria-expanded="false"><b>Проектирование с учетом физической защищенности</b><i>Уязвимости, зонирование и конструктивные решения</i></button>
         <div class="svc__panel" id="sv-p4" hidden>
+          <figure class="svc__pic" aria-hidden="true"><img decoding="async" src="assets/images/services/service-security-1024w.webp" srcset="assets/images/services/service-security-640w.webp 640w, assets/images/services/service-security-1024w.webp 1024w, assets/images/services/service-security.webp 1536w" sizes="100vw" width="1536" height="1024" loading="lazy" alt=""></figure>
           <p>Угрозы учитываем при выборе площадки, планировке, размещении критических помещений и технических доступов. Заглубление — когда оно обосновано.</p>
           <p class="res"><span>Результат</span>Решения под согласованные требования к физической безопасности.</p>
         </div>
         <button class="svc__btn" type="button" id="sv-t5" aria-controls="sv-p5" aria-expanded="false"><b>Проектирование модульных и контейнерных ЦОД</b><i>Альтернативные форматы размещения</i></button>
         <div class="svc__panel" id="sv-p5" hidden>
+          <figure class="svc__pic" aria-hidden="true"><img decoding="async" src="assets/images/services/service-modular-1024w.webp" srcset="assets/images/services/service-modular-640w.webp 640w, assets/images/services/service-modular-1024w.webp 1024w, assets/images/services/service-modular.webp 1536w" sizes="100vw" width="1536" height="1024" loading="lazy" alt=""></figure>
           <p>Размещение оборудования, коммуникаций, технических зон и подключений к внешней инфраструктуре.</p>
           <p class="res"><span>Результат</span>Проектная концепция или документация для выбранного формата.</p>
         </div>
         <button class="svc__btn" type="button" id="sv-t6" aria-controls="sv-p6" aria-expanded="false"><b>Анализ исходных решений и проектной документации</b><i>Проверка перед дальнейшими этапами</i></button>
         <div class="svc__panel" id="sv-p6" hidden>
+          <figure class="svc__pic" aria-hidden="true"><img decoding="async" src="assets/images/services/service-analysis-1024w.webp" srcset="assets/images/services/service-analysis-640w.webp 640w, assets/images/services/service-analysis-1024w.webp 1024w, assets/images/services/service-analysis.webp 1536w" sizes="100vw" width="1536" height="1024" loading="lazy" alt=""></figure>
           <p>Анализ требований и материалов, поиск несогласованностей, оценка проектных альтернатив.</p>
           <p class="res"><span>Результат</span>Перечень замечаний, выводы и рекомендации.</p>
         </div>
@@ -448,21 +476,21 @@
     </div>
     <div class="docs">
       <article class="doc">
-        <div class="doc__img reveal"><img decoding="async" src="assets/images/materials/doc-concept-1024w.webp" srcset="assets/images/materials/doc-concept-640w.webp 640w, assets/images/materials/doc-concept-1024w.webp 1024w, assets/images/materials/doc-concept.webp 1122w" sizes="(max-width: 960px) 100vw, 420px" width="1122" height="1402" loading="lazy" alt="Буклет концепции ЦОД и разворот с генпланом"></div>
+        <div class="doc__img reveal"><img decoding="async" src="assets/images/materials/doc-concept-1024w.webp" srcset="assets/images/materials/doc-concept-640w.webp 640w, assets/images/materials/doc-concept-1024w.webp 1024w, assets/images/materials/doc-concept.webp 1122w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 40vw, 420px" width="1122" height="1402" loading="lazy" alt="Буклет концепции ЦОД и разворот с генпланом"></div>
         <p class="doc__meta">PDF, демонстрационный пример</p>
         <h3>Пример концепции ЦОД</h3>
         <p>Параметры объекта, зонирование, варианты исполнения и принципиальные инженерные решения.</p>
         <button class="btn btn--line" type="button" data-modal="Запросить пример концепции">Запросить пример</button>
       </article>
       <article class="doc">
-        <div class="doc__img reveal"><img decoding="async" src="assets/images/materials/doc-composition-1024w.webp" srcset="assets/images/materials/doc-composition-640w.webp 640w, assets/images/materials/doc-composition-1024w.webp 1024w, assets/images/materials/doc-composition.webp 1122w" sizes="(max-width: 960px) 100vw, 420px" width="1122" height="1402" loading="lazy" alt="Стопка томов проектной документации и раскрытый лист с планом"></div>
+        <div class="doc__img reveal"><img decoding="async" src="assets/images/materials/doc-composition-1024w.webp" srcset="assets/images/materials/doc-composition-640w.webp 640w, assets/images/materials/doc-composition-1024w.webp 1024w, assets/images/materials/doc-composition.webp 1122w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 40vw, 420px" width="1122" height="1402" loading="lazy" alt="Стопка томов проектной документации и раскрытый лист с планом"></div>
         <p class="doc__meta">PDF, пример проектных решений</p>
         <h3>Состав проектных материалов</h3>
         <p>Что готовится на каждом этапе — от сравнения концепций до проектных решений.</p>
         <button class="btn btn--line" type="button" data-modal="Запросить состав проектных материалов">Запросить состав</button>
       </article>
       <article class="doc">
-        <div class="doc__img reveal"><img decoding="async" src="assets/images/materials/doc-checklist-1024w.webp" srcset="assets/images/materials/doc-checklist-640w.webp 640w, assets/images/materials/doc-checklist-1024w.webp 1024w, assets/images/materials/doc-checklist.webp 1122w" sizes="(max-width: 960px) 100vw, 420px" width="1122" height="1402" loading="lazy" alt="Чек-лист на планшете"></div>
+        <div class="doc__img reveal"><img decoding="async" src="assets/images/materials/doc-checklist-1024w.webp" srcset="assets/images/materials/doc-checklist-640w.webp 640w, assets/images/materials/doc-checklist-1024w.webp 1024w, assets/images/materials/doc-checklist.webp 1122w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 40vw, 420px" width="1122" height="1402" loading="lazy" alt="Чек-лист на планшете"></div>
         <p class="doc__meta">PDF, рабочий чек-лист</p>
         <h3>Чек-лист исходных данных</h3>
         <p>Мощность, площадка, надежность, инфраструктура. Подходит, даже если ТЗ ещё нет.</p>

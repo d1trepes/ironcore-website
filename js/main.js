@@ -8,30 +8,76 @@
   $$('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
   /* ---- Header: solid after hero top, hides on scroll down, returns on scroll up ---- */
-  var header = $('#header'), nav = $('#nav'), burger = $('.burger');
-  var lastY = window.scrollY;
+  var header = $('#header'), burger = $('.burger'), drawer = $('#drawer');
+  var mobile = window.matchMedia('(max-width: 960px)');
+  var lastY = window.scrollY, locked = false;
   function onScroll() {
+    if (locked) return;
     var y = window.scrollY;
     header.classList.toggle('is-solid', y > 24);
-    var menuOpen = nav.classList.contains('is-open');
-    if (!menuOpen && y > 480 && y > lastY + 4) header.classList.add('is-hidden');
-    else if (y < lastY - 4 || y <= 480) header.classList.remove('is-hidden');
+    var edge = mobile.matches ? 240 : 480;
+    if (y > edge && y > lastY + 4) header.classList.add('is-hidden');
+    else if (y < lastY - 4 || y <= edge) header.classList.remove('is-hidden');
     lastY = y;
   }
 
-  /* ---- Mobile menu (basic; final mobile is stage 03) ---- */
-  function closeMenu() { nav.classList.remove('is-open'); burger.setAttribute('aria-expanded', 'false'); burger.setAttribute('aria-label', 'Открыть меню'); }
-  burger.addEventListener('click', function () {
-    var open = !nav.classList.contains('is-open');
-    nav.classList.toggle('is-open', open);
-    burger.setAttribute('aria-expanded', String(open));
-    burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
-    header.classList.add('is-solid');
+  /* ---- Page scroll lock (works on iOS too): used by the drawer ---- */
+  var lockY = 0;
+  function lockScroll() {
+    if (locked) return;
+    lockY = window.scrollY; locked = true;
+    var b = document.body.style;
+    b.position = 'fixed'; b.top = -lockY + 'px'; b.left = '0'; b.right = '0'; b.width = '100%';
+  }
+  function unlockScroll() {
+    if (!locked) return;
+    var b = document.body.style;
+    b.position = b.top = b.left = b.right = b.width = '';
+    document.documentElement.style.scrollBehavior = 'auto';
+    window.scrollTo(0, lockY);
+    document.documentElement.style.scrollBehavior = '';
+    lastY = lockY; locked = false;
+  }
+
+  /* ---- Mobile drawer menu: slides in from the right ---- */
+  var drawerPanel = $('.drawer__panel', drawer), drawerTimer = null;
+  function focusables() { return $$('a[href], button:not([disabled])', drawerPanel); }
+  function openMenu() {
+    clearTimeout(drawerTimer);
+    drawer.hidden = false;
+    lockScroll();
+    drawer.offsetWidth; // start the slide from the closed state
+    drawer.classList.add('is-open');
+    burger.setAttribute('aria-expanded', 'true');
+    burger.setAttribute('aria-label', 'Закрыть меню');
+    $('.drawer__close', drawer).focus({ preventScroll: true });
+  }
+  function closeMenu(returnFocus) {
+    if (drawer.hidden) return;
+    drawer.classList.remove('is-open');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-label', 'Открыть меню');
+    unlockScroll();
+    if (returnFocus) burger.focus({ preventScroll: true });
+    drawerTimer = setTimeout(function () { drawer.hidden = true; }, reduce ? 0 : 380);
+  }
+  burger.addEventListener('click', function () { if (drawer.hidden || !drawer.classList.contains('is-open')) openMenu(); else closeMenu(true); });
+  drawer.addEventListener('click', function (e) {
+    if (e.target.closest('[data-drawer-close]')) closeMenu(true);
+    else if (e.target.closest('.drawer__nav a')) closeMenu(false); // page scroll is restored first, then the anchor jump runs
   });
-  nav.addEventListener('click', function (e) { if (e.target.closest('a')) closeMenu(); });
+  drawer.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { e.preventDefault(); closeMenu(true); return; }
+    if (e.key !== 'Tab') return;
+    var f = focusables(), first = f[0], lastF = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); lastF.focus(); }
+    else if (!e.shiftKey && document.activeElement === lastF) { e.preventDefault(); first.focus(); }
+  });
+  function onMq() { if (!mobile.matches) closeMenu(false); }
+  if (mobile.addEventListener) mobile.addEventListener('change', onMq); else mobile.addListener(onMq);
 
   /* ---- Active nav item ---- */
-  var links = $$('.nav a');
+  var links = $$('.nav a, .drawer__nav a');
   if ('IntersectionObserver' in window) {
     var navIO = new IntersectionObserver(function (es) {
       es.forEach(function (en) {
@@ -69,6 +115,8 @@
       es.forEach(function (en) {
         if (!en.isIntersecting) return;
         $$('img[loading="lazy"]', en.target).forEach(function (im) {
+          var box = im.closest('.svc__media, .svc__pic'); // only the variant shown at this width
+          if (box && getComputedStyle(box).display === 'none') return;
           var pre = new Image();
           if (im.srcset) { pre.sizes = im.sizes; pre.srcset = im.srcset; }
           pre.src = im.currentSrc || im.src;
@@ -86,7 +134,7 @@
   function frame() {
     ticking = false;
     var vh = window.innerHeight;
-    if (scene && !reduce) {
+    if (scene && !reduce && !mobile.matches) {
       var y = Math.min(window.scrollY, vh);
       scene.style.transform = 'translate3d(0,' + (y * 0.12).toFixed(1) + 'px,0)';
     }
@@ -120,7 +168,14 @@
         t.tabIndex = on ? 0 : -1;
         document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
       });
-      if (focus) tab.focus();
+      if (focus) tab.focus({ preventScroll: true });
+      // On phones the picker is a swipe strip: bring the chosen card into view inside it, never scroll the page
+      var strip = tab.parentNode;
+      if (strip.scrollWidth > strip.clientWidth + 2) {
+        var pad = parseFloat(getComputedStyle(strip).paddingLeft) || 0;
+        var to = tab.offsetLeft - strip.offsetLeft - pad;
+        if (strip.scrollTo) strip.scrollTo({ left: to, behavior: reduce ? 'auto' : 'smooth' }); else strip.scrollLeft = to;
+      }
     }
     tabs.forEach(function (tab, i) {
       tab.addEventListener('click', function () { select(tab); });
@@ -230,13 +285,13 @@
   /* ---- Modal ---- */
   var modal = $('#modal'), mForm = mount($('[data-form-host="modal"]', modal), '-m'), mTitle = $('#modal-title'), last = null;
   function openModal(label, trigger) {
-    last = trigger;
+    last = trigger && trigger.closest('#drawer') ? burger : trigger;
     mTitle.textContent = label === 'Связаться' ? 'Обсудить проект' : label;
     mForm.elements.source.value = label;
     $('.form__status', mForm).hidden = true;
     if (modal.showModal) modal.showModal(); else modal.setAttribute('open', '');
     document.body.classList.add('no-scroll');
-    closeMenu();
+    closeMenu(false);
     setTimeout(function () { mForm.elements.name.focus(); }, 40);
   }
   function onClose() { document.body.classList.remove('no-scroll'); if (last) last.focus(); }
