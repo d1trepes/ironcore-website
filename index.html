@@ -13,789 +13,461 @@
 
 <a class="skip" href="#main">Перейти к содержанию</a>
 
-<!-- ============ HEADER ============ -->
 <header class="header" id="header">
   <div class="header__in wrap">
-    <a class="brand" href="#hero" aria-label="IronCore — в начало страницы">
-      <img class="brand__logo" src="assets/logos/current/ironcore-logo-on-dark.svg" alt="IronCore" width="176" height="40">
-      <span class="brand__desc">Проектирование ЦОД</span>
+    <a class="brand" href="#hero" aria-label="IronCore, в начало страницы">
+      <img src="assets/logos/current/ironcore-logo-on-dark.svg" alt="IronCore" width="150" height="34">
     </a>
     <nav class="nav" id="nav" aria-label="Основная навигация">
-      <ul class="nav__list">
-        <li><a href="#solutions">Решения</a></li>
-        <li><a href="#services">Услуги</a></li>
-        <li><a href="#process">Как мы работаем</a></li>
-        <li><a href="#why">Почему IronCore</a></li>
-        <li><a href="#materials">Для заказчика</a></li>
-        <li><a href="#contact">Контакты</a></li>
-      </ul>
+      <a href="#solutions">Решения</a>
+      <a href="#services">Услуги</a>
+      <a href="#process">Как мы работаем</a>
+      <a href="#why">Почему IronCore</a>
+      <a href="#materials">Для заказчика</a>
+      <a href="#contact">Контакты</a>
     </nav>
-    <div class="header__act">
-      <a class="header__phone" href="tel:+79284160938" aria-label="Позвонить: 8 (928) 416-09-38"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5,3H9L11,8 8.5,9.5A11,11 0 0 0 14.5,15.5L16,13 21,15V19A2,2 0 0 1 19,21 16,16 0 0 1 3,5 2,2 0 0 1 5,3Z"/></svg><span>8 (928) 416-09-38</span></a>
-      <button class="btn btn--primary btn--sm" type="button" data-modal="Связаться">Связаться</button>
-      <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Открыть меню"><span></span><span></span></button>
-    </div>
+    <button class="btn btn--red btn--sm" type="button" data-modal="Связаться">Связаться</button>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Открыть меню"><span></span><span></span></button>
   </div>
 </header>
 
 <main id="main">
 
-<!-- ============ 01 HERO ============ -->
+<!-- 01 HERO -->
 <section class="hero" id="hero" aria-labelledby="hero-title">
-  <div class="hero__scene">
-    <img src="assets/images/hero/hero-overview.webp" width="1672" height="941" alt="Наземный корпус ЦОД в степи, рядом три контейнерных модуля; в разрезе грунта виден заглублённый серверный зал из монолитного бетона" fetchpriority="high">
-    <div class="callouts" aria-hidden="true">
-      <svg class="callouts__lines" viewBox="0 0 1000 563" preserveAspectRatio="none">
-        <polyline points="800,70 770,70 745,190"/>
-        <polyline points="470,420 520,420 545,345"/>
-        <polyline points="620,525 690,525 720,470"/>
-      </svg>
-      <span class="callout callout--r" style="left:80%;top:12.4%">Наземный корпус</span>
-      <span class="callout callout--left" style="left:47%;top:74.6%">Контейнерные модули</span>
-      <span class="callout callout--left" style="left:62%;top:93.2%">Заглублённый уровень</span>
-    </div>
+  <div class="hero__scene" data-parallax>
+    <img src="assets/images/hero/hero-overview.webp" width="1672" height="941" alt="Корпус ЦОД в степи, рядом контейнерные модули, в разрезе грунта виден заглублённый серверный зал" fetchpriority="high">
+    <svg class="hero__lines" viewBox="0 0 1000 563" preserveAspectRatio="none" aria-hidden="true">
+      <polyline points="830,96 830,190"/>
+      <polyline points="600,334 600,405 588,405"/>
+      <polyline points="728,474 662,474"/>
+    </svg>
+    <i class="hero__dot" style="left:83%;top:33.7%"></i>
+    <i class="hero__dot" style="left:60%;top:59.3%"></i>
+    <i class="hero__dot" style="left:72.8%;top:84.2%"></i>
+    <span class="hero__tag hero__tag--c" style="left:83%;top:14%">Наземный корпус</span>
+    <span class="hero__tag hero__tag--l" style="left:58.8%;top:72%">Контейнерные модули</span>
+    <span class="hero__tag hero__tag--l" style="left:66.2%;top:84.2%">Заглублённый уровень</span>
   </div>
   <div class="hero__in wrap">
-    <div class="hero__text">
-      <h1 class="hero__title" id="hero-title">Защищенность начинается с&nbsp;проекта</h1>
-      <p class="hero__lead">Проектируем дата-центры с учетом физических угроз – от выбора площадки и архитектуры до защиты критической инженерной инфраструктуры.</p>
-      <ul class="hero__formats" aria-label="Форматы ЦОД">
-        <li>Классические</li>
-        <li>Модульные</li>
-        <li>Контейнерные</li>
-      </ul>
-      <div class="hero__cta">
-        <button class="btn btn--primary" type="button" data-modal="Обсудить проект">Обсудить проект</button>
-        <a class="btn btn--ghost" href="#solutions">Наши решения</a>
-      </div>
+    <h1 class="hero__title" id="hero-title">Защищенность начинается с&nbsp;проекта</h1>
+    <p class="hero__lead">Проектируем дата-центры с учетом физических угроз – от выбора площадки и архитектуры до защиты критической инженерной инфраструктуры.</p>
+    <div class="hero__cta">
+      <button class="btn btn--red" type="button" data-modal="Обсудить проект">Обсудить проект</button>
+      <a class="btn btn--line" href="#solutions">Наши решения</a>
     </div>
   </div>
 </section>
 
-<!-- SVG library for schemes (hidden) -->
-<svg width="0" height="0" class="sr-defs" aria-hidden="true" focusable="false">
-  <defs>
-    <pattern id="soil" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-      <line x1="0" y1="0" x2="0" y2="8" stroke="currentColor" stroke-width=".6" opacity=".35"/>
-    </pattern>
-    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M0,0 10,5 0,10z" fill="context-stroke"/>
-    </marker>
-    <g id="sec-base">
-      <rect x="0" y="118" width="320" height="62" fill="url(#soil)"/>
-      <line x1="0" y1="118" x2="320" y2="118" class="s-ink"/>
-      <rect x="118" y="58" width="104" height="60" class="s-ink s-fill"/>
-      <line x1="118" y1="88" x2="222" y2="88" class="s-thin"/>
-      <rect x="132" y="50" width="22" height="8" class="s-thin"/>
-      <rect x="186" y="50" width="22" height="8" class="s-thin"/>
-      <path d="M36,118V100M296,118V100M36,103H296" class="s-thin s-dash"/>
-    </g>
-  </defs>
-</svg>
-
-<!-- ============ 02 SECURITY ============ -->
-<section class="sec sec--light security" id="security" aria-labelledby="security-title">
+<!-- 02 SECURITY -->
+<section class="sec sec--dark" id="security" aria-labelledby="security-title">
   <div class="wrap">
-    <div class="security__head">
-      <h2 class="h2" id="security-title">Закладываем в проект физическую безопасность</h2>
-      <p class="lead">Учитываем риски физического воздействия на объект, несанкционированного доступа и внешних факторов, способных нарушить работу ЦОД. Предусматриваем архитектурные, конструктивные и инженерные решения с учетом назначения объекта, площадки и требований заказчика.</p>
-    </div>
-    <ul class="principles" aria-label="Принципы защиты">
-      <li>Выбор площадки</li>
-      <li>Конструктивная защита</li>
-      <li>Зонирование и доступ</li>
-      <li>Инженерная устойчивость</li>
-    </ul>
-
-    <div class="risks">
-      <article class="risk">
-        <svg class="risk__fig" viewBox="0 0 320 180" role="img" aria-label="Схема: зоны территории и здания, контролируемые входы">
-          <use href="#sec-base"/>
-          <rect x="22" y="30" width="286" height="88" class="s-acc s-dash"/>
-          <rect x="112" y="44" width="116" height="74" class="s-acc s-dash"/>
-          <rect x="176" y="94" width="18" height="18" class="s-red-fill"/>
-          <path d="M2,112H34M40,112H114M122,112H170" class="s-acc" marker-end="url(#arr)"/>
-          <circle cx="37" cy="112" r="4" class="s-acc s-acc-fill"/>
-          <circle cx="118" cy="112" r="4" class="s-acc s-acc-fill"/>
-          <text x="26" y="25" class="s-txt">территория</text><text x="116" y="40" class="s-txt">здание</text>
-        </svg>
-        <h3 class="risk__title">Несанкционированный доступ</h3>
-        <p class="risk__threat"><span>Угроза</span>Проникновение посторонних, доступ к критическим зонам.</p>
-        <p class="risk__sol"><span>Проектные решения</span>Зонирование территории и здания, контролируемые входы, разграничение служебных и технических маршрутов, места для размещения систем контроля доступа и наблюдения.</p>
-      </article>
-
-      <article class="risk">
-        <svg class="risk__fig" viewBox="0 0 320 180" role="img" aria-label="Схема: заглублённый защищённый уровень под зданием и внешнее воздействие на конструкции">
-          <use href="#sec-base"/>
-          <rect x="124" y="124" width="92" height="46" class="s-acc s-thick"/>
-          <rect x="132" y="132" width="76" height="30" class="s-acc"/>
-          <rect x="160" y="140" width="20" height="14" class="s-red-fill"/>
-          <path d="M40,74H110" class="s-ink" marker-end="url(#arr)"/>
-          <path d="M100,64 112,58M100,84 112,90" class="s-thin"/>
-          <text x="226" y="150" class="s-txt">заглублённый</text><text x="226" y="161" class="s-txt">уровень</text>
-        </svg>
-        <h3 class="risk__title">Физическое воздействие на здание</h3>
-        <p class="risk__threat"><span>Угроза</span>Повреждение конструкций и критических помещений.</p>
-        <p class="risk__sol"><span>Проектные решения</span>Обоснованный выбор конструктивной схемы, расчет конструкций на заданные воздействия, размещение критических помещений и инженерного оборудования с учетом оценки рисков.</p>
-      </article>
-
-      <article class="risk">
-        <svg class="risk__fig" viewBox="0 0 320 180" role="img" aria-label="Схема: окружающая застройка, расстояния и вариант частичного заглубления">
-          <use href="#sec-base"/>
-          <rect x="4" y="80" width="26" height="38" class="s-thin"/>
-          <rect x="278" y="92" width="38" height="26" class="s-thin"/>
-          <path d="M30,70H118" class="s-acc"/><path d="M30,64V76M118,64V76" class="s-acc"/>
-          <path d="M222,82H278" class="s-acc"/><path d="M222,76V88M278,76V88" class="s-acc"/>
-          <rect x="118" y="118" width="104" height="30" class="s-acc s-dash"/>
-          <text x="124" y="162" class="s-txt">частичное заглубление</text>
-          <text x="50" y="64" class="s-txt">окружение</text>
-        </svg>
-        <h3 class="risk__title">Уязвимость расположения объекта</h3>
-        <p class="risk__threat"><span>Угроза</span>Неблагоприятное окружение, открытость площадки, внешние воздействия.</p>
-        <p class="risk__sol"><span>Проектные решения</span>Анализ площадки и окружающей застройки, оценка доступности территории, рассмотрение вариантов заглубления или частичного заглубления там, где они обоснованы условиями проекта.</p>
-      </article>
-
-      <article class="risk">
-        <svg class="risk__fig" viewBox="0 0 320 180" role="img" aria-label="Схема: две разнесённые трассы питания A и B к зданию">
-          <use href="#sec-base"/>
-          <rect x="8" y="96" width="22" height="22" class="s-ink"/>
-          <rect x="290" y="96" width="22" height="22" class="s-ink"/>
-          <path d="M19,118V134H150V118" class="s-acc s-thick"/>
-          <path d="M301,118V152H190V118" class="s-acc s-thick s-dash"/>
-          <text x="70" y="146" class="s-txt s-txt--b">A</text><text x="240" y="164" class="s-txt s-txt--b">B</text>
-          <rect x="160" y="96" width="20" height="18" class="s-red-fill"/>
-        </svg>
-        <h3 class="risk__title">Повреждение инженерной инфраструктуры</h3>
-        <p class="risk__threat"><span>Угроза</span>Отказ или повреждение электроснабжения, охлаждения и коммуникаций.</p>
-        <p class="risk__sol"><span>Проектные решения</span>Анализ критических зависимостей, рациональное размещение инженерных систем, разнесение критически важных трасс и резервирование – в соответствии с заданными требованиями к надежности.</p>
-      </article>
-
-      <article class="risk">
-        <svg class="risk__fig" viewBox="0 0 320 180" role="img" aria-label="Схема: гидроизоляционный контур, водоотведение, уровень грунтовых вод и противопожарное разделение">
-          <use href="#sec-base"/>
-          <path d="M114,118V152H226V118" class="s-acc s-thick"/>
-          <path d="M0,166q10,-5 20,0t20,0t20,0t20,0t20,0t20,0t20,0t20,0t20,0t20,0t20,0t20,0t20,0t20,0t20,0t20,0" class="s-acc"/>
-          <text x="6" y="160" class="s-txt">УГВ</text>
-          <path d="M226,112H270V126" class="s-ink" marker-end="url(#arr)"/>
-          <path d="M170,58V118" class="s-red s-dash"/>
-          <text x="236" y="106" class="s-txt">водоотвод</text>
-        </svg>
-        <h3 class="risk__title">Вода, пожар и другие внешние факторы</h3>
-        <p class="risk__threat"><span>Угроза</span>Затопление, проникновение воды, пожар и другие события, влияющие на работоспособность объекта.</p>
-        <p class="risk__sol"><span>Проектные решения</span>Оценка природных и техногенных рисков, решения по водоотведению и гидроизоляции, противопожарные мероприятия и инженерная защита с учетом условий площадки.</p>
-      </article>
-
-      <article class="risk">
-        <svg class="risk__fig" viewBox="0 0 320 180" role="img" aria-label="Схема: защищённый кабельный ввод, люк и раздельные потоки обслуживания">
-          <use href="#sec-base"/>
-          <path d="M318,132H222" class="s-acc s-thick"/>
-          <circle cx="222" cy="132" r="6" class="s-acc s-acc-fill"/>
-          <rect x="250" y="114" width="20" height="4" class="s-ink s-fill"/>
-          <path d="M260,118V132" class="s-thin s-dash"/>
-          <rect x="124" y="98" width="40" height="18" class="s-acc s-dash"/>
-          <path d="M60,108H120" class="s-ink" marker-end="url(#arr)"/>
-          <path d="M60,98H120" class="s-thin" marker-end="url(#arr)"/>
-          <text x="236" y="150" class="s-txt">кабельный ввод</text><text x="246" y="108" class="s-txt">люк</text>
-        </svg>
-        <h3 class="risk__title">Уязвимые технические и сервисные зоны</h3>
-        <p class="risk__threat"><span>Угроза</span>Использование технических проходов, кабельных вводов и зон обслуживания для доступа к защищенным участкам.</p>
-        <p class="risk__sol"><span>Проектные решения</span>Контролируемые технические помещения, продуманная трассировка коммуникаций, защита вводов и люков, разделение потоков персонала, посетителей и обслуживания.</p>
-      </article>
-    </div>
-
-    <div class="cta-bar">
-      <button class="btn btn--primary btn--wide" type="button" data-modal="Обсудить требования к защищенности">Обсудить требования к защищенности</button>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 03 SOLUTIONS ============ -->
-<section class="sec sec--white solutions" id="solutions" aria-labelledby="solutions-title">
-  <div class="wrap">
-    <div class="sol__head">
-      <h2 class="h2" id="solutions-title">ЦОД под разные задачи и масштабы</h2>
-      <p class="lead">Подбираем проектную концепцию с учетом требуемой IT-мощности, количества стоек, доступной площади, условий площадки и требований к физической защищенности.</p>
-    </div>
-
-    <dl class="params">
-      <div class="param">
-        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M6,34V6H34V34Z M6,20H20V34 M20,6V20" /></svg>
-        <dt>Площадь <span class="unit">м²</span></dt><dd>Площадь и состав помещений</dd>
+    <div class="head">
+      <div class="head__text">
+        <h2 class="h2" id="security-title">Закладываем в проект физическую безопасность</h2>
+        <p class="lead">Шесть рисков, которые мы учитываем с первого эскиза. Нажмите на точку на разрезе.</p>
       </div>
-      <div class="param">
-        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M23,4 10,22H20L16,36 30,17H20Z"/></svg>
-        <dt>Мощность <span class="unit">МВт</span></dt><dd>IT-нагрузка или другая указанная мощность</dd>
-      </div>
-      <div class="param">
-        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M8,4H32V36H8Z M8,12H32 M8,20H32 M8,28H32"/></svg>
-        <dt>Стойки</dt><dd>Количество и предполагаемая плотность размещения</dd>
-      </div>
-      <div class="param">
-        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M2,22H38 M8,22V10H22V22 M24,22V16H34V22 M10,26H30V36H10Z"/></svg>
-        <dt>Исполнение</dt><dd>Классическое, модульное, контейнерное или заглубленное</dd>
-      </div>
-    </dl>
-
-    <h3 class="h3 sol__sub">Типовые концепции</h3>
-    <div class="scales">
-      <article class="scale">
-        <figure class="scale__img"><img src="assets/images/concepts/scale-compact.webp" width="1122" height="1402" loading="lazy" alt="Компактный одноэтажный корпус ЦОД с ДГУ и трансформатором на огороженной площадке"></figure>
-        <p class="tag">Концепция</p>
-        <h4 class="scale__title">Компактный ЦОД</h4>
-        <p class="scale__desc">Для частной инфраструктуры, корпоративных IT-систем и локальных вычислительных задач.</p>
-        <dl class="figs">
-          <div><dt>Площадь здания*</dt><dd>1&nbsp;000–2&nbsp;500 <small>м²</small></dd></div>
-          <div><dt>IT-мощность*</dt><dd>0,5–1,5 <small>МВт</small></dd></div>
-          <div><dt>Количество*</dt><dd>50–150 <small>стоек</small></dd></div>
-        </dl>
-        <p class="scale__fmt"><span>Возможные форматы</span>классическое здание, модульное исполнение, контейнерная конфигурация.</p>
-      </article>
-      <article class="scale">
-        <figure class="scale__img"><img src="assets/images/concepts/scale-medium.webp" width="1122" height="1402" loading="lazy" alt="Двухэтажный корпус ЦОД с площадкой ДГУ, трансформаторами и резервной площадкой под расширение"></figure>
-        <p class="tag">Концепция</p>
-        <h4 class="scale__title">ЦОД среднего масштаба</h4>
-        <p class="scale__desc">Для корпоративных платформ, размещения IT-инфраструктуры и коммерческих сервисов.</p>
-        <dl class="figs">
-          <div><dt>Площадь здания*</dt><dd>3&nbsp;000–8&nbsp;000 <small>м²</small></dd></div>
-          <div><dt>IT-мощность*</dt><dd>1,5–5 <small>МВт</small></dd></div>
-          <div><dt>Количество*</dt><dd>150–500 <small>стоек</small></dd></div>
-        </dl>
-        <p class="scale__fmt"><span>Возможные форматы</span>отдельное здание, поэтапно развиваемый комплекс, модульная структура.</p>
-      </article>
-      <article class="scale">
-        <figure class="scale__img"><img src="assets/images/concepts/scale-campus.webp" width="1122" height="1402" loading="lazy" alt="Кампус ЦОД: три корпуса, подстанция, площадки ДГУ и фундамент следующей очереди"></figure>
-        <p class="tag">Концепция</p>
-        <h4 class="scale__title">Крупный ЦОД или кампус</h4>
-        <p class="scale__desc">Для масштабной цифровой инфраструктуры, крупных вычислительных нагрузок и последовательного наращивания мощностей.</p>
-        <dl class="figs">
-          <div><dt>Площадь здания*</dt><dd>10&nbsp;000–30&nbsp;000 <small>м²</small></dd></div>
-          <div><dt>IT-мощность*</dt><dd>5–15 <small>МВт</small></dd></div>
-          <div><dt>Количество*</dt><dd>500–1&nbsp;500 <small>стоек</small></dd></div>
-        </dl>
-        <p class="scale__fmt"><span>Возможные форматы</span>несколько зданий, очереди строительства, сочетание капитальных и модульных решений.</p>
-      </article>
+      <button class="btn btn--red" type="button" data-modal="Обсудить требования к защищенности">Обсудить требования к защищенности</button>
     </div>
-    <p class="footnote">* Иллюстративный диапазон для проработки концепции. Площадь, мощность и число стоек не являются независимыми параметрами и требуют взаимной проверки.</p>
 
-    <h3 class="h3 sol__sub">Форматы размещения</h3>
-    <div class="formats">
-      <figure class="format">
-        <img src="assets/images/formats/format-classic.webp" width="1448" height="1086" loading="lazy" alt="Капитальное двухэтажное здание ЦОД с фасадом из перфорированных панелей">
-        <figcaption><strong>Классический ЦОД</strong>Отдельное здание с проектированием архитектуры, конструкций и инженерной инфраструктуры в единой концепции.</figcaption>
+    <div class="atlas" data-atlas>
+      <figure class="atlas__img reveal">
+        <img src="assets/images/security/security-cutaway.webp" width="1672" height="941" loading="lazy" alt="Разрез площадки ЦОД: ограждение и КПП, корпус со вскрытым серверным залом, заглублённый уровень с гидроизоляцией, кабельные траншеи и люк">
+        <button class="pin" type="button" style="left:16%;top:53%" data-risk="0" aria-label="1. Несанкционированный доступ">1</button>
+        <button class="pin" type="button" style="left:56.5%;top:47%" data-risk="1" aria-label="2. Физическое воздействие на здание">2</button>
+        <button class="pin" type="button" style="left:13%;top:22%" data-risk="2" aria-label="3. Уязвимость расположения">3</button>
+        <button class="pin" type="button" style="left:90%;top:66%" data-risk="3" aria-label="4. Повреждение инженерной инфраструктуры">4</button>
+        <button class="pin" type="button" style="left:66%;top:73%" data-risk="4" aria-label="5. Вода, пожар и внешние факторы">5</button>
+        <button class="pin" type="button" style="left:44%;top:56.5%" data-risk="5" aria-label="6. Технические и сервисные зоны">6</button>
       </figure>
-      <figure class="format">
-        <img src="assets/images/formats/format-modular.webp" width="1448" height="1086" loading="lazy" alt="Ряд одинаковых модулей ЦОД и подготовленная площадка для следующего модуля">
-        <figcaption><strong>Модульный ЦОД</strong>Сборка объекта из функциональных модулей с возможностью поэтапного развития, если это подтверждается требованиями проекта.</figcaption>
-      </figure>
-      <figure class="format">
-        <img src="assets/images/formats/format-container.webp" width="1448" height="1086" loading="lazy" alt="Три контейнерных модуля ЦОД с охладителями на крыше на бетонной площадке">
-        <figcaption><strong>Контейнерный ЦОД</strong>Компактное размещение оборудования в контейнерных блоках с учетом транспортировки, обслуживания, климата и инженерных подключений.</figcaption>
-      </figure>
-      <figure class="format">
-        <img src="assets/images/formats/format-underground.webp" width="1448" height="1086" loading="lazy" alt="Обвалованный ЦОД: въездной портал с пандусом и разрез грунта с серверным залом">
-        <figcaption><strong>Подземный ЦОД</strong>Вариант для площадок и задач, где заглубление обосновано оценкой физических рисков, геологией, гидрогеологией и инженерными расчетами.</figcaption>
-      </figure>
-    </div>
 
-    <div class="cta-bar cta-bar--line">
-      <button class="btn btn--primary" type="button" data-modal="Подобрать решение для ЦОД">Подобрать решение для ЦОД</button>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 04 SERVICES ============ -->
-<section class="sec sec--dark services" id="services" aria-labelledby="services-title">
-  <div class="wrap">
-    <div class="services__head">
-      <h2 class="h2" id="services-title">Проектирование ЦОД – от&nbsp;концепции до проектной документации</h2>
-      <p class="lead">Разрабатываем проектные решения для дата-центров различного масштаба и исполнения. Учитываем требования к IT-нагрузке, инженерной инфраструктуре, надежности и физической защищенности – от выбора концепции до проработки проектных решений.</p>
-    </div>
-
-    <div class="svc" data-tabs>
-      <div class="svc__list" role="tablist" aria-orientation="vertical" aria-label="Услуги">
-        <button role="tab" id="svc-t1" aria-controls="svc-p1" aria-selected="true"><b>Разработка концепции ЦОД</b><i>Отправная точка проекта</i></button>
-        <button role="tab" id="svc-t2" aria-controls="svc-p2" aria-selected="false" tabindex="-1"><b>Архитектурное и конструктивное проектирование</b><i>Здание, планировка и конструкции</i></button>
-        <button role="tab" id="svc-t3" aria-controls="svc-p3" aria-selected="false" tabindex="-1"><b>Проектирование инженерной инфраструктуры</b><i>Электроснабжение, охлаждение и технические системы</i></button>
-        <button role="tab" id="svc-t4" aria-controls="svc-p4" aria-selected="false" tabindex="-1"><b>Проектирование с учетом физической защищенности</b><i>Уязвимости, зонирование и конструктивные решения</i></button>
-        <button role="tab" id="svc-t5" aria-controls="svc-p5" aria-selected="false" tabindex="-1"><b>Проектирование модульных и контейнерных ЦОД</b><i>Альтернативные форматы размещения</i></button>
-        <button role="tab" id="svc-t6" aria-controls="svc-p6" aria-selected="false" tabindex="-1"><b>Анализ исходных решений и проектной документации</b><i>Проверка перед дальнейшими этапами</i></button>
-      </div>
-
-      <div class="svc__panels">
-        <div class="svc__panel" role="tabpanel" id="svc-p1" aria-labelledby="svc-t1" tabindex="0">
-          <div class="svc__media svc__media--scheme">
-            <svg viewBox="0 0 520 300" role="img" aria-label="Схема: сравнение трёх вариантов исполнения по единым критериям">
-              <g class="d-ink">
-                <rect x="30" y="70" width="130" height="100"/><path d="M30,100H160 M60,60H90V70 M110,60H140V70"/>
-                <rect x="195" y="110" width="40" height="60"/><rect x="240" y="110" width="40" height="60"/><rect x="285" y="110" width="40" height="60"/><path d="M195,140H325" class="d-dash"/>
-                <rect x="360" y="138" width="54" height="32"/><rect x="420" y="138" width="54" height="32"/><path d="M370,130H404V138 M430,130H464V138"/>
-              </g>
-              <g class="d-txt"><text x="30" y="200">Классический</text><text x="195" y="200">Модульный</text><text x="360" y="200">Контейнерный</text></g>
-              <path d="M30,226V236H474V226 M252,236V252" class="d-acc"/>
-              <text x="252" y="276" class="d-txt d-txt--acc" text-anchor="middle">сравнение по единому набору критериев</text>
-            </svg>
+      <ol class="legend">
+        <li>
+          <button class="legend__btn" type="button" data-risk="0" aria-expanded="true" aria-controls="risk-0"><span>1</span>Несанкционированный доступ</button>
+          <div class="legend__body" id="risk-0">
+            <p><b>Риск</b>Посторонние в критических зонах.</p>
+            <p><b>В проекте</b>Зонирование территории и здания, контролируемые входы, раздельные служебные и технические маршруты, места под системы доступа и наблюдения.</p>
           </div>
-          <h3 class="svc__title">Разработка концепции ЦОД</h3>
-          <p>Определение основных параметров объекта, сравнение вариантов размещения и исполнения, предварительная оценка площадей, мощности и состава инфраструктуры.</p>
-          <p class="result"><span>Результат</span>Концептуальные решения и исходные параметры для дальнейшего проектирования.</p>
-        </div>
-
-        <div class="svc__panel" role="tabpanel" id="svc-p2" aria-labelledby="svc-t2" tabindex="0" hidden>
-          <div class="svc__media svc__media--scheme">
-            <svg viewBox="0 0 520 300" role="img" aria-label="Схема: функциональное зонирование этажа ЦОД">
-              <g class="d-ink">
-                <rect x="30" y="30" width="460" height="230"/>
-                <path d="M30,190H490 M300,30V190 M300,110H490 M150,190V260 M300,190V260 M420,190V260"/>
-                <path d="M70,60V160 M110,60V160 M150,60V160 M190,60V160 M230,60V160" class="d-dash"/>
-              </g>
-              <rect x="40" y="40" width="250" height="140" class="d-acc-fill"/>
-              <g class="d-txt"><text x="50" y="176">Машинный зал</text><text x="312" y="54">Электрощитовые, ИБП</text><text x="312" y="134">Холодоснабжение</text><text x="42" y="232">Вход, контроль</text><text x="162" y="232">Персонал</text><text x="312" y="232">Склад</text><text x="432" y="232">Ввод</text></g>
-            </svg>
+        </li>
+        <li>
+          <button class="legend__btn" type="button" data-risk="1" aria-expanded="false" aria-controls="risk-1"><span>2</span>Физическое воздействие на здание</button>
+          <div class="legend__body" id="risk-1" hidden>
+            <p><b>Риск</b>Повреждение конструкций и критических помещений.</p>
+            <p><b>В проекте</b>Обоснованная конструктивная схема, расчёт на заданные воздействия, размещение критических помещений по оценке рисков.</p>
           </div>
-          <h3 class="svc__title">Архитектурное и конструктивное проектирование</h3>
-          <p>Проработка функционального зонирования, планировочной структуры, конструктивной схемы и взаимного расположения технических помещений с учетом требований к объекту.</p>
-          <p class="result"><span>Результат</span>Архитектурные и конструктивные проектные решения в предусмотренном объеме.</p>
-        </div>
-
-        <div class="svc__panel" role="tabpanel" id="svc-p3" aria-labelledby="svc-t3" tabindex="0" hidden>
-          <figure class="svc__media"><img src="assets/images/interior/interior-hall.webp" width="1672" height="941" loading="lazy" alt="Серверный зал: ряды стоек, кабельные лотки под потолком, линейное освещение"></figure>
-          <h3 class="svc__title">Проектирование инженерной инфраструктуры</h3>
-          <p>Проработка инженерных решений, необходимых для функционирования ЦОД: электроснабжения, охлаждения, вентиляции, водоснабжения и водоотведения, а также других систем в рамках согласованного состава работ.</p>
-          <p class="result"><span>Результат</span>Согласованные между собой инженерные решения и соответствующие разделы документации.</p>
-        </div>
-
-        <div class="svc__panel" role="tabpanel" id="svc-p4" aria-labelledby="svc-t4" tabindex="0" hidden>
-          <div class="svc__media svc__media--scheme">
-            <svg viewBox="0 0 520 300" role="img" aria-label="Схема: вложенные зоны доступа от территории к критическому ядру">
-              <rect x="30" y="20" width="460" height="260" class="d-ink d-dash"/>
-              <rect x="90" y="60" width="340" height="180" class="d-ink"/>
-              <rect x="160" y="100" width="200" height="100" class="d-acc"/>
-              <rect x="235" y="130" width="50" height="40" class="d-red-fill"/>
-              <g class="d-txt"><text x="40" y="40">Территория</text><text x="100" y="80">Периметр здания</text><text x="170" y="120">Технические зоны</text><text x="260" y="190" text-anchor="middle">Критическое ядро</text></g>
-              <path d="M2,150H86 M86,150H156" class="d-acc" marker-end="url(#arr)"/>
-            </svg>
+        </li>
+        <li>
+          <button class="legend__btn" type="button" data-risk="2" aria-expanded="false" aria-controls="risk-2"><span>3</span>Уязвимость расположения</button>
+          <div class="legend__body" id="risk-2" hidden>
+            <p><b>Риск</b>Открытая площадка, неблагоприятное окружение.</p>
+            <p><b>В проекте</b>Анализ площадки и застройки вокруг. Заглубление или частичное заглубление — там, где оно обосновано условиями проекта.</p>
           </div>
-          <h3 class="svc__title">Проектирование с учетом физической защищенности</h3>
-          <p>Учет физических угроз при выборе площадки, планировке объекта, размещении критических помещений и организации технических доступов. Рассмотрение заглубленных решений – когда они обоснованы условиями проекта.</p>
-          <p class="result"><span>Результат</span>Проектные решения, учитывающие согласованные требования к физической безопасности.</p>
-        </div>
-
-        <div class="svc__panel" role="tabpanel" id="svc-p5" aria-labelledby="svc-t5" tabindex="0" hidden>
-          <figure class="svc__media"><img src="assets/images/formats/format-modular.webp" width="1448" height="1086" loading="lazy" alt="Модульный ЦОД: четыре модуля и площадка с выводами коммуникаций под следующий"></figure>
-          <h3 class="svc__title">Проектирование модульных и контейнерных ЦОД</h3>
-          <p>Разработка планировочных и инженерных решений для модульных и контейнерных объектов, включая размещение оборудования, коммуникаций, технических зон и подключений к внешней инфраструктуре.</p>
-          <p class="result"><span>Результат</span>Проектная концепция или документация для выбранного формата – в согласованном объеме.</p>
-        </div>
-
-        <div class="svc__panel" role="tabpanel" id="svc-p6" aria-labelledby="svc-t6" tabindex="0" hidden>
-          <div class="svc__media svc__media--scheme">
-            <svg viewBox="0 0 520 300" role="img" aria-label="Схема: проверка материалов и отметки о несогласованностях">
-              <rect x="60" y="20" width="200" height="260" class="d-ink"/>
-              <rect x="280" y="20" width="200" height="260" class="d-ink"/>
-              <g class="d-ink d-thin"><path d="M80,60H240M80,80H220M80,100H240M80,120H200M80,160H240M80,180H230M80,200H210M80,240H240"/><path d="M300,60H460M300,80H440M300,100H460M300,140H420M300,160H460M300,180H450M300,220H430M300,240H460"/></g>
-              <circle cx="210" cy="120" r="14" class="d-acc"/><circle cx="430" cy="140" r="14" class="d-acc"/>
-              <path d="M224,120C256,120 384,140 416,140" class="d-acc d-dash"/>
-              <rect x="80" y="38" width="40" height="4" class="d-red-fill"/>
-              <g class="d-txt"><text x="60" y="296">Исходные требования</text><text x="280" y="296">Проектные решения</text></g>
-            </svg>
+        </li>
+        <li>
+          <button class="legend__btn" type="button" data-risk="3" aria-expanded="false" aria-controls="risk-3"><span>4</span>Повреждение инженерной инфраструктуры</button>
+          <div class="legend__body" id="risk-3" hidden>
+            <p><b>Риск</b>Отказ электроснабжения, охлаждения, коммуникаций.</p>
+            <p><b>В проекте</b>Анализ критических зависимостей, разнесение трасс и резервирование по требованиям к надежности.</p>
           </div>
-          <h3 class="svc__title">Анализ исходных решений и проектной документации</h3>
-          <p>Анализ исходных требований и предоставленных материалов, выявление несогласованностей, оценка проектных альтернатив и формирование рекомендаций по дальнейшей проработке.</p>
-          <p class="result"><span>Результат</span>Перечень замечаний, выводы и рекомендации – в соответствии с согласованным заданием.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec sec--light deliver" aria-labelledby="deliver-title">
-  <div class="wrap">
-    <div class="deliver__grid">
-      <h3 class="h3 deliver__title" id="deliver-title">Что заказчик получает в результате</h3>
-      <ol class="ledger">
-        <li><b>Концептуальные материалы</b><span>Варианты планировки и исполнения, предварительные параметры объекта, сравнение проектных альтернатив.</span></li>
-        <li><b>Архитектурные, конструктивные и инженерные решения</b><span>Проектные материалы по согласованным разделам и стадиям проектирования.</span></li>
-        <li><b>Материалы для принятия решений</b><span>Обоснование выбранных вариантов, исходные данные и перечень вопросов, требующих дальнейшей проработки.</span></li>
-        <li><b>Документация для дальнейшей реализации</b><span>Состав документации определяется заданием, стадией проектирования и требованиями, применимыми к конкретному объекту.</span></li>
+        </li>
+        <li>
+          <button class="legend__btn" type="button" data-risk="4" aria-expanded="false" aria-controls="risk-4"><span>5</span>Вода, пожар и внешние факторы</button>
+          <div class="legend__body" id="risk-4" hidden>
+            <p><b>Риск</b>Затопление, проникновение воды, пожар.</p>
+            <p><b>В проекте</b>Оценка природных и техногенных рисков, водоотведение и гидроизоляция, противопожарные мероприятия.</p>
+          </div>
+        </li>
+        <li>
+          <button class="legend__btn" type="button" data-risk="5" aria-expanded="false" aria-controls="risk-5"><span>6</span>Технические и сервисные зоны</button>
+          <div class="legend__body" id="risk-5" hidden>
+            <p><b>Риск</b>Доступ через технические проходы, кабельные вводы и люки.</p>
+            <p><b>В проекте</b>Контролируемые техпомещения, защита вводов и люков, раздельные потоки персонала, посетителей и обслуживания.</p>
+          </div>
+        </li>
       </ol>
     </div>
+    <p class="fine">Проектные решения снижают определённые риски, но не означают абсолютной защищенности объекта.</p>
+  </div>
+</section>
 
-    <div class="logic">
-      <div class="logic__text">
-        <h3 class="h3">Проектируем не только объект, но и логику его работы</h3>
-        <p>При разработке решений рассматриваем взаимосвязь архитектуры, инженерной инфраструктуры, требований к надежности и физической защищенности. При наличии альтернатив помогаем сравнить их по существенным для заказчика параметрам и обосновать выбор.</p>
-        <button class="btn btn--primary" type="button" data-modal="Начать работу над проектом">Начать работу над проектом</button>
+<!-- 03 SOLUTIONS -->
+<section class="sec sec--light" id="solutions" aria-labelledby="solutions-title">
+  <div class="wrap">
+    <div class="head">
+      <div class="head__text">
+        <h2 class="h2" id="solutions-title">ЦОД под разные задачи и масштабы</h2>
+        <p class="lead">Подбираем концепцию под IT-мощность, количество стоек, площадь, условия площадки и требования к защищенности.</p>
       </div>
-      <ul class="chain">
-        <li><b>Сравнение альтернатив</b><span>Рассмотрение вариантов до фиксации проектной концепции</span></li>
-        <li><b>Согласованность решений</b><span>Увязка архитектуры, конструкций и инженерных систем</span></li>
-        <li><b>Учет физических рисков</b><span>Интеграция требований к защищенности в проектную проработку</span></li>
-      </ul>
+      <button class="btn btn--red" type="button" data-modal="Подобрать решение для ЦОД">Подобрать решение для ЦОД</button>
+    </div>
+
+    <div class="scale" data-tabs>
+      <div class="seg" role="tablist" aria-label="Типовые концепции">
+        <button role="tab" id="sc-t1" aria-controls="sc-p1" aria-selected="true">Компактный</button>
+        <button role="tab" id="sc-t2" aria-controls="sc-p2" aria-selected="false" tabindex="-1">Средний масштаб</button>
+        <button role="tab" id="sc-t3" aria-controls="sc-p3" aria-selected="false" tabindex="-1">Крупный или кампус</button>
+      </div>
+
+      <div class="scale__panel" role="tabpanel" id="sc-p1" aria-labelledby="sc-t1">
+        <figure class="scale__img reveal"><img src="assets/images/concepts/scale-compact.webp" width="1122" height="1402" loading="lazy" alt="Компактный одноэтажный корпус ЦОД с ДГУ и трансформатором"></figure>
+        <div class="scale__info">
+          <p class="kicker">Концепция 1 из 3</p>
+          <h3 class="h3">Компактный ЦОД</h3>
+          <p class="scale__desc">Для частной инфраструктуры, корпоративных IT-систем и локальных вычислительных задач.</p>
+          <dl class="figs">
+            <div><dt>Площадь здания*</dt><dd>1&nbsp;000–2&nbsp;500<small>м²</small></dd></div>
+            <div><dt>IT-мощность*</dt><dd>0,5–1,5<small>МВт</small></dd></div>
+            <div><dt>Количество*</dt><dd>50–150<small>стоек</small></dd></div>
+          </dl>
+          <p class="scale__fmt">Форматы: классическое здание, модульное исполнение, контейнерная конфигурация.</p>
+        </div>
+      </div>
+      <div class="scale__panel" role="tabpanel" id="sc-p2" aria-labelledby="sc-t2" hidden>
+        <figure class="scale__img"><img src="assets/images/concepts/scale-medium.webp" width="1122" height="1402" loading="lazy" alt="Двухэтажный корпус ЦОД с площадкой ДГУ и резервной площадкой под расширение"></figure>
+        <div class="scale__info">
+          <p class="kicker">Концепция 2 из 3</p>
+          <h3 class="h3">ЦОД среднего масштаба</h3>
+          <p class="scale__desc">Для корпоративных платформ, размещения IT-инфраструктуры и коммерческих сервисов.</p>
+          <dl class="figs">
+            <div><dt>Площадь здания*</dt><dd>3&nbsp;000–8&nbsp;000<small>м²</small></dd></div>
+            <div><dt>IT-мощность*</dt><dd>1,5–5<small>МВт</small></dd></div>
+            <div><dt>Количество*</dt><dd>150–500<small>стоек</small></dd></div>
+          </dl>
+          <p class="scale__fmt">Форматы: отдельное здание, поэтапно развиваемый комплекс, модульная структура.</p>
+        </div>
+      </div>
+      <div class="scale__panel" role="tabpanel" id="sc-p3" aria-labelledby="sc-t3" hidden>
+        <figure class="scale__img"><img src="assets/images/concepts/scale-campus.webp" width="1122" height="1402" loading="lazy" alt="Кампус ЦОД: три корпуса, подстанция и фундамент следующей очереди"></figure>
+        <div class="scale__info">
+          <p class="kicker">Концепция 3 из 3</p>
+          <h3 class="h3">Крупный ЦОД или кампус</h3>
+          <p class="scale__desc">Для масштабной цифровой инфраструктуры, крупных нагрузок и последовательного наращивания мощностей.</p>
+          <dl class="figs">
+            <div><dt>Площадь здания*</dt><dd>10&nbsp;000–30&nbsp;000<small>м²</small></dd></div>
+            <div><dt>IT-мощность*</dt><dd>5–15<small>МВт</small></dd></div>
+            <div><dt>Количество*</dt><dd>500–1&nbsp;500<small>стоек</small></dd></div>
+          </dl>
+          <p class="scale__fmt">Форматы: несколько зданий, очереди строительства, сочетание капитальных и модульных решений.</p>
+        </div>
+      </div>
+      <p class="fine fine--ink">* Иллюстративный диапазон для проработки концепции. Площадь, мощность и число стоек не являются независимыми параметрами и требуют взаимной проверки.</p>
+    </div>
+
+    <h3 class="h3 formats__title">Форматы размещения</h3>
+    <div class="formats">
+      <figure class="format">
+        <div class="format__img reveal"><img src="assets/images/formats/format-classic.webp" width="1448" height="1086" loading="lazy" alt="Капитальное здание ЦОД"></div>
+        <figcaption><b>Классический</b>Отдельное здание: архитектура, конструкции и инженерия в одной концепции.</figcaption>
+      </figure>
+      <figure class="format">
+        <div class="format__img reveal"><img src="assets/images/formats/format-modular.webp" width="1448" height="1086" loading="lazy" alt="Ряд модулей ЦОД и площадка под следующий модуль"></div>
+        <figcaption><b>Модульный</b>Объект из функциональных модулей с поэтапным развитием, если его подтверждают требования.</figcaption>
+      </figure>
+      <figure class="format">
+        <div class="format__img reveal"><img src="assets/images/formats/format-container.webp" width="1448" height="1086" loading="lazy" alt="Контейнерные модули ЦОД на бетонной площадке"></div>
+        <figcaption><b>Контейнерный</b>Оборудование в контейнерных блоках с учетом транспортировки, обслуживания, климата и подключений.</figcaption>
+      </figure>
+      <figure class="format">
+        <div class="format__img reveal"><img src="assets/images/formats/format-underground.webp" width="1448" height="1086" loading="lazy" alt="Обвалованный ЦОД: въездной портал и разрез с серверным залом"></div>
+        <figcaption><b>Подземный</b>Когда заглубление обосновано оценкой рисков, геологией, гидрогеологией и расчетами.</figcaption>
+      </figure>
     </div>
   </div>
 </section>
 
-<!-- ============ 05 PROCESS ============ -->
-<section class="sec sec--white process" id="process" aria-labelledby="process-title">
-  <div class="wrap process__grid">
-    <div class="process__head">
-      <h2 class="h2" id="process-title">От исходных требований до проектных решений</h2>
-      <p class="lead">Выстраиваем проектирование поэтапно: определяем исходные требования, прорабатываем концепцию, согласовываем ключевые решения и разрабатываем документацию в соответствии с задачами проекта.</p>
+<!-- 04 SERVICES -->
+<section class="sec sec--dark" id="services" aria-labelledby="services-title">
+  <div class="wrap">
+    <div class="head">
+      <div class="head__text">
+        <h2 class="h2" id="services-title">Проектирование ЦОД – от концепции до проектной документации</h2>
+        <p class="lead">Для дата-центров любого масштаба и исполнения.</p>
+      </div>
+      <button class="btn btn--red" type="button" data-modal="Начать работу над проектом">Начать работу над проектом</button>
     </div>
-    <ol class="timeline">
-      <li class="step">
-        <h3 class="step__title">Исходные требования</h3><p class="step__sub">Определяем задачу и ограничения</p>
-        <p>Уточняем назначение ЦОД, требуемую IT-нагрузку, количество стоек, требования к надежности и физической защищенности. Изучаем доступные исходные данные, особенности площадки и ограничения заказчика.</p>
-        <p class="result"><span>Результат этапа</span>Зафиксированные исходные требования, перечень недостающих данных и вопросов, которые нужно проработать.</p>
-      </li>
-      <li class="step">
-        <h3 class="step__title">Анализ условий и вариантов</h3><p class="step__sub">Проверяем, какие решения подходят задаче</p>
-        <p>Рассматриваем доступные варианты размещения и исполнения, оцениваем основные планировочные, инженерные и физические ограничения. При необходимости сравниваем несколько концепций.</p>
-        <p class="result"><span>Результат этапа</span>Сопоставление возможных вариантов и перечень факторов, влияющих на выбор концепции.</p>
-      </li>
-      <li class="step">
-        <h3 class="step__title">Разработка концепции</h3><p class="step__sub">Формируем общую структуру объекта</p>
-        <p>Прорабатываем основные параметры ЦОД, функциональное зонирование, расположение критических помещений и принципиальные решения по инженерной инфраструктуре.</p>
-        <p class="result"><span>Результат этапа</span>Концептуальные материалы с основными параметрами объекта для рассмотрения и согласования заказчиком.</p>
-      </li>
-      <li class="step">
-        <h3 class="step__title">Проектирование</h3><p class="step__sub">Разрабатываем согласованные решения</p>
-        <p>Детализируем архитектурные, конструктивные и инженерные решения в рамках согласованного состава работ. Увязываем проектные разделы между собой и прорабатываем необходимые технические вопросы.</p>
-        <p class="result"><span>Результат этапа</span>Комплект проектных материалов в соответствии с согласованной стадией, заданием и договором.</p>
-      </li>
-      <li class="step">
-        <h3 class="step__title">Проверка и согласование</h3><p class="step__sub">Проверяем взаимосвязи и фиксируем решения</p>
-        <p>Проверяем согласованность материалов в предусмотренном объеме, рассматриваем замечания, фиксируем принятые изменения и вопросы, требующие дополнительного решения.</p>
-        <p class="result"><span>Результат этапа</span>Согласованные материалы и зафиксированный статус замечаний – в соответствии с принятой процедурой работы.</p>
-      </li>
-      <li class="step">
-        <h3 class="step__title">Передача результатов</h3><p class="step__sub">Передаем документацию и фиксируем завершение работ</p>
-        <p>Передаем заказчику предусмотренный договором комплект документации, перечень согласованных материалов и необходимую информацию о принятых решениях.</p>
-        <p class="result"><span>Результат этапа</span>Комплект результатов проектирования в согласованном формате и объеме.</p>
-      </li>
+
+    <div class="svc" data-svc>
+      <div class="svc__media reveal" aria-hidden="true">
+        <img src="assets/images/services/service-concept.webp" width="1536" height="1024" loading="lazy" alt="" data-for="sv-p1" class="is-on">
+        <img src="assets/images/services/service-architecture.webp" width="1536" height="1024" loading="lazy" alt="" data-for="sv-p2">
+        <img src="assets/images/interior/interior-hall.webp" width="1672" height="941" loading="lazy" alt="" data-for="sv-p3">
+        <img src="assets/images/services/service-security.webp" width="1536" height="1024" loading="lazy" alt="" data-for="sv-p4">
+        <img src="assets/images/services/service-modular.webp" width="1536" height="1024" loading="lazy" alt="" data-for="sv-p5">
+        <img src="assets/images/services/service-analysis.webp" width="1536" height="1024" loading="lazy" alt="" data-for="sv-p6">
+      </div>
+      <div class="svc__list">
+        <button class="svc__btn" type="button" id="sv-t1" aria-controls="sv-p1" aria-expanded="true"><b>Разработка концепции ЦОД</b><i>Отправная точка проекта</i></button>
+        <div class="svc__panel" id="sv-p1">
+          <p>Основные параметры объекта, сравнение вариантов размещения и исполнения, предварительная оценка площадей, мощности и инфраструктуры.</p>
+          <p class="res"><span>Результат</span>Концептуальные решения и исходные параметры для проектирования.</p>
+        </div>
+        <button class="svc__btn" type="button" id="sv-t2" aria-controls="sv-p2" aria-expanded="false"><b>Архитектурное и конструктивное проектирование</b><i>Здание, планировка и конструкции</i></button>
+        <div class="svc__panel" id="sv-p2" hidden>
+          <p>Функциональное зонирование, планировка, конструктивная схема и взаимное расположение технических помещений.</p>
+          <p class="res"><span>Результат</span>Архитектурные и конструктивные проектные решения.</p>
+        </div>
+        <button class="svc__btn" type="button" id="sv-t3" aria-controls="sv-p3" aria-expanded="false"><b>Проектирование инженерной инфраструктуры</b><i>Электроснабжение, охлаждение и технические системы</i></button>
+        <div class="svc__panel" id="sv-p3" hidden>
+          <p>Электроснабжение, охлаждение, вентиляция, водоснабжение и водоотведение, другие системы по составу работ.</p>
+          <p class="res"><span>Результат</span>Увязанные между собой инженерные решения и разделы документации.</p>
+        </div>
+        <button class="svc__btn" type="button" id="sv-t4" aria-controls="sv-p4" aria-expanded="false"><b>Проектирование с учетом физической защищенности</b><i>Уязвимости, зонирование и конструктивные решения</i></button>
+        <div class="svc__panel" id="sv-p4" hidden>
+          <p>Угрозы учитываем при выборе площадки, планировке, размещении критических помещений и технических доступов. Заглубление — когда оно обосновано.</p>
+          <p class="res"><span>Результат</span>Решения под согласованные требования к физической безопасности.</p>
+        </div>
+        <button class="svc__btn" type="button" id="sv-t5" aria-controls="sv-p5" aria-expanded="false"><b>Проектирование модульных и контейнерных ЦОД</b><i>Альтернативные форматы размещения</i></button>
+        <div class="svc__panel" id="sv-p5" hidden>
+          <p>Размещение оборудования, коммуникаций, технических зон и подключений к внешней инфраструктуре.</p>
+          <p class="res"><span>Результат</span>Проектная концепция или документация для выбранного формата.</p>
+        </div>
+        <button class="svc__btn" type="button" id="sv-t6" aria-controls="sv-p6" aria-expanded="false"><b>Анализ исходных решений и проектной документации</b><i>Проверка перед дальнейшими этапами</i></button>
+        <div class="svc__panel" id="sv-p6" hidden>
+          <p>Анализ требований и материалов, поиск несогласованностей, оценка проектных альтернатив.</p>
+          <p class="res"><span>Результат</span>Перечень замечаний, выводы и рекомендации.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 PROCESS -->
+<section class="sec sec--light" id="process" aria-labelledby="process-title">
+  <div class="wrap">
+    <div class="head">
+      <div class="head__text">
+        <h2 class="h2" id="process-title">От исходных требований до проектных решений</h2>
+        <p class="lead">Шесть этапов. Ключевые решения согласуем до перехода к следующему.</p>
+      </div>
+      <button class="btn btn--red" type="button" data-modal="Обсудить проектирование">Обсудить проектирование</button>
+    </div>
+
+    <ol class="route" data-route>
+      <li><h3>Исходные требования</h3><p>Назначение, IT-нагрузка, стойки, надежность, защищенность, площадка.</p><p class="route__res">Требования и список недостающих данных</p></li>
+      <li><h3>Анализ условий и вариантов</h3><p>Какие варианты размещения и исполнения подходят задаче и какие у них ограничения.</p><p class="route__res">Сравнение вариантов и факторы выбора</p></li>
+      <li><h3>Разработка концепции</h3><p>Параметры объекта, зонирование, критические помещения, принципиальная инженерия.</p><p class="route__res">Концептуальные материалы на согласование</p></li>
+      <li><h3>Проектирование</h3><p>Архитектура, конструкции и инженерные системы, увязанные между собой.</p><p class="route__res">Комплект проектных материалов по стадии и договору</p></li>
+      <li><h3>Проверка и согласование</h3><p>Проверяем взаимосвязи, рассматриваем замечания, фиксируем изменения.</p><p class="route__res">Согласованные материалы и статус замечаний</p></li>
+      <li><h3>Передача результатов</h3><p>Передаем документацию и информацию о принятых решениях.</p><p class="route__res">Комплект результатов в согласованном формате</p></li>
     </ol>
   </div>
-  <div class="wrap">
-    <ul class="rules">
-      <li>
-        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4,8H14V24H4Z M18,8H28V24H18Z"/></svg>
-        <b>Сравнение альтернатив</b><span>Рассматриваем существенные варианты до выбора решения и объясняем их основные различия, ограничения и последствия.</span>
-      </li>
-      <li>
-        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8,4H24V28L16,22 8,28Z"/></svg>
-        <b>Фиксация решений</b><span>Фиксируем согласованные решения, исходные предпосылки и вопросы, которые остаются открытыми.</span>
-      </li>
-      <li>
-        <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="9" cy="16" r="5"/><circle cx="23" cy="9" r="5"/><circle cx="23" cy="23" r="5"/><path d="M14,14 18,11 M14,18 18,21"/></svg>
-        <b>Увязка разделов</b><span>Учитываем взаимное влияние архитектуры, конструкций и инженерных систем, чтобы решения не рассматривались изолированно.</span>
-      </li>
-      <li>
-        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M26,10A11,11 0 1 0 27,18 M26,4V10H20"/></svg>
-        <b>Контроль изменений</b><span>Отслеживаем согласованные изменения и их влияние на ранее принятые решения в рамках установленного процесса.</span>
-      </li>
-    </ul>
-    <div class="band">
-      <div>
-        <h3 class="h3">Начнем с вашей задачи</h3>
-        <p>Обсудим исходные требования, определим необходимый состав проектных работ и согласуем последовательность дальнейших действий.</p>
-      </div>
-      <button class="btn btn--primary" type="button" data-modal="Обсудить проектирование">Обсудить проектирование</button>
-    </div>
-  </div>
 </section>
 
-<!-- ============ 06 ENGINEERING ============ -->
-<section class="sec sec--light engineering" id="engineering" aria-labelledby="eng-title">
+<!-- 06 ENGINEERING -->
+<section class="sec sec--dark" id="engineering" aria-labelledby="eng-title">
   <div class="wrap">
-    <div class="eng__head">
-      <h2 class="h2" id="eng-title">Инженерные решения, рассчитанные на работу ЦОД</h2>
-      <p class="lead">Прорабатываем архитектуру инженерной инфраструктуры с учетом IT-нагрузки, требований к отказоустойчивости, режимов эксплуатации и планов расширения. Основные параметры определяются на стадии концепции и уточняются при проектировании.</p>
+    <div class="head">
+      <div class="head__text">
+        <h2 class="h2" id="eng-title">Инженерные решения, рассчитанные на работу ЦОД</h2>
+        <p class="lead">Основные параметры определяем на стадии концепции и уточняем при проектировании.</p>
+      </div>
+      <button class="btn btn--red" type="button" data-modal="Отправить исходные данные">Отправить исходные данные</button>
     </div>
 
     <div class="eng" data-tabs>
-      <div class="eng__tabs" role="tablist" aria-label="Инженерные направления">
-        <button role="tab" id="eng-t1" aria-controls="eng-p1" aria-selected="true"><b>Электроснабжение</b><span>МВт IT-нагрузки, UPS, ДГУ, схемы A/B, автономность</span></button>
-        <button role="tab" id="eng-t2" aria-controls="eng-p2" aria-selected="false" tabindex="-1"><b>Охлаждение</b><span>кВт на стойку, холодо- и теплоотвод, воздушное и жидкостное охлаждение</span></button>
-        <button role="tab" id="eng-t3" aria-controls="eng-p3" aria-selected="false" tabindex="-1"><b>Резервирование</b><span>N, N+1, 2N, отказные сценарии и обслуживание</span></button>
-        <button role="tab" id="eng-t4" aria-controls="eng-p4" aria-selected="false" tabindex="-1"><b>Энергоэффективность</b><span>PUE, учёт нагрузок, частичные режимы и развитие мощности</span></button>
+      <div class="seg seg--dark" role="tablist" aria-label="Инженерные направления">
+        <button role="tab" id="en-t1" aria-controls="en-p1" aria-selected="true">Электроснабжение</button>
+        <button role="tab" id="en-t2" aria-controls="en-p2" aria-selected="false" tabindex="-1">Охлаждение</button>
+        <button role="tab" id="en-t3" aria-controls="en-p3" aria-selected="false" tabindex="-1">Резервирование</button>
+        <button role="tab" id="en-t4" aria-controls="en-p4" aria-selected="false" tabindex="-1">Энергоэффективность</button>
       </div>
 
-      <!-- Power -->
-      <div class="eng__panel" role="tabpanel" id="eng-p1" aria-labelledby="eng-t1" tabindex="0">
-        <div class="eng__text">
-          <p class="eng__what"><span>Что проектируем</span>Схему электроснабжения ЦОД от внешнего источника до серверной стойки: распределение мощности, источники бесперебойного питания (UPS), дизель-генераторные установки (ДГУ), распределительные устройства и пути питания IT-оборудования.</p>
-          <h4 class="h4">Ключевые параметры</h4>
-          <ul class="ticks">
-            <li>Расчетная IT-нагрузка, кВт и МВт.</li>
-            <li>Схема питания: один путь или независимые пути A/B.</li>
-            <li>Мощность и конфигурация UPS, время автономной работы.</li>
-            <li>Мощность ДГУ, время запуска и запас топлива.</li>
-            <li>Расчёт нагрузок с учетом инженерных систем и резервирования.</li>
-          </ul>
-        </div>
-        <div class="eng__side">
-          <dl class="nums">
-            <div><dt>Пример IT-нагрузки</dt><dd>1,2 <small>МВт</small></dd></div>
-            <div><dt>Условная автономия UPS</dt><dd>10 <small>мин</small></dd></div>
+      <div class="eng__panel" role="tabpanel" id="en-p1" aria-labelledby="en-t1">
+        <figure class="eng__img reveal"><img src="assets/images/engineering/eng-power.webp" width="1536" height="1024" loading="lazy" alt="Электрощитовая ЦОД: два ряда шкафов ИБП и аккумуляторных стеллажей, отдельные лотки для каждого пути"></figure>
+        <div class="eng__body">
+          <p class="eng__lead">Схема от внешнего источника до стойки: UPS, ДГУ, распределение и независимые пути питания A/B.</p>
+          <dl class="big">
+            <div><dd>1,2<small>МВт</small></dd><dt>Пример IT-нагрузки</dt></div>
+            <div><dd>10<small>мин</small></dd><dt>Условная автономия UPS</dt></div>
           </dl>
-          <svg class="eng__fig" viewBox="0 0 560 250" role="img" aria-label="Однолинейная схема: внешняя сеть и ДГУ, пути питания A и B через UPS к серверной стойке">
-            <g class="e-ink">
-              <rect x="10" y="30" width="110" height="44"/><rect x="10" y="150" width="110" height="44"/>
-              <rect x="200" y="30" width="90" height="44"/><rect x="200" y="150" width="90" height="44"/>
-              <rect x="340" y="30" width="80" height="44"/><rect x="340" y="150" width="80" height="44"/>
-              <rect x="468" y="62" width="82" height="100"/>
-            </g>
-            <path d="M120,52H200 M120,172H160V52 M290,52H340 M420,52H444V92H468" class="e-acc e-thick"/>
-            <path d="M120,52H160V172H200 M290,172H340 M420,172H444V132H468" class="e-acc e-thick e-dash"/>
-            <g class="e-txt">
-              <text x="65" y="57" text-anchor="middle">Внешняя сеть</text><text x="65" y="177" text-anchor="middle">ДГУ</text>
-              <text x="245" y="57" text-anchor="middle">UPS A</text><text x="245" y="177" text-anchor="middle">UPS B</text>
-              <text x="380" y="57" text-anchor="middle">PDU A</text><text x="380" y="177" text-anchor="middle">PDU B</text>
-              <text x="509" y="116" text-anchor="middle">Стойка</text>
-              <text x="174" y="20">путь A</text><text x="174" y="216">путь B</text>
-              <text x="245" y="98" text-anchor="middle" class="e-txt--s">10 мин</text>
-            </g>
-          </svg>
-          <p class="note"><span>Пример</span>При IT-нагрузке 1,2 МВт требуется отдельно рассчитать полную электрическую нагрузку объекта с учетом охлаждения, потерь и вспомогательных систем. UPS на 10 минут – исходное требование.</p>
+          <p class="eng__note">Полную нагрузку объекта при 1,2&nbsp;МВт IT считаем отдельно: с охлаждением, потерями и вспомогательными системами. 10 минут UPS — исходное требование.</p>
+          <p class="eng__calc">Рассчитываем: IT-нагрузку, схему A/B, конфигурацию UPS и время автономии, мощность ДГУ, время запуска и запас топлива.</p>
         </div>
       </div>
 
-      <!-- Cooling -->
-      <div class="eng__panel" role="tabpanel" id="eng-p2" aria-labelledby="eng-t2" tabindex="0" hidden>
-        <div class="eng__text">
-          <p class="eng__what"><span>Что проектируем</span>Систему отвода тепла от IT-оборудования с учётом плотности нагрузки, планировки серверных залов, климатических условий и требований производителей оборудования.</p>
-          <h4 class="h4">Ключевые параметры</h4>
-          <ul class="ticks">
-            <li>Тепловая нагрузка каждой стойки и серверного зала.</li>
-            <li>Воздушное охлаждение, изоляция горячих и холодных коридоров.</li>
-            <li>Жидкостное охлаждение для совместимого высокоплотного оборудования.</li>
-            <li>Требуемая холодопроизводительность и резервирование холодильного оборудования.</li>
-            <li>Отвод тепла наружу, сезонные режимы и возможность обслуживания.</li>
-          </ul>
-        </div>
-        <div class="eng__side">
-          <dl class="nums">
-            <div><dt>Пример нагрузки на стойку</dt><dd>12 <small>кВт</small></dd></div>
-            <div><dt>100 стоек по 12 кВт</dt><dd>1,2 <small>МВт</small></dd></div>
-          </dl>
-          <svg class="eng__fig" viewBox="0 0 560 250" role="img" aria-label="Разрез серверного зала: холодный коридор между рядами стоек, отвод горячего воздуха">
-            <g class="e-ink">
-              <path d="M20,220H540 M20,20H540"/>
-              <rect x="150" y="90" width="60" height="130"/><rect x="350" y="90" width="60" height="130"/>
-              <path d="M210,90H350" class="e-dash"/>
-            </g>
-            <path d="M280,214V112" class="e-acc e-thick" marker-end="url(#arr)"/><path d="M272,150H216" class="e-acc e-thick" marker-end="url(#arr)"/><path d="M288,150H344" class="e-acc e-thick" marker-end="url(#arr)"/>
-            <path d="M146,150H90V40 M414,150H470V40" class="e-hot" marker-end="url(#arr)"/>
-            <g class="e-txt"><text x="280" y="236" text-anchor="middle">холодный коридор</text><text x="60" y="34">горячий</text><text x="452" y="34">горячий</text><text x="180" y="80" text-anchor="middle">ряд стоек</text><text x="380" y="80" text-anchor="middle">ряд стоек</text></g>
-          </svg>
-          <p class="formula-line">100 стоек × 12 кВт = 1,2 МВт <small>IT-нагрузки</small></p>
-          <p class="note"><span>Расчетный пример</span>Для предварительной оценки тепловой нагрузки IT-оборудования принимается, что практически вся потребляемая им электроэнергия превращается в тепло. Итоговая мощность системы охлаждения определяется отдельным расчетом.</p>
+      <div class="eng__panel" role="tabpanel" id="en-p2" aria-labelledby="en-t2" hidden>
+        <figure class="eng__img"><img src="assets/images/engineering/eng-cooling.webp" width="1536" height="1024" loading="lazy" alt="Кровля ЦОД: два ряда сухих охладителей с трубопроводами"></figure>
+        <div class="eng__body">
+          <p class="eng__lead">Отвод тепла с учётом плотности нагрузки, планировки залов, климата и требований производителей оборудования.</p>
+          <p class="formula">100 <small>стоек</small> × 12 <small>кВт</small> = 1,2 <small>МВт IT-нагрузки</small></p>
+          <p class="eng__note">Для оценки принимается, что почти вся потребляемая IT-оборудованием энергия превращается в тепло. Итоговая мощность системы охлаждения определяется отдельным расчетом.</p>
+          <p class="eng__calc">Рассматриваем: воздушное охлаждение с изоляцией горячих и холодных коридоров, жидкостное — для высокоплотного оборудования, резерв холода, сезонные режимы и обслуживание.</p>
         </div>
       </div>
 
-      <!-- Redundancy -->
-      <div class="eng__panel" role="tabpanel" id="eng-p3" aria-labelledby="eng-t3" tabindex="0" hidden>
-        <div class="eng__text">
-          <p class="eng__what"><span>Что проектируем</span>Определяем требуемый уровень резервирования электрических и холодильных систем. Проверяем, как инфраструктура работает при отказе отдельного компонента и какие работы по обслуживанию можно выполнять без прерывания критической нагрузки.</p>
-          <h4 class="h4">Ключевые параметры</h4>
-          <ul class="ticks">
-            <li>Резерв мощности электроснабжения и охлаждения.</li>
-            <li>Независимость путей питания A/B.</li>
-            <li>Общие точки отказа и последствия выхода оборудования из строя.</li>
-            <li>Возможность вывода оборудования в ремонт.</li>
-            <li>Сценарии переключения на резерв и восстановления работы.</li>
+      <div class="eng__panel" role="tabpanel" id="en-p3" aria-labelledby="en-t3" hidden>
+        <figure class="eng__img"><img src="assets/images/engineering/eng-redundancy.webp" width="1536" height="1024" loading="lazy" alt="Четыре одинаковых дизель-генератора в ряд у корпуса ЦОД"></figure>
+        <div class="eng__body">
+          <p class="eng__lead">Проверяем, как объект работает при отказе компонента и что можно обслуживать без остановки нагрузки.</p>
+          <ul class="red">
+            <li><b>N</b><span class="mods" aria-hidden="true"><i></i><i></i><i></i></span><span>3 модуля — без резерва</span></li>
+            <li><b>N+1</b><span class="mods" aria-hidden="true"><i></i><i></i><i></i><i class="sp"></i></span><span>4 модуля — один резервный</span></li>
+            <li><b>2N</b><span class="mods" aria-hidden="true"><i></i><i></i><i></i><u></u><i class="b"></i><i class="b"></i><i class="b"></i></span><span>2 × 3 модуля — две независимые системы</span></li>
           </ul>
-        </div>
-        <div class="eng__side">
-          <table class="red-table">
-            <caption class="sr">Схемы резервирования на примере нагрузки 1,2 МВт и модулей по 400 кВт</caption>
-            <thead><tr><th scope="col">Схема</th><th scope="col">Описание</th><th scope="col">Модули по 400 кВт для 1,2 МВт</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">N</th><td><b>Базовая конфигурация.</b> Установленной мощности достаточно для расчетной нагрузки без дополнительного резервного компонента.</td>
-                <td><span class="mods" aria-label="3 рабочих модуля"><i></i><i></i><i></i></span><em>3 рабочих модуля</em></td></tr>
-              <tr><th scope="row">N+1</th><td><b>Резерв одного компонента.</b> Один дополнительный модуль сверх количества, необходимого для расчетной нагрузки.</td>
-                <td><span class="mods" aria-label="3 рабочих и 1 резервный модуль"><i></i><i></i><i></i><i class="spare"></i></span><em>4 модуля</em></td></tr>
-              <tr><th scope="row">2N</th><td><b>Две полные системы.</b> Два комплекта, каждый из которых рассчитан на полную проектную нагрузку, при условии достаточной независимости путей.</td>
-                <td><span class="mods" aria-label="два независимых комплекта по 3 модуля"><i></i><i></i><i></i><u></u><i class="b"></i><i class="b"></i><i class="b"></i></span><em>2 комплекта по 3 модуля</em></td></tr>
-            </tbody>
-          </table>
-          <p class="note"><span>Пример</span>Для нагрузки 1,2 МВт при использовании модулей по 400 кВт схема N потребует 3 рабочих модуля, N+1 – 4, а 2N – двух независимых комплектов по 3 модуля. Конкретная схема зависит от характеристик оборудования и требований к доступности.</p>
+          <p class="eng__note">Пример: нагрузка 1,2&nbsp;МВт, модули по 400&nbsp;кВт. Конкретная схема зависит от характеристик оборудования и требований к доступности.</p>
         </div>
       </div>
 
-      <!-- PUE -->
-      <div class="eng__panel" role="tabpanel" id="eng-p4" aria-labelledby="eng-t4" tabindex="0" hidden>
-        <div class="eng__text">
-          <p class="eng__what"><span>Что рассчитываем</span>Сравниваем энергопотребление инженерных систем, оцениваем потери и режимы частичной нагрузки. Рассматриваем, как выбранная схема электроснабжения и охлаждения влияет на суммарное энергопотребление объекта.</p>
-          <h4 class="h4">Ключевые параметры</h4>
-          <ul class="ticks">
-            <li>Расчетное энергопотребление IT и инженерных систем.</li>
-            <li>Потери при преобразовании и распределении электроэнергии.</li>
-            <li>Потребление систем охлаждения в разных режимах.</li>
-            <li>Работа оборудования при неполной IT-нагрузке.</li>
-            <li>Сопоставление вариантов инженерной схемы по энергопотреблению.</li>
-          </ul>
-        </div>
-        <div class="eng__side">
-          <p class="pue-def">PUE – отношение энергопотребления всего ЦОД к энергопотреблению IT-оборудования.</p>
-          <div class="pue" role="math" aria-label="PUE равно энергия ЦОД, делённая на энергия IT">
-            <span class="pue__l">PUE =</span>
-            <span class="pue__frac"><span>Энергия ЦОД</span><span>Энергия IT</span></span>
-          </div>
-          <table class="pue-table">
+      <div class="eng__panel" role="tabpanel" id="en-p4" aria-labelledby="en-t4" hidden>
+        <figure class="eng__img"><img src="assets/images/interior/interior-hall.webp" width="1672" height="941" loading="lazy" alt="Серверный зал: ряды стоек и кабельные лотки"></figure>
+        <div class="eng__body">
+          <p class="formula formula--pue">PUE = <span class="frac"><span>Энергия ЦОД</span><span>Энергия IT</span></span></p>
+          <table class="pue">
             <caption>Условный расчет при IT-нагрузке 1 МВт</caption>
-            <thead><tr><th scope="col">Пример PUE</th><th scope="col">Полная мощность объекта</th><th scope="col"><span class="sr">Доля IT-нагрузки</span></th></tr></thead>
+            <thead><tr><th scope="col">PUE</th><th scope="col">Полная мощность</th><th scope="col"><span class="sr">Состав нагрузки</span></th></tr></thead>
             <tbody>
               <tr><td>1,3</td><td>1,3 МВт</td><td><span class="bar" style="--v:1.3"><i></i></span></td></tr>
               <tr><td>1,5</td><td>1,5 МВт</td><td><span class="bar" style="--v:1.5"><i></i></span></td></tr>
               <tr><td>1,8</td><td>1,8 МВт</td><td><span class="bar" style="--v:1.8"><i></i></span></td></tr>
             </tbody>
           </table>
-          <p class="bar-legend"><i class="k-it"></i>IT-нагрузка 1 МВт <i class="k-eng"></i>инженерные системы и потери</p>
-          <p class="note note--warn">Значения PUE приведены исключительно для демонстрации расчёта. Фактический показатель зависит от климата, нагрузки, архитектуры объекта и методики измерения. Целевой PUE следует задавать и проверять для конкретного проекта.</p>
+          <p class="key"><i class="k1"></i>IT-нагрузка<i class="k2"></i>инженерные системы и потери</p>
+          <p class="eng__note">Значения PUE приведены исключительно для демонстрации расчёта. Фактический показатель зависит от климата, нагрузки, архитектуры объекта и методики измерения. Целевой PUE задается и проверяется для конкретного проекта.</p>
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="inputs">
-      <div class="inputs__head">
-        <h3 class="h3">Исходные данные для инженерной концепции</h3>
-        <p>Чтобы перейти от общих требований к расчетным параметрам, на старте нужны:</p>
+<!-- 07 WHY -->
+<section class="sec sec--light" id="why" aria-labelledby="why-title">
+  <div class="wrap">
+    <h2 class="h2 h2--xl" id="why-title">Инженерная логика вместо решений по&nbsp;умолчанию</h2>
+    <div class="why">
+      <div class="why__row">
+        <h3>Сравниваем варианты, а не продвигаем один формат</h3>
+        <p>Классический, модульный, контейнерный или подземный — выбор зависит от мощности, площадки, защищенности и развития объекта.</p>
+        <p class="why__get">Вы получаете сравнение концепций, их преимущества и ограничения.</p>
       </div>
-      <ol class="inputs__list">
-        <li>Требуемая IT-мощность, МВт.</li>
-        <li>Количество стоек и целевая нагрузка на стойку, кВт.</li>
-        <li>Требования к резервированию электроснабжения и охлаждения.</li>
-        <li>Требуемая автономность при отключении внешнего электроснабжения.</li>
-        <li>Планируемые очереди развития и условия площадки.</li>
-      </ol>
+      <div class="why__row">
+        <h3>Обосновываем инженерные решения</h3>
+        <p>Резервирование, охлаждение, электроснабжение и физическую защиту увязываем между собой, а не рассматриваем по отдельности.</p>
+        <p class="why__get">Вы понимаете допущения и ограничения до принятия решения.</p>
+      </div>
+      <div class="why__row">
+        <h3>Делаем процесс понятным</h3>
+        <p>Состав работ, этапы и точки согласования известны с начала. Изменения требований видны и учитываются.</p>
+        <p class="why__get">Вы видите, что уже решено и что требует уточнения.</p>
+      </div>
+      <div class="why__row">
+        <h3>Учитываем эксплуатацию, а не только запуск</h3>
+        <p>Доступ к оборудованию, обслуживание, сценарии отказов и рост IT-нагрузки.</p>
+        <p class="why__get">Вы заранее знаете последствия схемы для развития объекта.</p>
+      </div>
     </div>
-    <div class="cta-bar">
-      <button class="btn btn--primary btn--wide" type="button" data-modal="Отправить исходные данные">Отправить исходные данные</button>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 07 WHY ============ -->
-<section class="sec sec--dark why" id="why" aria-labelledby="why-title">
-  <div class="wrap">
-    <div class="why__head">
-      <h2 class="h2 h2--xl" id="why-title">Инженерная логика вместо решений по умолчанию</h2>
-      <p class="lead">Мы рассматриваем проектирование ЦОД как задачу выбора и согласования инженерных решений. Сопоставляем требования к мощности, надежности, физической защищенности, эксплуатации и развитию объекта, чтобы заказчик понимал, почему выбран конкретный вариант и какие ограничения с ним связаны.</p>
-    </div>
-    <div class="reasons">
-      <div class="reasons__cols" aria-hidden="true"><span>Подход</span><span>Что получает заказчик</span></div>
-      <article class="reason">
-        <div class="reason__a"><h3>Сравниваем варианты, а не продвигаем один формат</h3><p>Не считаем классический, модульный, контейнерный или подземный ЦОД универсально лучшим решением. Выбор зависит от мощности, условий площадки, требований к защищенности, сроков развития и эксплуатации.</p></div>
-        <ul class="reason__b" aria-label="Что получает заказчик"><li>Сравнение подходящих концепций</li><li>Ключевые преимущества и ограничения каждого варианта</li><li>Основания для выбора архитектуры объекта</li></ul>
-      </article>
-      <article class="reason">
-        <div class="reason__a"><h3>Обосновываем инженерные решения</h3><p>Резервирование, охлаждение, электроснабжение и физическая защита должны соответствовать требованиям конкретного объекта. Мы стремимся увязать эти решения между собой, а не рассматривать их изолированно.</p></div>
-        <ul class="reason__b" aria-label="Что получает заказчик"><li>Объяснение ключевых проектных решений</li><li>Понимание исходных допущений и ограничений</li><li>Возможность сопоставить технические варианты до принятия решения</li></ul>
-      </article>
-      <article class="reason">
-        <div class="reason__a"><h3>Делаем процесс понятным заказчику</h3><p>На старте определяем исходные требования, состав проектных работ, этапы подготовки материалов и точки согласования. Изменения требований должны быть видны и учитываться в дальнейшей проработке.</p></div>
-        <ul class="reason__b" aria-label="Что получает заказчик"><li>Понятный состав работ и результатов</li><li>Согласование ключевых решений до перехода к следующим этапам</li><li>Прозрачное понимание того, какие вопросы решены, а какие требуют уточнения</li></ul>
-      </article>
-      <article class="reason">
-        <div class="reason__a"><h3>Учитываем не только запуск, но и дальнейшую эксплуатацию</h3><p>Проектные решения должны учитывать доступ к оборудованию, возможность технического обслуживания, сценарии отказов и перспективы увеличения IT-нагрузки.</p></div>
-        <ul class="reason__b" aria-label="Что получает заказчик"><li>Учет эксплуатационных ограничений на этапе проектирования</li><li>Анализ возможных сценариев расширения</li><li>Понимание последствий выбранной схемы для будущего развития объекта</li></ul>
-      </article>
-    </div>
-    <div class="why__cta">
-      <h3 class="h3">Начинаем с требований. Обосновываем решения. Согласуем результат.</h3>
-      <p>Расскажите о задаче, исходных параметрах и требованиях к будущему ЦОД. Определим, какие варианты стоит рассмотреть и какие данные потребуются для предварительной концепции.</p>
-      <button class="btn btn--primary" type="button" data-modal="Запросить предварительную концепцию">Запросить предварительную концепцию</button>
+    <div class="closing">
+      <p class="closing__line">Начинаем с требований. Обосновываем решения. Согласуем результат.</p>
+      <button class="btn btn--red" type="button" data-modal="Запросить предварительную концепцию">Запросить предварительную концепцию</button>
     </div>
   </div>
 </section>
 
-<!-- ============ 08 MATERIALS ============ -->
-<section class="sec sec--white materials" id="materials" aria-labelledby="mat-title">
+<!-- 08 MATERIALS -->
+<section class="sec sec--dark" id="materials" aria-labelledby="mat-title">
   <div class="wrap">
-    <div class="mat__head">
-      <h2 class="h2" id="mat-title">От идеи к концепции ЦОД</h2>
-      <p class="lead">Показываем, какие параметры определяют концепцию дата-центра, какие материалы могут быть подготовлены в ходе проектирования и какие исходные данные помогут начать работу над проектом.</p>
+    <div class="head">
+      <div class="head__text">
+        <h2 class="h2" id="mat-title">От идеи к концепции ЦОД</h2>
+        <p class="lead">Материалы, которые помогут начать работу над проектом.</p>
+      </div>
     </div>
     <div class="docs">
       <article class="doc">
-        <div class="doc__cover">
-          <svg viewBox="0 0 210 297" aria-hidden="true">
-            <g class="c-ink"><rect x="30" y="120" width="150" height="110"/><rect x="40" y="130" width="80" height="60"/><path d="M120,130V230 M40,200H170 M150,120V230"/><path d="M20,240H190" class="c-dash"/></g>
-            <rect x="44" y="134" width="72" height="52" class="c-acc-fill"/>
-            <rect x="30" y="268" width="24" height="3" class="c-red-fill"/>
-          </svg>
-          <p class="doc__name">Пример концепции ЦОД</p>
-        </div>
+        <div class="doc__img reveal"><img src="assets/images/materials/doc-concept.webp" width="1122" height="1402" loading="lazy" alt="Буклет концепции ЦОД и разворот с генпланом"></div>
         <p class="doc__meta">PDF, демонстрационный пример</p>
-        <h3 class="doc__title">Пример концепции ЦОД</h3>
-        <p>Структура предварительной проработки: основные параметры объекта, функциональное зонирование, варианты исполнения и принципиальные инженерные решения.</p>
-        <button class="btn btn--ghost-dark" type="button" disabled aria-describedby="pdf-note">Посмотреть пример</button>
+        <h3>Пример концепции ЦОД</h3>
+        <p>Параметры объекта, зонирование, варианты исполнения и принципиальные инженерные решения.</p>
+        <button class="btn btn--line" type="button" data-modal="Запросить пример концепции">Запросить пример</button>
       </article>
       <article class="doc">
-        <div class="doc__cover">
-          <svg viewBox="0 0 210 297" aria-hidden="true">
-            <g class="c-ink"><path d="M30,120H180 M30,140H180 M30,160H180 M30,180H180 M30,200H180 M30,220H180 M60,110V230"/><rect x="30" y="110" width="150" height="120"/></g>
-            <rect x="34" y="144" width="22" height="12" class="c-acc-fill"/><rect x="34" y="184" width="22" height="12" class="c-acc-fill"/>
-            <rect x="30" y="268" width="24" height="3" class="c-red-fill"/>
-          </svg>
-          <p class="doc__name">Состав проектных материалов</p>
-        </div>
+        <div class="doc__img reveal"><img src="assets/images/materials/doc-composition.webp" width="1122" height="1402" loading="lazy" alt="Стопка томов проектной документации и раскрытый лист с планом"></div>
         <p class="doc__meta">PDF, пример проектных решений</p>
-        <h3 class="doc__title">Состав проектных материалов</h3>
-        <p>Какие результаты могут быть подготовлены на разных этапах – от сравнения концепций до разработки проектных решений в согласованном составе.</p>
-        <button class="btn btn--ghost-dark" type="button" disabled aria-describedby="pdf-note">Посмотреть состав</button>
+        <h3>Состав проектных материалов</h3>
+        <p>Что готовится на каждом этапе — от сравнения концепций до проектных решений.</p>
+        <button class="btn btn--line" type="button" data-modal="Запросить состав проектных материалов">Запросить состав</button>
       </article>
       <article class="doc">
-        <div class="doc__cover">
-          <svg viewBox="0 0 210 297" aria-hidden="true">
-            <g class="c-ink"><rect x="30" y="116" width="12" height="12"/><rect x="30" y="140" width="12" height="12"/><rect x="30" y="164" width="12" height="12"/><rect x="30" y="188" width="12" height="12"/><rect x="30" y="212" width="12" height="12"/><path d="M52,122H170 M52,146H150 M52,170H176 M52,194H140 M52,218H160"/></g>
-            <path d="M32,122 36,126 41,117 M32,146 36,150 41,141" class="c-acc"/>
-            <rect x="30" y="268" width="24" height="3" class="c-red-fill"/>
-          </svg>
-          <p class="doc__name">Чек-лист исходных данных</p>
-        </div>
+        <div class="doc__img reveal"><img src="assets/images/materials/doc-checklist.webp" width="1122" height="1402" loading="lazy" alt="Чек-лист на планшете"></div>
         <p class="doc__meta">PDF, рабочий чек-лист</p>
-        <h3 class="doc__title">Чек-лист исходных данных</h3>
-        <p>Перечень сведений о мощности, площадке, надежности, инженерной инфраструктуре и требованиях к будущему дата-центру. Можно использовать, даже если техническое задание ещё не готово.</p>
-        <button class="btn btn--ghost-dark" type="button" disabled aria-describedby="pdf-note">Скачать чек-лист</button>
+        <h3>Чек-лист исходных данных</h3>
+        <p>Мощность, площадка, надежность, инфраструктура. Подходит, даже если ТЗ ещё нет.</p>
+        <button class="btn btn--line" type="button" data-modal="Запросить чек-лист исходных данных">Запросить чек-лист</button>
       </article>
     </div>
-    <p class="demo-note" id="pdf-note">PDF-файлы ещё не подготовлены, поэтому кнопки неактивны. Они заработают, когда документы будут загружены.</p>
   </div>
 </section>
 
-<!-- ============ 09 FAQ ============ -->
-<section class="sec sec--light faq" id="faq" aria-labelledby="faq-title">
-  <div class="wrap faq__grid">
-    <div class="faq__head">
-      <h2 class="h2" id="faq-title">Что важно знать перед проектированием ЦОД</h2>
-      <p class="lead">Ответы на основные вопросы о размещении дата-центров, стоимости и сроках проектирования, исходных данных и выборе инженерных решений.</p>
-    </div>
+<!-- 09 FAQ -->
+<section class="sec sec--light" id="faq" aria-labelledby="faq-title">
+  <div class="wrap faq">
+    <h2 class="h2 faq__title" id="faq-title">Что важно знать перед проектированием ЦОД</h2>
     <div class="acc">
-      <details><summary>Можно ли разместить ЦОД под землей?</summary><p>Да, заглубленное или частично заглубленное размещение можно рассматривать как один из вариантов исполнения ЦОД. Его применимость зависит от геологии и гидрогеологии участка, уровня грунтовых вод, условий водоотведения, пожарной безопасности, эвакуации, организации охлаждения и доступа к оборудованию. До выбора такого решения необходимо оценить ограничения площадки и сопоставить их с требованиями к объекту.</p></details>
-      <details><summary>Сколько стоит проектирование ЦОД?</summary><p>Стоимость зависит от масштаба объекта, IT-нагрузки, сложности инженерной инфраструктуры, выбранного формата, условий площадки и состава проектной документации. Для предварительной оценки необходимо определить исходные требования и объем работ. После уточнения задачи можно сформировать предложение с описанием состава работ, результатов и допущений.</p></details>
-      <details><summary>Какой формат ЦОД лучше выбрать: классический, модульный, контейнерный или подземный?</summary><p>Универсального варианта нет. Выбор зависит от требуемой IT-мощности, условий площадки, доступных инженерных ресурсов, требований к надежности, возможностей расширения и условий эксплуатации. На этапе концепции целесообразно сравнить применимые варианты по единому набору критериев и определить ограничения каждого из них.</p></details>
-      <details><summary>Можно ли получить предварительную оценку без готового технического задания?</summary><p>Да. Для первичного обсуждения достаточно сообщить известные параметры: предполагаемую IT-мощность, количество стоек, регион размещения, наличие площадки, требования к надежности и желаемый формат объекта. Если часть сведений отсутствует, можно определить список вопросов для уточнения и согласовать следующий шаг. Предварительная оценка будет зависеть от полноты предоставленной информации.</p></details>
-      <details><summary>Сколько времени занимает проектирование ЦОД?</summary><p>Срок зависит от масштаба объекта, состава проектных работ, количества рассматриваемых вариантов, полноты исходных данных и процедур согласования. Предварительную концепцию и полный комплект проектной документации нельзя оценивать по одному сроку: это разные по объёму этапы. Сроки определяются после уточнения задачи, состава выдачи и необходимых согласований.</p></details>
-      <details><summary>Можно ли предусмотреть физическую защиту ЦОД на этапе проектирования?</summary><p>Да. На этапе проектирования можно рассматривать зонирование территории и помещений, контролируемые маршруты доступа, размещение критических помещений, конструктивные решения и защиту инженерных вводов. Конкретный набор мер определяется требованиями заказчика, оценкой рисков, условиями площадки и применимыми нормами. Проектные решения снижают определённые риски, но не означают абсолютной защищенности объекта.</p></details>
-      <details><summary>С чего начинается работа над проектом?</summary><p>Работа начинается с обсуждения задачи и сбора исходных данных. Уточняются назначение ЦОД, IT-нагрузка, требования к надёжности, условия площадки, ограничения и ожидаемые результаты. Затем определяется, какие данные уже доступны, что необходимо дополнительно получить и какой состав предварительной проработки целесообразен.</p></details>
+      <details><summary>Можно ли разместить ЦОД под землей?</summary><p>Да, заглублённое или частично заглублённое размещение — один из вариантов исполнения. Применимость зависит от геологии и гидрогеологии, уровня грунтовых вод, водоотведения, пожарной безопасности, эвакуации, охлаждения и доступа к оборудованию. Сначала оцениваем ограничения площадки.</p></details>
+      <details><summary>Сколько стоит проектирование ЦОД?</summary><p>Зависит от масштаба, IT-нагрузки, сложности инженерии, формата, площадки и состава документации. После уточнения задачи готовим предложение с составом работ, результатами и допущениями.</p></details>
+      <details><summary>Какой формат лучше: классический, модульный, контейнерный или подземный?</summary><p>Универсального варианта нет. На этапе концепции сравниваем применимые варианты по единым критериям: мощность, площадка, инженерные ресурсы, надежность, расширение и эксплуатация.</p></details>
+      <details><summary>Можно ли получить оценку без готового ТЗ?</summary><p>Да. Достаточно известных параметров: IT-мощность, количество стоек, регион, наличие площадки, требования к надежности и желаемый формат. Если данных не хватает, составим список вопросов для уточнения.</p></details>
+      <details><summary>Сколько времени занимает проектирование?</summary><p>Зависит от масштаба, состава работ, числа вариантов, полноты данных и согласований. Концепция и полный комплект документации — разные по объёму этапы, поэтому сроки определяются после уточнения задачи.</p></details>
+      <details><summary>Можно ли заложить физическую защиту на этапе проекта?</summary><p>Да: зонирование, маршруты доступа, размещение критических помещений, конструктивные решения, защита инженерных вводов. Набор мер зависит от требований, оценки рисков, площадки и норм. Проект снижает риски, но не гарантирует абсолютной защищенности.</p></details>
+      <details><summary>С чего начинается работа?</summary><p>С обсуждения задачи и исходных данных: назначение, IT-нагрузка, надежность, площадка, ограничения. Затем определяем, чего не хватает и какая предварительная проработка нужна.</p></details>
     </div>
   </div>
 </section>
 
-<!-- ============ 10 CONTACT ============ -->
+<!-- 10 CONTACT -->
 <section class="sec sec--dark contact" id="contact" aria-labelledby="contact-title">
   <div class="wrap contact__grid">
     <div class="contact__text">
       <h2 class="h2" id="contact-title">Расскажите о задаче. Определим, с&nbsp;чего начать</h2>
-      <p class="lead">Обсудим параметры будущего ЦОД, возможные форматы размещения и состав проектных работ. Если техническое задание еще не готово, поможем определить, какие исходные данные потребуются для дальнейшей проработки.</p>
       <ul class="theses">
         <li>Можно обратиться без готового ТЗ</li>
         <li>Можно начать с предварительной концепции</li>
         <li>Состав работ уточняется под задачу</li>
       </ul>
-      <p class="contact__phone">Телефон<a href="tel:+79284160938">8 (928) 416-09-38</a></p>
+      <div class="prep">
+        <h3>Что пригодится для разговора</h3>
+        <p>IT-мощность, количество стоек и нагрузка на стойку, требования к резервированию, нужная автономность, очереди развития и условия площадки. Если чего-то нет — подскажем.</p>
+      </div>
+      <p class="contact__phone"><a href="tel:+79284160938">8 (928) 416-09-38</a></p>
     </div>
     <div class="contact__form" data-form-host="inline"></div>
   </div>
@@ -803,75 +475,58 @@
 
 </main>
 
-<!-- ============ 11 FOOTER ============ -->
 <footer class="footer">
-  <div class="wrap footer__grid">
+  <div class="wrap footer__top">
     <div class="footer__brand">
-      <img src="assets/logos/current/ironcore-logo-on-dark.svg" alt="IronCore" width="176" height="40">
+      <img src="assets/logos/current/ironcore-logo-on-dark.svg" alt="IronCore" width="150" height="34">
       <p>Проектирование ЦОД<br><span lang="en">Data Center Engineering</span></p>
     </div>
     <nav class="footer__nav" aria-label="Навигация в подвале">
-      <ul>
-        <li><a href="#solutions">Решения</a></li>
-        <li><a href="#services">Услуги</a></li>
-        <li><a href="#process">Как мы работаем</a></li>
-        <li><a href="#why">Почему IronCore</a></li>
-        <li><a href="#materials">Для заказчика</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#contact">Контакты</a></li>
-      </ul>
+      <a href="#solutions">Решения</a><a href="#services">Услуги</a><a href="#process">Как мы работаем</a><a href="#why">Почему IronCore</a><a href="#materials">Для заказчика</a><a href="#faq">FAQ</a><a href="#contact">Контакты</a>
     </nav>
-    <div class="footer__contact">
+    <div class="footer__act">
       <a class="footer__phone" href="tel:+79284160938">8 (928) 416-09-38</a>
-      <p class="footer__msg">Макс и Telegram — ссылки появятся после получения от заказчика</p>
-      <button class="btn btn--primary" type="button" data-modal="Обсудить проект">Обсудить проект</button>
+      <button class="btn btn--red btn--sm" type="button" data-modal="Обсудить проект">Обсудить проект</button>
     </div>
   </div>
   <div class="wrap footer__bottom">
-    <p>© IronCore, <span data-year>2026</span></p>
-    <p>Реквизиты компании будут добавлены позже</p>
+    <span>© IronCore, <span data-year>2026</span></span>
+    <span>Реквизиты и мессенджеры появятся после согласования</span>
   </div>
 </footer>
 
-<!-- ============ MODAL ============ -->
 <dialog class="modal" id="modal" aria-labelledby="modal-title">
   <div class="modal__box">
-    <button class="modal__close" type="button" data-close aria-label="Закрыть форму">
-      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4,4 16,16 M16,4 4,16"/></svg>
-    </button>
+    <button class="modal__close" type="button" data-close aria-label="Закрыть"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4,4 16,16 M16,4 4,16"/></svg></button>
     <h2 class="modal__title" id="modal-title">Обсудить проект</h2>
     <div data-form-host="modal"></div>
   </div>
 </dialog>
 
-<!-- Shared form template -->
 <template id="form-tpl">
   <form class="form" novalidate>
     <input type="hidden" name="source" value="">
     <div class="field">
-      <label for="f-name">Имя <span aria-hidden="true">*</span></label>
-      <input id="f-name" name="name" type="text" autocomplete="name" required aria-required="true">
-      <p class="field__err" id="f-name-err" hidden>Укажите имя</p>
+      <input id="f-name" name="name" type="text" autocomplete="name" required placeholder=" ">
+      <label for="f-name">Имя<span aria-hidden="true"> *</span></label>
+      <p class="field__err" hidden>Укажите имя</p>
     </div>
     <div class="field">
-      <label for="f-phone">Телефон <span aria-hidden="true">*</span></label>
-      <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required aria-required="true" placeholder="+7 ___ ___-__-__">
-      <p class="field__err" id="f-phone-err" hidden>Укажите телефон: не меньше 10 цифр</p>
+      <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder=" ">
+      <label for="f-phone">Телефон<span aria-hidden="true"> *</span></label>
+      <p class="field__err" hidden>Укажите телефон, не меньше 10 цифр</p>
     </div>
     <div class="field">
+      <textarea id="f-comment" name="comment" rows="3" placeholder=" "></textarea>
       <label for="f-comment">Комментарий</label>
-      <textarea id="f-comment" name="comment" rows="3" placeholder="Мощность, количество стоек, площадка, сроки — что известно"></textarea>
     </div>
-    <div class="field field--file">
-      <span class="label">Файлы</span>
-      <label class="file" for="f-files">
-        <input id="f-files" name="files" type="file" multiple>
-        <span class="file__btn">Прикрепить файлы</span>
-        <span class="file__list" aria-live="polite">Необязательно: ТЗ, схемы, исходные данные</span>
-      </label>
-    </div>
-    <button class="btn btn--primary btn--block" type="submit">Отправить заявку</button>
-    <p class="form__demo">Демонстрационная форма: заявки пока никуда не отправляются. Отправка в Telegram подключается при переносе на WordPress.</p>
+    <label class="file" for="f-files">
+      <input id="f-files" name="files" type="file" multiple>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20,12 12.5,19.5A5,5 0 0 1 5.5,12.5L13,5A3.3,3.3 0 0 1 17.7,9.7L10.3,17A1.7,1.7 0 0 1 7.9,14.6L14.5,8"/></svg>
+      <span class="file__list">Прикрепить файлы: ТЗ, схемы, исходные данные</span>
+    </label>
+    <button class="btn btn--red btn--block" type="submit">Отправить заявку</button>
+    <p class="form__demo">Демо: форма пока не подключена к Telegram, заявки не отправляются.</p>
     <div class="form__status" role="status" aria-live="polite" hidden></div>
   </form>
 </template>

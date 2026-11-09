@@ -1,19 +1,25 @@
-/* IRONCORE demo — header, menu, tabs, modal, demo form. No dependencies. */
+/* IRONCORE demo v2 — vanilla, no dependencies. */
 (function () {
   'use strict';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
 
-  /* ---- Year ---- */
-  document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
+  $$('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
-  /* ---- Header: solid on scroll ---- */
-  var header = document.getElementById('header');
-  function onScroll() { header.classList.toggle('is-solid', window.scrollY > 24); }
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
+  /* ---- Header: solid after hero top, hides on scroll down, returns on scroll up ---- */
+  var header = $('#header'), nav = $('#nav'), burger = $('.burger');
+  var lastY = window.scrollY;
+  function onScroll() {
+    var y = window.scrollY;
+    header.classList.toggle('is-solid', y > 24);
+    var menuOpen = nav.classList.contains('is-open');
+    if (!menuOpen && y > 480 && y > lastY + 4) header.classList.add('is-hidden');
+    else if (y < lastY - 4 || y <= 480) header.classList.remove('is-hidden');
+    lastY = y;
+  }
 
-  /* ---- Mobile menu (basic, final mobile in stage 03) ---- */
-  var burger = document.querySelector('.burger');
-  var nav = document.getElementById('nav');
+  /* ---- Mobile menu (basic; final mobile is stage 03) ---- */
   function closeMenu() { nav.classList.remove('is-open'); burger.setAttribute('aria-expanded', 'false'); burger.setAttribute('aria-label', 'Открыть меню'); }
   burger.addEventListener('click', function () {
     var open = !nav.classList.contains('is-open');
@@ -24,23 +30,57 @@
   });
   nav.addEventListener('click', function (e) { if (e.target.closest('a')) closeMenu(); });
 
-  /* ---- Active nav link ---- */
-  var links = Array.prototype.slice.call(document.querySelectorAll('.nav__list a'));
-  var targets = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  /* ---- Active nav item ---- */
+  var links = $$('.nav a');
   if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
+    var navIO = new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
         if (!en.isIntersecting) return;
-        links.forEach(function (a, i) { a.classList.toggle('is-active', targets[i] === en.target); });
+        links.forEach(function (a) { a.classList.toggle('is-active', a.getAttribute('href') === '#' + en.target.id); });
       });
     }, { rootMargin: '-45% 0px -50% 0px' });
-    targets.forEach(function (t) { if (t) io.observe(t); });
+    $$('main section[id]').forEach(function (s) { navIO.observe(s); });
   }
 
-  /* ---- Tabs (WAI-ARIA, manual activation by click, arrows move + activate) ---- */
-  document.querySelectorAll('[data-tabs]').forEach(function (root) {
-    var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
-    var vertical = root.querySelector('[role="tablist"]').getAttribute('aria-orientation') === 'vertical';
+  /* ---- Image reveal (only for images that start below the fold) ---- */
+  var reveals = $$('.reveal');
+  if (!reduce && 'IntersectionObserver' in window) {
+    var revIO = new IntersectionObserver(function (es) {
+      es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.remove('is-pending'); revIO.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -12% 0px' });
+    reveals.forEach(function (el) {
+      if (el.getBoundingClientRect().top > window.innerHeight) { el.classList.add('is-pending'); revIO.observe(el); }
+    });
+  }
+
+  /* ---- Hero parallax + process route progress ---- */
+  var scene = $('[data-parallax]'), route = $('[data-route]');
+  var steps = route ? $$('li', route) : [];
+  var ticking = false;
+  function frame() {
+    ticking = false;
+    var vh = window.innerHeight;
+    if (scene && !reduce) {
+      var y = Math.min(window.scrollY, vh);
+      scene.style.transform = 'translate3d(0,' + (y * 0.12).toFixed(1) + 'px,0)';
+    }
+    if (route) {
+      var r = route.getBoundingClientRect();
+      var p = reduce ? 1 : Math.max(0, Math.min(1, (vh * 0.8 - r.top) / (vh * 0.55)));
+      route.style.setProperty('--p', p.toFixed(3));
+      steps.forEach(function (li, i) { li.classList.toggle('is-on', p >= (i / steps.length) + 0.01 || p === 1); });
+    }
+  }
+  window.addEventListener('scroll', function () {
+    onScroll();
+    if (!ticking) { ticking = true; requestAnimationFrame(frame); }
+  }, { passive: true });
+  window.addEventListener('resize', frame);
+  onScroll(); frame();
+
+  /* ---- Tabs (scale switcher, engineering) ---- */
+  $$('[data-tabs]').forEach(function (root) {
+    var tabs = $$('[role="tab"]', root);
     function select(tab, focus) {
       tabs.forEach(function (t) {
         var on = t === tab;
@@ -51,13 +91,11 @@
       if (focus) tab.focus();
     }
     tabs.forEach(function (tab, i) {
-      tab.addEventListener('click', function () { select(tab, false); });
+      tab.addEventListener('click', function () { select(tab); });
       tab.addEventListener('keydown', function (e) {
-        var next = vertical ? 'ArrowDown' : 'ArrowRight';
-        var prev = vertical ? 'ArrowUp' : 'ArrowLeft';
         var j = null;
-        if (e.key === next) j = (i + 1) % tabs.length;
-        else if (e.key === prev) j = (i - 1 + tabs.length) % tabs.length;
+        if (e.key === 'ArrowRight') j = (i + 1) % tabs.length;
+        else if (e.key === 'ArrowLeft') j = (i - 1 + tabs.length) % tabs.length;
         else if (e.key === 'Home') j = 0;
         else if (e.key === 'End') j = tabs.length - 1;
         if (j !== null) { e.preventDefault(); select(tabs[j], true); }
@@ -65,87 +103,97 @@
     });
   });
 
-  /* ---- Forms: one template, two instances (inline #contact and modal) ---- */
-  var tpl = document.getElementById('form-tpl');
-  function mountForm(host, suffix) {
+  /* ---- Services: single-open list, image follows; hover opens on mouse devices ---- */
+  $$('[data-svc]').forEach(function (root) {
+    var btns = $$('.svc__btn', root), imgs = $$('.svc__media img', root);
+    var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    function open(btn) {
+      btns.forEach(function (b) {
+        var on = b === btn;
+        b.setAttribute('aria-expanded', String(on));
+        document.getElementById(b.getAttribute('aria-controls')).hidden = !on;
+      });
+      var id = btn.getAttribute('aria-controls');
+      imgs.forEach(function (im) { im.classList.toggle('is-on', im.getAttribute('data-for') === id); });
+    }
+    btns.forEach(function (b) {
+      b.addEventListener('click', function () { open(b); });
+      if (fine) b.addEventListener('mouseenter', function () { open(b); });
+    });
+  });
+
+  /* ---- Security atlas: pins and legend share one state ---- */
+  $$('[data-atlas]').forEach(function (root) {
+    var pins = $$('.pin', root), btns = $$('.legend__btn', root);
+    function set(i) {
+      pins.forEach(function (p) { var on = p.getAttribute('data-risk') === String(i); p.classList.toggle('is-on', on); p.setAttribute('aria-pressed', String(on)); });
+      btns.forEach(function (b) {
+        var on = b.getAttribute('data-risk') === String(i);
+        b.setAttribute('aria-expanded', String(on));
+        document.getElementById(b.getAttribute('aria-controls')).hidden = !on;
+      });
+    }
+    pins.forEach(function (p) { p.addEventListener('click', function () { set(p.getAttribute('data-risk')); }); });
+    btns.forEach(function (b) { b.addEventListener('click', function () { set(b.getAttribute('data-risk')); }); });
+    set(0);
+  });
+
+  /* ---- Forms: one template, inline (#contact) and modal ---- */
+  var tpl = $('#form-tpl');
+  function mount(host, suffix) {
     var frag = tpl.content.cloneNode(true);
-    frag.querySelectorAll('[id]').forEach(function (el) { el.id = el.id + suffix; });
-    frag.querySelectorAll('label[for]').forEach(function (el) { el.htmlFor = el.htmlFor + suffix; });
+    $$('[id]', frag).forEach(function (el) { el.id += suffix; });
+    $$('label[for]', frag).forEach(function (el) { el.htmlFor += suffix; });
     host.appendChild(frag);
-    var form = host.querySelector('form');
-    wireForm(form, suffix);
+    var form = $('form', host);
+    wire(form);
     return form;
   }
-
-  function digits(s) { return (s || '').replace(/\D/g, ''); }
-
-  function wireForm(form, suffix) {
+  function wire(form) {
     var name = form.elements.name, phone = form.elements.phone, files = form.elements.files;
-    var status = form.querySelector('.form__status');
-    var fileList = form.querySelector('.file__list');
-    var fileHint = fileList.textContent;
-
-    function setErr(input, show) {
-      var err = input.parentNode.querySelector('.field__err');
+    var status = $('.form__status', form), list = $('.file__list', form), hint = list.textContent;
+    function err(input, show) {
+      var e = $('.field__err', input.parentNode);
+      e.id = input.id + '-err';
       input.setAttribute('aria-invalid', show ? 'true' : 'false');
-      if (show) input.setAttribute('aria-describedby', err.id); else input.removeAttribute('aria-describedby');
-      err.hidden = !show;
+      if (show) input.setAttribute('aria-describedby', e.id); else input.removeAttribute('aria-describedby');
+      e.hidden = !show;
     }
     function check() {
-      var okName = name.value.trim().length > 0;
-      var okPhone = digits(phone.value).length >= 10;
-      setErr(name, !okName); setErr(phone, !okPhone);
-      return okName ? (okPhone ? null : phone) : name;
+      var okN = name.value.trim().length > 0, okP = phone.value.replace(/\D/g, '').length >= 10;
+      err(name, !okN); err(phone, !okP);
+      return !okN ? name : (!okP ? phone : null);
     }
-    [name, phone].forEach(function (el) {
-      el.addEventListener('input', function () { if (el.getAttribute('aria-invalid') === 'true') check(); status.hidden = true; });
-    });
+    [name, phone].forEach(function (el) { el.addEventListener('input', function () { if (el.getAttribute('aria-invalid') === 'true') check(); status.hidden = true; }); });
     files.addEventListener('change', function () {
-      var n = files.files.length;
-      fileList.textContent = n ? Array.prototype.map.call(files.files, function (f) { return f.name; }).join(', ') : fileHint;
+      list.textContent = files.files.length ? Array.prototype.map.call(files.files, function (f) { return f.name; }).join(', ') : hint;
     });
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var bad = check();
       if (bad) { bad.focus(); status.hidden = true; return; }
-      // Demo: no integration yet. Never claim the request was delivered.
-      status.innerHTML = 'Демо-режим: заявка <b>не отправлена</b> — форма ещё не подключена к Telegram. ' +
-        'Чтобы обсудить проект сейчас, позвоните: <a href="tel:+79284160938">8 (928) 416-09-38</a>.';
+      status.innerHTML = 'Демо-режим: заявка <b>не отправлена</b>, форма ещё не подключена. Позвоните, чтобы обсудить проект: <a href="tel:+79284160938">8 (928) 416-09-38</a>.';
       status.hidden = false;
     });
   }
-
-  document.querySelectorAll('[data-form-host="inline"]').forEach(function (h) {
-    var f = mountForm(h, '-c');
-    f.elements.source.value = 'Форма в разделе «Контакты»';
-  });
+  $$('[data-form-host="inline"]').forEach(function (h) { mount(h, '-c').elements.source.value = 'Форма в разделе «Контакты»'; });
 
   /* ---- Modal ---- */
-  var modal = document.getElementById('modal');
-  var modalForm = mountForm(modal.querySelector('[data-form-host="modal"]'), '-m');
-  var modalTitle = document.getElementById('modal-title');
-  var lastTrigger = null;
-
+  var modal = $('#modal'), mForm = mount($('[data-form-host="modal"]', modal), '-m'), mTitle = $('#modal-title'), last = null;
   function openModal(label, trigger) {
-    lastTrigger = trigger;
-    modalTitle.textContent = label === 'Связаться' ? 'Обсудить проект' : label;
-    modalForm.elements.source.value = label;
-    modalForm.querySelector('.form__status').hidden = true;
-    if (typeof modal.showModal === 'function') modal.showModal(); else modal.setAttribute('open', '');
+    last = trigger;
+    mTitle.textContent = label === 'Связаться' ? 'Обсудить проект' : label;
+    mForm.elements.source.value = label;
+    $('.form__status', mForm).hidden = true;
+    if (modal.showModal) modal.showModal(); else modal.setAttribute('open', '');
     document.body.classList.add('no-scroll');
     closeMenu();
-    setTimeout(function () { modalForm.elements.name.focus(); }, 30);
+    setTimeout(function () { mForm.elements.name.focus(); }, 40);
   }
-  function closeModal() {
-    if (typeof modal.close === 'function') modal.close(); else { modal.removeAttribute('open'); onClose(); }
-  }
-  function onClose() {
-    document.body.classList.remove('no-scroll');
-    if (lastTrigger) lastTrigger.focus();
-  }
+  function onClose() { document.body.classList.remove('no-scroll'); if (last) last.focus(); }
   modal.addEventListener('close', onClose);
   modal.addEventListener('click', function (e) {
-    if (e.target === modal || e.target.closest('[data-close]')) closeModal();
+    if (e.target === modal || e.target.closest('[data-close]')) { if (modal.close) modal.close(); else { modal.removeAttribute('open'); onClose(); } }
   });
   document.addEventListener('click', function (e) {
     var t = e.target.closest('[data-modal]');

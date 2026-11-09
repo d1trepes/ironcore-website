@@ -41,6 +41,24 @@ assets/
 
 Кодом (inline SVG в index.html) нарисованы: 6 разрезов угроз (02), 4 схемы услуг (04), схемы электроснабжения/охлаждения/резервирования и PUE (06), обложки 3 документов (08), пиктограммы.
 
+### Вторая партия (2026-11-10, desktop v2)
+| Файл | Где используется |
+|---|---|
+| `assets/images/security/security-cutaway.webp` (1672×941) | 02 разрез площадки с 6 точками рисков |
+| `assets/images/services/service-concept.webp` (1536×1024) | 04 Разработка концепции |
+| `assets/images/services/service-architecture.webp` | 04 Архитектура и конструктив |
+| `assets/images/services/service-security.webp` | 04 Физическая защищённость |
+| `assets/images/services/service-modular.webp` | 04 Модульные и контейнерные |
+| `assets/images/services/service-analysis.webp` | 04 Анализ документации |
+| `assets/images/engineering/eng-power.webp` | 06 Электроснабжение |
+| `assets/images/engineering/eng-cooling.webp` | 06 Охлаждение |
+| `assets/images/engineering/eng-redundancy.webp` | 06 Резервирование |
+| `assets/images/materials/doc-concept.webp` (1122×1402) | 08 Пример концепции |
+| `assets/images/materials/doc-composition.webp` | 08 Состав материалов |
+| `assets/images/materials/doc-checklist.webp` | 08 Чек-лист |
+
+`interior-hall.webp` теперь используется в 04 (инженерная инфраструктура) и 06 (энергоэффективность). Inline-SVG схемы v1 удалены.
+
 ### Чего не хватает / желательно
 - Hero в большем разрешении (≥2560 px по ширине): текущий 1672 px заметно мягче на Retina-экранах 1440.
 - Отдельный кадр hero для mobile (вертикальный 4:5) — к этапу 03.
