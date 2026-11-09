@@ -53,9 +53,35 @@
     });
   }
 
-  /* ---- Hero parallax + process route progress ---- */
-  var scene = $('[data-parallax]'), route = $('[data-route]');
-  var steps = route ? $$('li', route) : [];
+  /* ---- Statement lines in the photo band ---- */
+  $$('[data-lines]').forEach(function (el) {
+    if (reduce || !('IntersectionObserver' in window) || el.getBoundingClientRect().top < window.innerHeight) return;
+    el.classList.add('is-pending');
+    var io = new IntersectionObserver(function (es) {
+      if (es[0].isIntersecting) { el.classList.remove('is-pending'); io.disconnect(); }
+    }, { rootMargin: '0px 0px -20% 0px' });
+    io.observe(el);
+  });
+
+  /* ---- Warm up images inside tabs before the visitor reaches them ---- */
+  if ('IntersectionObserver' in window) {
+    var warm = new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        $$('img[loading="lazy"]', en.target).forEach(function (im) {
+          var pre = new Image();
+          if (im.srcset) { pre.sizes = im.sizes; pre.srcset = im.srcset; }
+          pre.src = im.currentSrc || im.src;
+        });
+        warm.unobserve(en.target);
+      });
+    }, { rootMargin: '800px 0px' });
+    $$('[data-tabs], [data-svc]').forEach(function (el) { warm.observe(el); });
+  }
+
+  /* ---- Hero parallax + process steps lit by reading position ---- */
+  var scene = $('[data-parallax]'), stepsEl = $('[data-steps]');
+  var steps = stepsEl ? $$('.step', stepsEl) : [];
   var ticking = false;
   function frame() {
     ticking = false;
@@ -64,11 +90,17 @@
       var y = Math.min(window.scrollY, vh);
       scene.style.transform = 'translate3d(0,' + (y * 0.12).toFixed(1) + 'px,0)';
     }
-    if (route) {
-      var r = route.getBoundingClientRect();
-      var p = reduce ? 1 : Math.max(0, Math.min(1, (vh * 0.8 - r.top) / (vh * 0.55)));
-      route.style.setProperty('--p', p.toFixed(3));
-      steps.forEach(function (li, i) { li.classList.toggle('is-on', p >= (i / steps.length) + 0.01 || p === 1); });
+    if (stepsEl) {
+      var line = vh * 0.62, last = -1;
+      steps.forEach(function (li, i) {
+        var on = reduce || li.getBoundingClientRect().top + 22 < line;
+        li.classList.toggle('is-on', on);
+        if (on) last = i;
+      });
+      var r = stepsEl.getBoundingClientRect();
+      var p = reduce ? 1 : Math.max(0, Math.min(1, (line - r.top - 28) / Math.max(1, r.height - 56)));
+      if (last === steps.length - 1 && !reduce) p = Math.max(p, 1);
+      stepsEl.style.setProperty('--p', p.toFixed(3));
     }
   }
   window.addEventListener('scroll', function () {
@@ -103,10 +135,9 @@
     });
   });
 
-  /* ---- Services: single-open list, image follows; hover opens on mouse devices ---- */
+  /* ---- Services: click opens one service, image follows ---- */
   $$('[data-svc]').forEach(function (root) {
     var btns = $$('.svc__btn', root), imgs = $$('.svc__media img', root);
-    var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
     function open(btn) {
       btns.forEach(function (b) {
         var on = b === btn;
@@ -116,26 +147,24 @@
       var id = btn.getAttribute('aria-controls');
       imgs.forEach(function (im) { im.classList.toggle('is-on', im.getAttribute('data-for') === id); });
     }
-    btns.forEach(function (b) {
-      b.addEventListener('click', function () { open(b); });
-      if (fine) b.addEventListener('mouseenter', function () { open(b); });
-    });
+    btns.forEach(function (b) { b.addEventListener('click', function () { open(b); }); });
   });
 
-  /* ---- Security atlas: pins and legend share one state ---- */
+  /* ---- Security atlas: pins and legend share one state; a second click closes ---- */
   $$('[data-atlas]').forEach(function (root) {
-    var pins = $$('.pin', root), btns = $$('.legend__btn', root);
+    var pins = $$('.pin', root), btns = $$('.legend__btn', root), cur = null;
     function set(i) {
-      pins.forEach(function (p) { var on = p.getAttribute('data-risk') === String(i); p.classList.toggle('is-on', on); p.setAttribute('aria-pressed', String(on)); });
+      cur = (i === cur) ? null : i;
+      pins.forEach(function (p) { var on = p.getAttribute('data-risk') === cur; p.classList.toggle('is-on', on); p.setAttribute('aria-pressed', String(on)); });
       btns.forEach(function (b) {
-        var on = b.getAttribute('data-risk') === String(i);
+        var on = b.getAttribute('data-risk') === cur;
         b.setAttribute('aria-expanded', String(on));
         document.getElementById(b.getAttribute('aria-controls')).hidden = !on;
       });
     }
     pins.forEach(function (p) { p.addEventListener('click', function () { set(p.getAttribute('data-risk')); }); });
     btns.forEach(function (b) { b.addEventListener('click', function () { set(b.getAttribute('data-risk')); }); });
-    set(0);
+    set('0');
   });
 
   /* ---- Forms: one template, inline (#contact) and modal ---- */
@@ -144,6 +173,7 @@
     var frag = tpl.content.cloneNode(true);
     $$('[id]', frag).forEach(function (el) { el.id += suffix; });
     $$('label[for]', frag).forEach(function (el) { el.htmlFor += suffix; });
+    $$('[aria-labelledby]', frag).forEach(function (el) { el.setAttribute('aria-labelledby', el.getAttribute('aria-labelledby') + suffix); });
     host.appendChild(frag);
     var form = $('form', host);
     wire(form);
@@ -165,6 +195,23 @@
       return !okN ? name : (!okP ? phone : null);
     }
     [name, phone].forEach(function (el) { el.addEventListener('input', function () { if (el.getAttribute('aria-invalid') === 'true') check(); status.hidden = true; }); });
+    var comment = form.elements.comment;
+    $$('.chip', form).forEach(function (chip) {
+      chip.setAttribute('aria-pressed', 'false');
+      chip.addEventListener('click', function () {
+        var line = chip.getAttribute('data-chip') + ': ';
+        var v = comment.value;
+        if (v.indexOf(line) === -1) comment.value = (v && !/\n$/.test(v) ? v + '\n' : v) + line;
+        chip.setAttribute('aria-pressed', 'true');
+        comment.focus();
+        comment.setSelectionRange(comment.value.length, comment.value.length);
+      });
+    });
+    comment.addEventListener('input', function () {
+      $$('.chip', form).forEach(function (chip) {
+        chip.setAttribute('aria-pressed', String(comment.value.indexOf(chip.getAttribute('data-chip') + ':') !== -1));
+      });
+    });
     files.addEventListener('change', function () {
       list.textContent = files.files.length ? Array.prototype.map.call(files.files, function (f) { return f.name; }).join(', ') : hint;
     });
