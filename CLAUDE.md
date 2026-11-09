@@ -1,25 +1,37 @@
-# CLAUDE.md — IronCore implementation contract
+# CLAUDE.md — договорённости для исполнителя IRONCORE
 
-**Read first:** `docs/PROJECT_STATE.md`; then only the specific section of `docs/content.md` needed for the requested task, plus `docs/page-blueprint.md`, `docs/design-system.md`, `docs/design-rules.md`. Historical files in `docs/archive/` are NEVER authoritative. **Do not write code until the current visual direction / logo are approved** or user explicitly authorizes a temporary scaffold.
+Этот файл действует для Claude Code и любой среды исполнения, читающей репозиторий. Проектные инструкции для Claude Projects — docs/claude-project-instructions.md. План работы — docs/claude-workflow.md. Стартовые задания — docs/claude-chat-prompts.md.
 
-## Roles and scope
-ChatGPT + user approve the structure/visual direction. Claude implements; do not invent redesigns, new sections, descriptions, icons, labels, sample clients or engineering figures. Preserve 11 required sections and exact technical values. Demo HTML/CSS/JS, then WordPress handoff; not WordPress integration in this repo.
+## В каждом чате
+1. Читать README.md, docs/PROJECT_STATE.md и этот CLAUDE.md из актуальной рабочей ветки.
+2. Затем читать документы, нужные именно текущему этапу. В первом чате реализации — docs/content.md целиком, docs/tz-checklist.md, docs/page-blueprint.md, docs/design-rules.md, docs/design-system.md, docs/visual-direction.md, docs/brand-identity.md.
+3. Проверять действующий код и ассеты, а не предполагать их наличие. Главный GitHub: https://github.com/d1trepes/ironcore-website.
+4. Не запускать следующий этап без разрешения дизайнера.
 
-## Build constraints
-- Prefer simple semantic HTML + modular CSS + small vanilla JS; no framework/build step unless expressly instructed.
-- Code and content in Russian, accessible markup; IDs as in docs/page-blueprint.md.
-- Desktop/mobile support at 360, 390, 768, 1024, 1440 px.
-- Functional header navigation, menus, accordions, tabs, modal; keyboard and touch access, focus-visible, reduced motion.
-- Do not claim real CRM/Telegram submission or PDF downloads without backend/files. Use clearly marked demo states.
-- Source visual assets from `assets/`; if missing, flag explicitly. No watermarked copyrighted stock or unsupported HTML scenes.
-- No generic AI design: see `docs/design-rules.md`.
-- Preserve exact copy and numerical data from `docs/content.md`.
+## Иерархия требований
+- docs/content.md — единственный исходный источник смысла, полного текста и всех инженерных чисел.
+- docs/tz-checklist.md — полнота 11 разделов и проверка готового результата.
+- docs/page-blueprint.md — согласованная для старта реализации композиция и поведение.
+- docs/brand-identity.md и assets/logos/current/ — основной логотип с красным кубом; резервный остаётся запасным.
+- docs/design-rules.md / docs/visual-direction.md / docs/design-system.md — визуальные ограничения.
+- docs/PROJECT_STATE.md — текущий статус и что пользователь утвердил. При коллизии не подменять требования своей трактовкой.
 
-## Token/cost discipline
-- At chat start read **only** `README.md`, `docs/PROJECT_STATE.md`, and files relevant to the assigned step. Never rescan all 24 screenshots when text already exists.
-- Work in one small chunk; edit only affected components. Avoid package installs, mass refactors, duplicate documentation, full source reprints and unnecessary browser screenshot runs unless needed for QA.
-- One task per chat; commit + push only actual results, then update `docs/PROJECT_STATE.md` with next action. Do not claim a successful push unless confirmed.
+## Сценарий разработки
+01 desktop, 02 итерации правок, 03 mobile ПОСЛЕ явного desktop-approval, 04 QA ПОСЛЕ mobile-review, 05 презентация и WordPress handoff. Детально: docs/claude-workflow.md.
 
-## Handoff at chat end
-Give (1) what changed (2–3 lines), (2) link to commit/repo, (3) status of demo and anything nonfunctional, (4) exact first message for the next chat.
-Repository: https://github.com/d1trepes/ironcore-website
+## Дизайн и контент
+- Инженерно-архитектурная эстетика: графит, тёмный navy, светлые технические разделы, белая типографика, синий и дозированный красный. Без AI-карточек повсюду, neon/glass/glow, декоративных надзаголовков, фальшивых метрик или историй о клиентах.
+- Главная сцена: наземный ЦОД + небольшой заглублённый уровень + контейнерные модули, без огромной подземной шахты и навязчивой анимации.
+- Только реальная подходящая графика/архитектурные рендеры из ассетов; если нет изображения, отметить missing asset, не рисовать фейковое здание CSS. Не использовать чужие логотипы и сомнительные водяные знаки.
+- Все 11 разделов, 6 рисков, 3 масштаба с 9 значениями, 4 формата, 6 услуг, 6 этапов, 4 инженерные темы и расчёты, 7 FAQ, контентная форма, футер.
+- Строго сохранять сноски об условных диапазонах, UPS/тепловыделении/PUE и обоснованности заглубления.
+
+## Технические требования
+- Предпочитать семантический HTML + модульный CSS + небольшой vanilla JS. Без фреймворков/build-зависимостей без отдельного согласования.
+- Навигация с якорями и фиксированным header; полноценные вкладки/аккордеоны и модалка; клавиатура, сенсорный ввод, aria/visible focus, prefers-reduced-motion.
+- В desktop-чате концентрироваться на 1440/1024 и не разрушать более узкую ширину; в отдельном mobile-чате — качественные 768/390/360.
+- Единая форма имя*/телефон*/комментарий/файлы и встроенная форма в #contact; все неякорные CTA открывают общую модалку. Нет реальной отправки без интеграции: не показывать подтверждение якобы доставленного обращения. Нет фиктивных «скачать PDF».
+- Не злоупотреблять библиотеками, пакетами, скриншотами, повторными переписываниями кода и контента. Вноси целевые изменения.
+
+## Финал этапа
+После теста сделать commit и push при наличии прав, обновить docs/PROJECT_STATE.md и коротко дать: что изменено; где открыть/посмотреть; какие проблемы остались; ссылки на конкретные изменённые файлы/коммит; что надо утвердить; готовый текст для нового чата. Не утверждать, что push/preview/тест удался, без реального подтверждения.
