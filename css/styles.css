@@ -472,6 +472,7 @@ body.no-scroll { overflow: hidden; }
 
 /* ---------- Mobile-only elements (hidden on desktop) ---------- */
 .svc__pic { display: none; }
+.hero__lines--m { display: none; }
 .drawer { display: none; }
 
 /* =================== MOBILE (stage 03): 768 / 390 / 360 =================== */
@@ -486,14 +487,14 @@ body.no-scroll { overflow: hidden; }
   .lead { margin-top: 14px; font-size: 17px; }
 
   /* Section CTAs: compact, one line, one height; full width only in the form, drawer and footer */
-  main .btn { width: auto; max-width: 100%; min-height: 52px; padding: 8px 24px; font-size: 15.5px; white-space: nowrap; }
+  main .btn { width: 100%; min-height: 56px; padding: 8px 16px; font-size: 16px; white-space: nowrap; }
   main .btn--block, .footer .btn, .drawer .btn { width: 100%; min-height: 56px; padding: 8px 20px; font-size: 16px; white-space: normal; }
 
   /* Section CTA moves from the heading to the end of its block: first the content, then the ask */
   #security > .wrap, #solutions > .wrap, #services > .wrap, #engineering > .wrap, .process { display: flex; flex-direction: column; }
   #security .head, #solutions .head, #services .head, #engineering .head, .process__head { display: contents; }
   #security .head__text, #solutions .head__text, #services .head__text, #engineering .head__text { margin-bottom: 36px; }
-  #security .head > .btn, #solutions .head > .btn, #services .head > .btn, #engineering .head > .btn, .process__head > .btn { order: 99; align-self: flex-start; margin-top: 40px; }
+  #security .head > .btn, #solutions .head > .btn, #services .head > .btn, #engineering .head > .btn, .process__head > .btn { order: 99; align-self: stretch; margin-top: 40px; }
 
   /* Header: logo | compact action + burger */
   .header__in { grid-template-columns: auto minmax(0, 1fr); gap: 12px; }
@@ -528,13 +529,16 @@ body.no-scroll { overflow: hidden; }
   /* 01 Hero: as on desktop — one scene, the render sits low and right behind the text, nothing cropped */
   .hero { --sw: 132vw; display: block; min-height: 0; }
   .hero::before { background: linear-gradient(180deg, rgba(15,21,29,.35) 0, rgba(15,21,29,0) 40%); }
-  .hero__in { padding-top: calc(var(--hdr) + 40px); padding-bottom: calc(var(--sw) * .5628 * .8); }
+  .hero__in { padding-top: calc(var(--hdr) + 40px); padding-bottom: calc(var(--sw) * .5628 * .94); }
   .hero__title { font-size: 52px; max-width: 11ch; }
   .hero__lead { margin-top: 20px; font-size: 18px; max-width: 40ch; }
-  .hero__cta { flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+  .hero__cta { flex-direction: column; gap: 12px; margin-top: 32px; }
   .hero__scene { right: 0; bottom: 0; width: var(--sw); height: auto; transform: none !important; will-change: auto; }
   .hero__scene img { height: auto; }
-  .hero__lines, .hero__dot, .hero__tag { display: none; }
+  /* Callouts stay on mobile: building, container modules, underground level */
+  .hero__lines polyline:nth-child(2), .hero__dot:nth-of-type(2), .hero__tag:nth-of-type(2) { display: block; }
+  .hero__tag { font-size: 12px; padding: 7px 9px; }
+  .hero__lines--m { display: none; }
 
   /* Shared heads: title, lead, then a full-width CTA */
   .head { flex-direction: column; align-items: stretch; gap: 28px; margin-bottom: 36px; }
@@ -617,7 +621,7 @@ body.no-scroll { overflow: hidden; }
   .doc__img { grid-row: 1 / span 4; aspect-ratio: 4 / 4.6; }
   .doc__meta { margin-top: 0; }
   .doc > p:not(.doc__meta) { max-width: none; margin-bottom: 20px; }
-  .doc .btn { min-height: 52px; justify-self: start; align-self: start; }
+  .doc .btn { min-height: 56px; }
 
   /* 09 FAQ */
   .faq { grid-template-columns: minmax(0, 1fr); gap: 32px; }
@@ -655,9 +659,14 @@ body.no-scroll { overflow: hidden; }
   .h2 { font-size: 30px; line-height: 1.12; letter-spacing: -.022em; }
   .h2--xl { font-size: 34px; }
   .lead { font-size: 16px; }
-  .hero { --sw: 190vw; }
+  .hero { --sw: 180vw; }
+  /* Phones: tags sit left of the cut, aligned on one edge, lines go to the dots */
+  .hero__lines { display: none; }
+  .hero__lines--m { display: block; }
+  .hero__tag { font-size: 11.5px; padding: 6px 8px; }
+  .hero__tag:nth-of-type(2) { left: 68.2% !important; top: 75% !important; }
+  .hero__tag:nth-of-type(3) { left: 68.2% !important; top: 91% !important; }
   .hero__in { padding-top: calc(var(--hdr) + 28px); }
-  .hero__cta .btn { flex: 1 1 0; min-width: max-content; padding: 8px 12px; font-size: 15px; }
   .hero__title { font-size: 40px; line-height: 1.04; }
   .hero__lead { margin-top: 16px; font-size: 16.5px; }
   .hero__cta { margin-top: 28px; }
@@ -714,7 +723,8 @@ body.no-scroll { overflow: hidden; }
 @media (max-width: 380px) {
   :root { --gut: 20px; }
   .hero__title { font-size: 36px; }
-  main .btn { padding: 8px 18px; font-size: 14.5px; }
+  .hero__tag { font-size: 11px; padding: 5px 7px; letter-spacing: -.01em; }
+  main .btn { padding: 8px 12px; font-size: 15px; }
   .h2 { font-size: 28px; }
   .h2--xl, .faq__title, .band__title { font-size: 28px; }
   .figs dd { font-size: 31px; }
