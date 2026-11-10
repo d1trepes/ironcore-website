@@ -485,8 +485,15 @@ body.no-scroll { overflow: hidden; }
   .h2--xl { font-size: 44px; max-width: 16ch; }
   .lead { margin-top: 14px; font-size: 17px; }
 
-  /* All CTAs: full width of the grid, one height */
-  main .btn, .footer .btn, .drawer .btn { width: 100%; min-height: 56px; padding: 8px 20px; font-size: 16px; }
+  /* Section CTAs: compact, one line, one height; full width only in the form, drawer and footer */
+  main .btn { width: auto; max-width: 100%; min-height: 52px; padding: 8px 24px; font-size: 15.5px; white-space: nowrap; }
+  main .btn--block, .footer .btn, .drawer .btn { width: 100%; min-height: 56px; padding: 8px 20px; font-size: 16px; white-space: normal; }
+
+  /* Section CTA moves from the heading to the end of its block: first the content, then the ask */
+  #security > .wrap, #solutions > .wrap, #services > .wrap, #engineering > .wrap, .process { display: flex; flex-direction: column; }
+  #security .head, #solutions .head, #services .head, #engineering .head, .process__head { display: contents; }
+  #security .head__text, #solutions .head__text, #services .head__text, #engineering .head__text { margin-bottom: 36px; }
+  #security .head > .btn, #solutions .head > .btn, #services .head > .btn, #engineering .head > .btn, .process__head > .btn { order: 99; align-self: flex-start; margin-top: 40px; }
 
   /* Header: logo | compact action + burger */
   .header__in { grid-template-columns: auto minmax(0, 1fr); gap: 12px; }
@@ -518,15 +525,15 @@ body.no-scroll { overflow: hidden; }
   .drawer__end { margin-top: auto; padding-top: 24px; }
   .drawer__phone { display: flex; align-items: center; min-height: 48px; margin-bottom: 12px; font-size: 22px; font-weight: 600; text-decoration: none; color: var(--on); }
 
-  /* 01 Hero: text and CTAs on top, the full render below */
-  .hero { flex-direction: column; align-items: stretch; min-height: 0; }
-  .hero::before { display: none; }
-  .hero__in { order: 1; padding-top: calc(var(--hdr) + 40px); padding-bottom: 32px; }
+  /* 01 Hero: as on desktop — one scene, the render sits low and right behind the text, nothing cropped */
+  .hero { --sw: 132vw; display: block; min-height: 0; }
+  .hero::before { background: linear-gradient(180deg, rgba(15,21,29,.35) 0, rgba(15,21,29,0) 40%); }
+  .hero__in { padding-top: calc(var(--hdr) + 40px); padding-bottom: calc(var(--sw) * .5628 * .8); }
   .hero__title { font-size: 52px; max-width: 11ch; }
   .hero__lead { margin-top: 20px; font-size: 18px; max-width: 40ch; }
-  .hero__cta { flex-direction: column; gap: 12px; margin-top: 32px; }
-  .hero__scene { position: relative; order: 2; right: auto; width: 100%; height: auto; transform: none !important; will-change: auto; }
-  .hero__scene img { height: auto; -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 12%); mask-image: linear-gradient(180deg, transparent 0, #000 12%); }
+  .hero__cta { flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+  .hero__scene { right: 0; bottom: 0; width: var(--sw); height: auto; transform: none !important; will-change: auto; }
+  .hero__scene img { height: auto; }
   .hero__lines, .hero__dot, .hero__tag { display: none; }
 
   /* Shared heads: title, lead, then a full-width CTA */
@@ -571,7 +578,8 @@ body.no-scroll { overflow: hidden; }
   .svc__panel p { max-width: none; }
 
   /* 05 Process: vertical line, result under the step text */
-  .process { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .process { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .process__head .lead { margin-bottom: 36px; }
   .process__head { position: static; }
   .process__head .btn { margin-top: 28px; }
   .step { grid-template-columns: 44px minmax(0, 1fr); gap: 4px 18px; padding: 22px 0; }
@@ -609,7 +617,7 @@ body.no-scroll { overflow: hidden; }
   .doc__img { grid-row: 1 / span 4; aspect-ratio: 4 / 4.6; }
   .doc__meta { margin-top: 0; }
   .doc > p:not(.doc__meta) { max-width: none; margin-bottom: 20px; }
-  .doc .btn { min-height: 56px; }
+  .doc .btn { min-height: 52px; justify-self: start; align-self: start; }
 
   /* 09 FAQ */
   .faq { grid-template-columns: minmax(0, 1fr); gap: 32px; }
@@ -647,7 +655,9 @@ body.no-scroll { overflow: hidden; }
   .h2 { font-size: 30px; line-height: 1.12; letter-spacing: -.022em; }
   .h2--xl { font-size: 34px; }
   .lead { font-size: 16px; }
-  .hero__in { padding-top: calc(var(--hdr) + 28px); padding-bottom: 24px; }
+  .hero { --sw: 190vw; }
+  .hero__in { padding-top: calc(var(--hdr) + 28px); }
+  .hero__cta .btn { flex: 1 1 0; min-width: max-content; padding: 8px 12px; font-size: 15px; }
   .hero__title { font-size: 40px; line-height: 1.04; }
   .hero__lead { margin-top: 16px; font-size: 16.5px; }
   .hero__cta { margin-top: 28px; }
@@ -704,6 +714,7 @@ body.no-scroll { overflow: hidden; }
 @media (max-width: 380px) {
   :root { --gut: 20px; }
   .hero__title { font-size: 36px; }
+  main .btn { padding: 8px 18px; font-size: 14.5px; }
   .h2 { font-size: 28px; }
   .h2--xl, .faq__title, .band__title { font-size: 28px; }
   .figs dd { font-size: 31px; }

@@ -93,7 +93,7 @@
   if (!reduce && 'IntersectionObserver' in window) {
     var revIO = new IntersectionObserver(function (es) {
       es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.remove('is-pending'); revIO.unobserve(en.target); } });
-    }, { rootMargin: '0px 0px -12% 0px' });
+    }, { rootMargin: '0px 0px 0px 0px' });
     reveals.forEach(function (el) {
       if (el.getBoundingClientRect().top > window.innerHeight) { el.classList.add('is-pending'); revIO.observe(el); }
     });
@@ -108,6 +108,31 @@
     }, { rootMargin: '0px 0px -20% 0px' });
     io.observe(el);
   });
+
+  /* ---- Fast images: once the first screen is in, fetch every other picture in the background,
+     a few at a time, at the size this screen needs. Scrolling then never waits for the network.
+     The variant that is hidden at this width (service photos differ on desktop and mobile) is skipped. */
+  function loadAllImages() {
+    var queue = $$('img[loading="lazy"]').filter(function (im) {
+      var box = im.closest('.svc__media, .svc__pic');
+      return !(box && getComputedStyle(box).display === 'none');
+    });
+    var active = 0;
+    function next() {
+      while (active < 4 && queue.length) {
+        var im = queue.shift();
+        if (im.complete && im.naturalWidth) continue;
+        active++;
+        var done = function () { active--; next(); };
+        im.addEventListener('load', done, { once: true });
+        im.addEventListener('error', done, { once: true });
+        im.loading = 'eager';
+      }
+    }
+    next();
+  }
+  if (document.readyState === 'complete') setTimeout(loadAllImages, 0);
+  else window.addEventListener('load', function () { setTimeout(loadAllImages, 0); });
 
   /* ---- Warm up images inside tabs before the visitor reaches them ---- */
   if ('IntersectionObserver' in window) {
