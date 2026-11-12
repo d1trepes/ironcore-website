@@ -742,3 +742,15 @@ body.no-scroll { overflow: hidden; }
   .reveal.is-pending img { clip-path: none; transform: none; }
   [data-lines].is-pending span { opacity: 1; transform: none; }
 }
+
+/* ---------- Form states used by the WordPress theme ---------- */
+.form__status.is-ok { background: #E7F3EA; border-left-color: #1E7B45; }
+.contact .form__status.is-ok { background: rgba(90,190,120,.12); border-left-color: #5ABE78; }
+.form [type="submit"][disabled] { opacity: .6; cursor: progress; }
+.form__hp { position: absolute !important; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.consent { position: relative; display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: flex-start; margin: 0 0 18px; font-size: 13.5px; line-height: 1.45; color: var(--ink-2); }
+.consent input { flex: none; width: 18px; height: 18px; margin: 1px 0 0; accent-color: var(--red); }
+.consent label { flex: 1; min-width: 0; cursor: pointer; }
+.consent a { color: inherit; }
+.consent .field__err { flex-basis: 100%; margin: 0 0 0 28px; }
+.contact .consent { color: var(--on-2); }

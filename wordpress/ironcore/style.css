@@ -1,0 +1,14 @@
+/*
+Theme Name: IronCore
+Theme URI: https://github.com/d1trepes/ironcore-website
+Author: IronCore
+Description: Одностраничная тема сайта IronCore (проектирование ЦОД). Перенос утверждённой HTML-версии 1:1: 11 разделов, вкладки, аккордеоны, модальная форма. Форма отправляет заявки через admin-ajax: сохраняет их в админке («Заявки»), шлёт письмо и, при настройке, сообщение в Telegram. Основные стили лежат в assets/css/styles.css.
+Version: 1.0.0
+Requires at least: 6.3
+Tested up to: 7.2
+Requires PHP: 7.4
+License: Proprietary (код темы); шрифт Onest — SIL OFL 1.1 (assets/fonts/OFL-LICENSE.txt)
+Text Domain: ironcore
+*/
+
+/* Этот файл нужен WordPress только для заголовка темы. Стили подключаются из functions.php. */

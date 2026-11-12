@@ -1,6 +1,11 @@
-/* IRONCORE demo v2 — vanilla, no dependencies. */
+/* IRONCORE — vanilla, no dependencies. Same file runs the static demo and the WordPress theme. */
 (function () {
   'use strict';
+  /* window.IRONCORE is printed by the WordPress theme (ajaxUrl, nonce, phone, file limits).
+     Without it (static demo / GitHub Pages) the form stays in honest demo mode. */
+  var CFG = window.IRONCORE || null;
+  var PHONE = (CFG && CFG.phone) || '8 (928) 416-09-38';
+  var PHONE_HREF = (CFG && CFG.phoneHref) || 'tel:+79284160938';
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
@@ -262,7 +267,7 @@
     return form;
   }
   function wire(form) {
-    var name = form.elements.name, phone = form.elements.phone, files = form.elements.files;
+    var name = form.elements.name, phone = form.elements.phone, files = form.elements.files || form.elements['files[]'];
     var status = $('.form__status', form), list = $('.file__list', form), hint = list.textContent;
     function err(input, show) {
       var e = $('.field__err', input.parentNode);
@@ -271,11 +276,15 @@
       if (show) input.setAttribute('aria-describedby', e.id); else input.removeAttribute('aria-describedby');
       e.hidden = !show;
     }
+    var consent = form.elements.consent, born = Date.now(); // consent exists only when WordPress has a privacy policy page
     function check() {
       var okN = name.value.trim().length > 0, okP = phone.value.replace(/\D/g, '').length >= 10;
+      var okC = !consent || consent.checked;
       err(name, !okN); err(phone, !okP);
-      return !okN ? name : (!okP ? phone : null);
+      if (consent) err(consent, !okC);
+      return !okN ? name : (!okP ? phone : (!okC ? consent : null));
     }
+    if (consent) consent.addEventListener('change', function () { if (consent.getAttribute('aria-invalid') === 'true') check(); });
     [name, phone].forEach(function (el) { el.addEventListener('input', function () { if (el.getAttribute('aria-invalid') === 'true') check(); status.hidden = true; }); });
     var comment = form.elements.comment;
     $$('.chip', form).forEach(function (chip) {
@@ -297,12 +306,56 @@
     files.addEventListener('change', function () {
       list.textContent = files.files.length ? Array.prototype.map.call(files.files, function (f) { return f.name; }).join(', ') : hint;
     });
+    var btn = $('[type="submit"]', form), btnText = btn.textContent;
+    function say(html, ok) {
+      status.innerHTML = html;
+      status.classList.toggle('is-ok', !!ok);
+      status.hidden = false;
+    }
+    function callUs() { return 'Позвоните, чтобы обсудить проект: <a href="' + PHONE_HREF + '">' + PHONE + '</a>.'; }
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var bad = check();
       if (bad) { bad.focus(); status.hidden = true; return; }
-      status.innerHTML = 'Демо-режим: заявка <b>не отправлена</b>, форма ещё не подключена. Позвоните, чтобы обсудить проект: <a href="tel:+79284160938">8 (928) 416-09-38</a>.';
-      status.hidden = false;
+      /* Static demo (no WordPress): be honest, nothing is sent. */
+      if (!CFG || !CFG.ajaxUrl) {
+        say('Демо-режим: заявка <b>не отправлена</b>, форма ещё не подключена. ' + callUs());
+        return;
+      }
+      /* WordPress: check files before upload, then post to admin-ajax. */
+      var fl = files.files, maxN = CFG.maxFiles || 5, maxB = (CFG.maxFileMb || 10) * 1048576, total = 0;
+      if (fl.length > maxN) { say('Можно прикрепить не больше ' + maxN + ' файлов.'); return; }
+      for (var i = 0; i < fl.length; i++) {
+        total += fl[i].size;
+        if (fl[i].size > maxB) { say('Файл «' + fl[i].name + '» больше ' + (CFG.maxFileMb || 10) + ' МБ.'); return; }
+      }
+      if (form.getAttribute('data-busy')) return;
+      form.setAttribute('data-busy', '1');
+      btn.disabled = true; btn.textContent = 'Отправляем…';
+      status.hidden = true;
+      var fd = new FormData(form);
+      fd.append('action', 'ironcore_lead');
+      fd.append('nonce', CFG.nonce);
+      fd.append('page_url', location.href);
+      fd.append('elapsed', String(Date.now() - born));
+      function done() { form.removeAttribute('data-busy'); btn.disabled = false; btn.textContent = btnText; }
+      fetch(CFG.ajaxUrl, { method: 'POST', body: fd, credentials: 'same-origin' })
+        .then(function (r) { return r.json().catch(function () { return null; }); })
+        .then(function (res) {
+          done();
+          if (res && res.success) {
+            form.reset();
+            born = Date.now();
+            list.textContent = hint;
+            $$('.chip', form).forEach(function (c) { c.setAttribute('aria-pressed', 'false'); });
+            say((res.data && res.data.message) || 'Заявка отправлена. Мы свяжемся с вами.', true);
+          } else {
+            say(((res && res.data && res.data.message) || 'Не удалось отправить заявку.') + ' ' + callUs());
+          }
+        }, function () {
+          done();
+          say('Нет связи с сервером, заявка не отправлена. ' + callUs());
+        });
     });
   }
   $$('[data-form-host="inline"]').forEach(function (h) { mount(h, '-c').elements.source.value = 'Форма в разделе «Контакты»'; });
