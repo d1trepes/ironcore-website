@@ -101,3 +101,33 @@ def write_prompts(ready, total):
 
 if __name__ == "__main__":
     build()
+
+
+ASPECT = {"16:9": "Landscape 16:9", "4:3": "Landscape 4:3", "3:2": "Landscape 3:2", "4:5": "Portrait 4:5",
+          "21:9": "Landscape 16:9"}
+
+
+def full_prompt(s, v):
+    from slots import STYLE
+    r = s["ratio"].split()[0].rstrip(",")
+    size = "at least 2560 px wide" if s["id"] in ("hero", "security", "band") else "at least 1920 px wide"
+    return f"{v['prompt'].strip()}\n\n{STYLE}\n\nFormat: {ASPECT.get(r, 'Landscape 3:2')}, high resolution, {size}."
+
+
+def write_wave(letter):
+    L = [f"# IRONCORE — промпты, вариант {letter.upper()} ({len(SLOTS)} шт.)\n",
+         "Каждый промпт копировать целиком — стиль и формат уже внутри. "
+         f"Готовую картинку назвать как в заголовке (например `{SLOTS[0]['id']}-{letter}.png`) и прислать в чат.\n",
+         "⚠ №1 и №2 — **приложить текущую картинку** и попросить отредактировать: на них привязаны выноски и точки.\n"]
+    for i, s in enumerate(SLOTS, 1):
+        v = next(x for x in s["variants"] if x["id"] == letter)
+        L.append(f"## {i}. `{s['id']}-{letter}` — {s['title']} · {v['label']}\n")
+        if s.get("warn"):
+            L.append(f"📎 Приложить: `{s['base']}.webp`\n")
+        L.append(f"```\n{full_prompt(s, v)}\n```\n")
+    with open(os.path.join(ROOT, "docs", f"image-prompts-{letter}.md"), "w", encoding="utf-8") as f:
+        f.write("\n".join(L))
+
+
+if __name__ == "__main__":
+    write_wave("b"); write_wave("c")
