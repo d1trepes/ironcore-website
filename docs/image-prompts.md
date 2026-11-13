@@ -5,7 +5,7 @@
 ## Зачем
 Сейчас все 21 картинка из одной серии: сумерки, степь, графитовый бетон, одно и то же небо. Для подбора на каждое место есть 2 новых варианта (B, C), они отличаются от текущего (A) временем суток, сезоном, материалами фасада и типом кадра: снаружи, внутри, деталь, стройка, документы. Цвет даём материалами (светлый бетон, кортен, терракота, кирпич, белые модули) и цветовой маркировкой инженерии (трубы, кабели, ДГУ). Красный (#E60028) — только точечно, как в логотипе.
 
-Готово новых вариантов: **19 из 46**.
+Готово новых вариантов: **22 из 46**.
 
 ## Как генерировать
 1. В начало каждого промпта (или в системную инструкцию генератора) добавить общий стиль:
@@ -391,7 +391,7 @@ Close abstract view of a dark graphite metal facade with fine vertical ribs and 
 - Кадр: 4:5
 - A (сейчас): Текущий: буклет на тёмном столе — `assets/images/materials/doc-concept.webp`
 
-**doc-concept-b** · Буклет на светлом столе, день · _ждёт генерации_
+**doc-concept-b** · Буклет на светлом столе, день · _✅ готов_
 
 ```
 A printed A4 concept booklet lying open on a light oak desk in daylight: the left page shows a daytime aerial render of a data center, the right page a site plan with coloured zones. Product / still-life photography of printed engineering documents. All drawings are abstract line work; any text must be unreadable tiny grey lines, no real words, no logos.
@@ -408,7 +408,7 @@ Three bound A4 concept booklets fanned on a light concrete surface, covers in ru
 - Кадр: 4:5
 - A (сейчас): Текущий: альбом чертежей — `assets/images/materials/doc-composition.webp`
 
-**doc-composition-b** · Комплект: альбомы, схемы, папки · _ждёт генерации_
+**doc-composition-b** · Комплект: альбомы, схемы, папки · _✅ готов_
 
 ```
 Flat lay of a complete set of concept materials: drawing album, folded schematics, a binder with coloured tabs, a USB drive, on a light grey surface, daylight. Product / still-life photography of printed engineering documents. All drawings are abstract line work; any text must be unreadable tiny grey lines, no real words, no logos.
@@ -425,7 +425,7 @@ Several large drawing sheets fanned out on a white table: floor plan, section, s
 - Кадр: 4:5
 - A (сейчас): Текущий: планшет с чек-листом — `assets/images/materials/doc-checklist.webp`
 
-**doc-checklist-b** · Чек-лист на светлом столе · _ждёт генерации_
+**doc-checklist-b** · Чек-лист на светлом столе · _✅ готов_
 
 ```
 A printed checklist on a clipboard on a light desk in daylight, several items ticked with a red pen, a cup of coffee and a pencil nearby. Checklist lines are unreadable grey bars. Product / still-life photography of printed engineering documents. All drawings are abstract line work; any text must be unreadable tiny grey lines, no real words, no logos.
