@@ -72,7 +72,53 @@ window.IC_VARIANTS = [
     "id": "c",
     "label": "Зима, ясный день, красный акцент",
     "base": "demo/variants/hero/c",
-    "ready": false
+    "ready": true,
+    "w": 1672,
+    "h": 941,
+    "layout": {
+     "pos": {
+      ".hero__dot": [
+       [
+        88,
+        45
+       ],
+       [
+        63,
+        60
+       ],
+       [
+        80,
+        85
+       ]
+      ],
+      ".hero__tag": [
+       [
+        88,
+        22
+       ],
+       [
+        61.8,
+        72
+       ],
+       [
+        67,
+        85
+       ]
+      ]
+     },
+     "points": {
+      ".hero__lines:not(.hero__lines--m) polyline": [
+       "880,138 880,253",
+       "630,338 630,405 618,405",
+       "800,479 680,479"
+      ],
+      ".hero__lines--m polyline": [
+       "880,138 880,253",
+       "630,338 630,404",
+       "800,479 800,512 682,512"
+      ]
+     }
+    }
    }
   ]
  },
@@ -134,7 +180,39 @@ window.IC_VARIANTS = [
     "id": "c",
     "label": "Ночь, тёплый свет, мокрый асфальт",
     "base": "demo/variants/security/c",
-    "ready": false
+    "ready": true,
+    "w": 1672,
+    "h": 941,
+    "layout": {
+     "pos": {
+      ".atlas .pin": [
+       [
+        13,
+        48
+       ],
+       [
+        45,
+        33
+       ],
+       [
+        10,
+        25
+       ],
+       [
+        88,
+        46
+       ],
+       [
+        66,
+        77
+       ],
+       [
+        85,
+        75
+       ]
+      ]
+     }
+    }
    }
   ]
  },
@@ -166,7 +244,9 @@ window.IC_VARIANTS = [
     "id": "c",
     "label": "Осень, кирпич и кортен, промзона",
     "base": "demo/variants/scale-compact/c",
-    "ready": false
+    "ready": true,
+    "w": 1448,
+    "h": 1086
    }
   ]
  },
@@ -198,7 +278,9 @@ window.IC_VARIANTS = [
     "id": "c",
     "label": "Синий час, тёплые окна, после дождя",
     "base": "demo/variants/scale-medium/c",
-    "ready": false
+    "ready": true,
+    "w": 1448,
+    "h": 1086
    }
   ]
  },
@@ -230,7 +312,9 @@ window.IC_VARIANTS = [
     "id": "c",
     "label": "Кампус зимой, снег",
     "base": "demo/variants/scale-campus/c",
-    "ready": false
+    "ready": true,
+    "w": 1448,
+    "h": 1086
    }
   ]
  },
@@ -262,7 +346,9 @@ window.IC_VARIANTS = [
     "id": "c",
     "label": "Закат, красный козырёк",
     "base": "demo/variants/format-classic/c",
-    "ready": false
+    "ready": true,
+    "w": 1448,
+    "h": 1086
    }
   ]
  },
@@ -294,7 +380,9 @@ window.IC_VARIANTS = [
     "id": "c",
     "label": "Белые модули, яркий день",
     "base": "demo/variants/format-modular/c",
-    "ready": false
+    "ready": true,
+    "w": 1448,
+    "h": 1086
    }
   ]
  },
@@ -326,7 +414,9 @@ window.IC_VARIANTS = [
     "id": "c",
     "label": "Контейнеры у промплощадки, день",
     "base": "demo/variants/format-container/c",
-    "ready": false
+    "ready": true,
+    "w": 1448,
+    "h": 1086
    }
   ]
  },
@@ -358,7 +448,9 @@ window.IC_VARIANTS = [
     "id": "c",
     "label": "Заглублённый зал изнутри",
     "base": "demo/variants/format-underground/c",
-    "ready": false
+    "ready": true,
+    "w": 1448,
+    "h": 1086
    }
   ]
  },
@@ -391,7 +483,9 @@ window.IC_VARIANTS = [
     "id": "c",
     "label": "Обсуждение вариантов у стола",
     "base": "demo/variants/svc-concept/c",
-    "ready": false
+    "ready": true,
+    "w": 1536,
+    "h": 1024
    }
   ]
  },
@@ -424,7 +518,9 @@ window.IC_VARIANTS = [
     "id": "c",
     "label": "Деталь конструктива: колонны и плиты",
     "base": "demo/variants/svc-architecture/c",
-    "ready": false
+    "ready": true,
+    "w": 1536,
+    "h": 1024
    }
   ]
  },
@@ -457,7 +553,9 @@ window.IC_VARIANTS = [
     "id": "c",
     "label": "Фальшпол поднят, видны коммуникации",
     "base": "demo/variants/svc-infra/c",
-    "ready": false
+    "ready": true,
+    "w": 1536,
+    "h": 1024
    }
   ]
  },
@@ -490,7 +588,9 @@ window.IC_VARIANTS = [
     "id": "c",
     "label": "Периметр: забор, камеры, снег",
     "base": "demo/variants/svc-security/c",
-    "ready": false
+    "ready": true,
+    "w": 1536,
+    "h": 1024
    }
   ]
  },
@@ -523,7 +623,9 @@ window.IC_VARIANTS = [
     "id": "c",
     "label": "Модуль внутри: стойки и охлаждение",
     "base": "demo/variants/svc-modular/c",
-    "ready": false
+    "ready": true,
+    "w": 1536,
+    "h": 1024
    }
   ]
  },
@@ -556,7 +658,9 @@ window.IC_VARIANTS = [
     "id": "c",
     "label": "Папки проекта и планшет",
     "base": "demo/variants/svc-analysis/c",
-    "ready": false
+    "ready": true,
+    "w": 1536,
+    "h": 1024
    }
   ]
  },
@@ -588,7 +692,9 @@ window.IC_VARIANTS = [
     "id": "c",
     "label": "Зал дизель-генераторов",
     "base": "demo/variants/eng-power/c",
-    "ready": false
+    "ready": true,
+    "w": 1536,
+    "h": 1024
    }
   ]
  },
@@ -620,7 +726,9 @@ window.IC_VARIANTS = [
     "id": "c",
     "label": "Жидкостное охлаждение стоек",
     "base": "demo/variants/eng-cooling/c",
-    "ready": false
+    "ready": true,
+    "w": 1536,
+    "h": 1024
    }
   ]
  },
@@ -652,7 +760,9 @@ window.IC_VARIANTS = [
     "id": "c",
     "label": "Четыре ДГУ днём, светлые",
     "base": "demo/variants/eng-redundancy/c",
-    "ready": false
+    "ready": true,
+    "w": 1536,
+    "h": 1024
    }
   ]
  },
@@ -684,7 +794,9 @@ window.IC_VARIANTS = [
     "id": "c",
     "label": "Свободное охлаждение на улице, день",
     "base": "demo/variants/eng-efficiency/c",
-    "ready": false
+    "ready": true,
+    "w": 1536,
+    "h": 1024
    }
   ]
  },
@@ -715,7 +827,9 @@ window.IC_VARIANTS = [
     "id": "c",
     "label": "Фасад крупно, графит + красная линия",
     "base": "demo/variants/band/c",
-    "ready": false
+    "ready": true,
+    "w": 1672,
+    "h": 941
    }
   ]
  },
@@ -747,7 +861,9 @@ window.IC_VARIANTS = [
     "id": "c",
     "label": "Стопка буклетов, кортен-обложка",
     "base": "demo/variants/doc-concept/c",
-    "ready": false
+    "ready": true,
+    "w": 1122,
+    "h": 1402
    }
   ]
  },
@@ -779,7 +895,9 @@ window.IC_VARIANTS = [
     "id": "c",
     "label": "Разложенные листы чертежей",
     "base": "demo/variants/doc-composition/c",
-    "ready": false
+    "ready": true,
+    "w": 1122,
+    "h": 1402
    }
   ]
  },
@@ -811,7 +929,9 @@ window.IC_VARIANTS = [
     "id": "c",
     "label": "Блокнот и техзадание",
     "base": "demo/variants/doc-checklist/c",
-    "ready": false
+    "ready": true,
+    "w": 1122,
+    "h": 1402
    }
   ]
  }
