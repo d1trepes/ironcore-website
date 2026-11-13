@@ -1,0 +1,232 @@
+/* IRONCORE — подбор изображений. Только для демо (GitHub Pages), в WordPress-тему не входит.
+   Данные: demo/variants.js (генерируется demo/tools/build.py).
+   URL: ?img=hero.b,eng-cooling.c — выбор; ?pick — открыть панель; ?clean — скрыть кнопку. */
+(function () {
+  'use strict';
+  var SLOTS = window.IC_VARIANTS || [];
+  if (!SLOTS.length) return;
+  var LS = 'ic-img-pick-v1';
+  var params = new URLSearchParams(location.search);
+  var state = {};
+
+  function qsa(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+  function el(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function variant(slot, id) { return slot.variants.filter(function (v) { return v.id === id; })[0]; }
+  function letter(id) { return id.toUpperCase(); }
+
+  // Находим картинки каждого места ДО любых подмен (по исходному src).
+  SLOTS.forEach(function (s) {
+    s.els = qsa(s.sel).filter(function (im) { return !s.key || (im.getAttribute('src') || '').indexOf(s.key) > -1; });
+  });
+
+  function srcset(v) {
+    return v.base + '-640w.webp 640w, ' + v.base + '-1024w.webp 1024w, ' + v.base + '.webp ' + (v.w || 1920) + 'w';
+  }
+
+  function apply(s, id, quiet) {
+    var v = variant(s, id);
+    if (!v || !v.ready) return;
+    s.els.forEach(function (im) {
+      im.srcset = srcset(v);
+      im.src = v.base + '-1024w.webp';
+      if (v.w) { im.width = v.w; im.height = v.h; }
+    });
+    if (id === 'a') delete state[s.id]; else state[s.id] = id;
+    if (!quiet) save();
+    renderSlot(s);
+  }
+
+  function save() {
+    try { localStorage.setItem(LS, JSON.stringify(state)); } catch (e) { /* приватный режим */ }
+    updateBadge();
+  }
+
+  function load() {
+    var saved = {};
+    try { saved = JSON.parse(localStorage.getItem(LS) || '{}') || {}; } catch (e) { saved = {}; }
+    var fromUrl = params.get('img');
+    if (fromUrl) {
+      saved = {};
+      fromUrl.split(',').forEach(function (p) { var kv = p.split('.'); if (kv[0] && kv[1]) saved[kv[0]] = kv[1]; });
+    }
+    SLOTS.forEach(function (s) { if (saved[s.id]) apply(s, saved[s.id], true); });
+    save();
+  }
+
+  function visibleEl(s) {
+    return s.els.filter(function (im) { return im.getClientRects().length; })[0] || s.els[0];
+  }
+
+  function show(s) {
+    if (s.activate) {
+      var b = document.querySelector(s.activate);
+      if (b && b.getAttribute('aria-selected') !== 'true' && b.getAttribute('aria-expanded') !== 'true') b.click();
+    }
+    setTimeout(function () {
+      var im = visibleEl(s);
+      if (!im) return;
+      var box = im.parentElement;
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      box.scrollIntoView({ block: 'center', behavior: reduce ? 'auto' : 'smooth' });
+      box.classList.remove('icp-flash'); void box.offsetWidth; box.classList.add('icp-flash');
+      setTimeout(function () { box.classList.remove('icp-flash'); }, 1600);
+    }, 60);
+  }
+
+  // ---------- UI ----------
+  var css = '' +
+    '.icp-fab{position:fixed;left:20px;bottom:20px;z-index:9998;display:flex;align-items:center;gap:10px;height:44px;padding:0 16px 0 14px;border:1px solid rgba(255,255,255,.16);background:#0E1521;color:#E8ECF2;font:500 14px/1 inherit;font-family:inherit;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.35)}' +
+    '.icp-fab:hover{border-color:rgba(255,255,255,.4)}.icp-fab:focus-visible,.icp button:focus-visible{outline:2px solid #E60028;outline-offset:2px}' +
+    '.icp-fab svg{width:18px;height:18px}.icp-fab b{min-width:20px;height:20px;padding:0 6px;border-radius:10px;background:#E60028;color:#fff;font-size:12px;line-height:20px;text-align:center}' +
+    '.icp{position:fixed;top:0;right:0;bottom:0;z-index:9999;width:400px;max-width:100vw;display:flex;flex-direction:column;background:#0E1521;color:#E8ECF2;font-family:inherit;box-shadow:-12px 0 40px rgba(0,0,0,.4);transform:translateX(102%);transition:transform .3s ease;visibility:hidden}' +
+    '.icp.is-open{transform:none;visibility:visible}' +
+    '.icp__head{padding:22px 24px 16px;border-bottom:1px solid rgba(255,255,255,.1)}.icp__head h2{margin:0 0 6px;font-size:18px;font-weight:600}' +
+    '.icp__head p{margin:0;color:#8F9BAD;font-size:13px;line-height:1.45}.icp__x{position:absolute;top:14px;right:14px;width:40px;height:40px;border:0;background:none;color:#E8ECF2;font-size:24px;cursor:pointer}' +
+    '.icp__body{flex:1;overflow:auto;padding:4px 24px 24px;overscroll-behavior:contain}' +
+    '.icp__sec{margin:22px 0 4px;color:#8F9BAD;font-size:11px;letter-spacing:.08em;text-transform:uppercase}' +
+    '.icp-s{padding:12px 0 14px;border-bottom:1px solid rgba(255,255,255,.07)}' +
+    '.icp-s__t{display:flex;justify-content:space-between;align-items:baseline;gap:8px;width:100%;padding:0;border:0;background:none;color:inherit;font:inherit;font-size:14px;font-weight:500;text-align:left;cursor:pointer}' +
+    '.icp-s__t span{color:#8F9BAD;font-size:12px;font-weight:400;white-space:nowrap}.icp-s__t:hover span{color:#E8ECF2}' +
+    '.icp-s__row{display:flex;gap:8px;margin:10px 0 8px}' +
+    '.icp-th{position:relative;flex:0 0 auto;width:96px;height:64px;padding:0;border:1px solid rgba(255,255,255,.14);background:#1A2333;cursor:pointer;overflow:hidden}' +
+    '.icp-th img{width:100%;height:100%;object-fit:cover;display:block}' +
+    '.icp-th i{position:absolute;left:4px;top:4px;min-width:20px;height:20px;padding:0 5px;background:rgba(14,21,33,.85);color:#fff;font:600 12px/20px inherit;font-family:inherit;font-style:normal;text-align:center}' +
+    '.icp-th[aria-pressed=true]{border:2px solid #E60028}.icp-th[aria-pressed=true] i{background:#E60028}' +
+    '.icp-th:disabled{cursor:default;border-style:dashed;background:transparent;color:#5E6A7D}' +
+    '.icp-th:disabled em{position:absolute;left:0;right:0;bottom:6px;font-size:10px;font-style:normal;text-align:center}' +
+    '.icp-s__lab{margin:0;color:#B4BECC;font-size:12.5px;line-height:1.4}' +
+    '.icp-s__warn{margin:6px 0 0;color:#8F9BAD;font-size:11.5px;line-height:1.4}' +
+    '.icp__foot{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:16px 24px 20px;border-top:1px solid rgba(255,255,255,.1)}' +
+    '.icp__foot button{height:44px;padding:0 10px;text-align:center;border:1px solid rgba(255,255,255,.2);background:none;color:#E8ECF2;font:inherit;font-size:13.5px;cursor:pointer}' +
+    '.icp__foot button:hover{border-color:rgba(255,255,255,.5)}.icp__foot .icp__main{grid-column:1/-1;background:#E60028;border-color:#E60028;color:#fff;font-weight:500}' +
+    '.icp__msg{grid-column:1/-1;min-height:16px;margin:0;color:#8F9BAD;font-size:12px}' +
+    '.icp-flash{outline:3px solid #E60028!important;outline-offset:-3px;transition:outline-color 1.4s}' +
+    '@media (max-width:600px){.icp{top:auto;height:72vh;width:100vw}.icp-fab{left:12px;bottom:12px}.icp-fab span{display:none}}' +
+    '@media (prefers-reduced-motion:reduce){.icp{transition:none}}';
+  document.head.appendChild(el('style', null, css));
+
+  var ready = 0;
+  SLOTS.forEach(function (s) { s.variants.forEach(function (v) { if (v.ready && v.id !== 'a') ready++; }); });
+
+  var fab = el('button', 'icp-fab',
+    '<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="1.5" y="1.5" width="6" height="6"/><rect x="10.5" y="1.5" width="6" height="6"/><rect x="1.5" y="10.5" width="6" height="6"/><rect x="10.5" y="10.5" width="6" height="6"/></svg>' +
+    '<span>Подбор изображений</span><b hidden></b>');
+  fab.type = 'button';
+  fab.setAttribute('aria-controls', 'icp');
+  fab.setAttribute('aria-expanded', 'false');
+
+  var panel = el('aside', 'icp');
+  panel.id = 'icp';
+  panel.setAttribute('aria-label', 'Подбор изображений');
+  panel.innerHTML =
+    '<div class="icp__head"><h2>Подбор изображений</h2>' +
+    '<p>Демо-режим. Выберите вариант для каждого места — картинка сразу меняется на странице. ' +
+    'A — текущая. Выбор сохраняется в этом браузере; кнопками ниже его можно отправить нам.</p>' +
+    '<button class="icp__x" type="button" aria-label="Закрыть">×</button></div>' +
+    '<div class="icp__body"></div>' +
+    '<div class="icp__foot"><button class="icp__main" type="button" data-act="copy">Скопировать выбор списком</button>' +
+    '<button type="button" data-act="link">Ссылка с выбором</button><button type="button" data-act="reset">Вернуть все A</button>' +
+    '<p class="icp__msg" role="status"></p></div>';
+  var body = panel.querySelector('.icp__body');
+  var msg = panel.querySelector('.icp__msg');
+
+  var lastSec = null;
+  SLOTS.forEach(function (s) {
+    if (s.section !== lastSec) { lastSec = s.section; body.appendChild(el('p', 'icp__sec', esc(s.section))); }
+    s.box = el('div', 'icp-s');
+    body.appendChild(s.box);
+    if (!s.els.length) s.box.hidden = true;
+  });
+
+  function renderSlot(s) {
+    if (!s.box) return;
+    var cur = state[s.id] || 'a';
+    var n = s.variants.filter(function (v) { return v.ready; }).length;
+    var h = '<button class="icp-s__t" type="button" data-show>' + esc(s.title) + '<span>' +
+      (n > 1 ? n + ' вар. · показать ↓' : 'показать ↓') + '</span></button><div class="icp-s__row">';
+    s.variants.forEach(function (v) {
+      if (v.ready) {
+        h += '<button class="icp-th" type="button" data-v="' + v.id + '" aria-pressed="' + (v.id === cur) + '" title="' + esc(letter(v.id) + ' — ' + v.label) + '">' +
+          '<img src="' + v.base + '-640w.webp" alt="" loading="lazy" decoding="async"><i>' + letter(v.id) + '</i></button>';
+      } else {
+        h += '<button class="icp-th" type="button" disabled title="' + esc(letter(v.id) + ' — ' + v.label + ' (в работе)') + '"><i>' + letter(v.id) + '</i><em>в работе</em></button>';
+      }
+    });
+    var cv = variant(s, cur);
+    h += '</div><p class="icp-s__lab">' + letter(cur) + ' — ' + esc(cv.label) + '</p>';
+    s.box.innerHTML = h;
+  }
+  SLOTS.forEach(renderSlot);
+
+  body.addEventListener('click', function (e) {
+    var t = e.target.closest('button');
+    if (!t) return;
+    var idx = Array.prototype.indexOf.call(body.querySelectorAll('.icp-s'), t.closest('.icp-s'));
+    var s = SLOTS[idx];
+    if (!s) return;
+    if (t.hasAttribute('data-v')) { apply(s, t.getAttribute('data-v')); show(s); s.box.querySelector('[data-v="' + t.getAttribute('data-v') + '"]').focus(); }
+    else if (t.hasAttribute('data-show')) show(s);
+  });
+
+  function selectionUrl() {
+    var u = new URL(location.href);
+    u.search = '';
+    var p = Object.keys(state).map(function (k) { return k + '.' + state[k]; }).join(',');
+    if (p) u.searchParams.set('img', p);
+    return u.toString().replace(/%2C/g, ',');
+  }
+
+  function selectionText() {
+    var lines = ['IRONCORE — выбор изображений'];
+    var sec = null;
+    SLOTS.forEach(function (s) {
+      if (!s.els.length) return;
+      if (s.section !== sec) { sec = s.section; lines.push('', sec); }
+      var id = state[s.id] || 'a';
+      lines.push('— ' + s.title + ': ' + letter(id) + ' (' + variant(s, id).label + ')');
+    });
+    lines.push('', 'Ссылка: ' + selectionUrl());
+    return lines.join('\n');
+  }
+
+  function copy(text, ok) {
+    function fallback() {
+      var ta = el('textarea'); ta.value = text; ta.style.cssText = 'position:fixed;opacity:0';
+      panel.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); msg.textContent = ok; } catch (e) { msg.textContent = 'Не удалось скопировать — выделите текст вручную.'; }
+      panel.removeChild(ta);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(function () { msg.textContent = ok; }, fallback);
+    else fallback();
+  }
+
+  panel.querySelector('.icp__foot').addEventListener('click', function (e) {
+    var a = e.target.getAttribute('data-act');
+    if (a === 'copy') copy(selectionText(), 'Список скопирован — вставьте его в сообщение.');
+    if (a === 'link') copy(selectionUrl(), 'Ссылка скопирована: по ней откроется сайт с этим выбором.');
+    if (a === 'reset') { SLOTS.forEach(function (s) { apply(s, 'a', true); }); save(); msg.textContent = 'Все места вернулись к варианту A.'; }
+  });
+
+  function updateBadge() {
+    var b = fab.querySelector('b');
+    var n = Object.keys(state).length;
+    b.hidden = !n; b.textContent = n;
+    b.title = 'Изменено мест: ' + n;
+  }
+
+  function toggle(open) {
+    panel.classList.toggle('is-open', open);
+    fab.setAttribute('aria-expanded', String(open));
+    if (open) panel.querySelector('.icp__x').focus(); else fab.focus({ preventScroll: true });
+  }
+  fab.addEventListener('click', function () { toggle(!panel.classList.contains('is-open')); });
+  panel.querySelector('.icp__x').addEventListener('click', function () { toggle(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && panel.classList.contains('is-open')) toggle(false); });
+
+  if (!params.has('clean')) document.body.appendChild(fab);
+  document.body.appendChild(panel);
+  load();
+  if (params.has('pick')) toggle(true);
+  fab.title = ready ? 'Новых вариантов: ' + ready : 'Новые варианты в работе';
+})();
