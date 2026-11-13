@@ -59,6 +59,12 @@ SLOTS = [
                         "Landscape: green summer meadow with low grass, a line of birch trees far behind. "
                         "Container modules in off-white. Warm light in a few windows. " ),
             dict(id="c", label="Зима, ясный день, красный акцент",
+                 layout={"pos": {".hero__dot": [[88, 45], [63, 60], [80, 85]],
+                                 ".hero__tag": [[88, 22], [61.8, 72], [67, 85]]},
+                         "points": {".hero__lines:not(.hero__lines--m) polyline":
+                                        ["880,138 880,253", "630,338 630,405 618,405", "800,479 680,479"],
+                                    ".hero__lines--m polyline":
+                                        ["880,138 880,253", "630,338 630,404", "800,479 800,512 682,512"]}},
                  prompt="Edit the attached image. Keep the exact composition, camera angle and the positions "
                         "of the main building (right), container modules (centre-left) and the cut-away "
                         "underground hall (lower right). Change the season to winter: fresh snow on the ground "
@@ -87,6 +93,7 @@ SLOTS = [
                         "around the site, light grey concrete paths, facade in light warm-grey concrete with "
                         "dark window bands. Fence dark green. Keep it realistic and calm."),
             dict(id="c", label="Ночь, тёплый свет, мокрый асфальт",
+                 layout={"pos": {".atlas .pin": [[13, 48], [45, 33], [10, 25], [88, 46], [66, 77], [85, 75]]}},
                  prompt="Edit the attached image. Keep the exact composition and every object in the same place. "
                         "Change to night after rain: wet asphalt with reflections, warm 3000K perimeter lighting, "
                         "warm light from the checkpoint and windows, deep navy sky. Facade dark with "
