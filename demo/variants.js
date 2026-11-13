@@ -737,7 +737,9 @@ window.IC_VARIANTS = [
     "id": "b",
     "label": "Буклет на светлом столе, день",
     "base": "demo/variants/doc-concept/b",
-    "ready": false
+    "ready": true,
+    "w": 1122,
+    "h": 1402
    },
    {
     "id": "c",
@@ -767,7 +769,9 @@ window.IC_VARIANTS = [
     "id": "b",
     "label": "Комплект: альбомы, схемы, папки",
     "base": "demo/variants/doc-composition/b",
-    "ready": false
+    "ready": true,
+    "w": 1122,
+    "h": 1402
    },
    {
     "id": "c",
@@ -797,7 +801,9 @@ window.IC_VARIANTS = [
     "id": "b",
     "label": "Чек-лист на светлом столе",
     "base": "demo/variants/doc-checklist/b",
-    "ready": false
+    "ready": true,
+    "w": 1122,
+    "h": 1402
    },
    {
     "id": "c",
