@@ -214,7 +214,7 @@
     '.icp-th:disabled em{position:absolute;left:0;right:0;bottom:6px;font-size:10px;font-style:normal;text-align:center}' +
     '.icp-s__lab{margin:0;color:#B4BECC;font-size:12.5px;line-height:1.4}' +
     '.icp-s__warn{margin:6px 0 0;color:#8F9BAD;font-size:11.5px;line-height:1.4}' +
-    '.icp__foot{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:16px 24px 20px;border-top:1px solid rgba(255,255,255,.1)}' +
+    '.icp__foot{display:grid;grid-template-columns:1fr;gap:8px;padding:16px 24px 20px;border-top:1px solid rgba(255,255,255,.1)}' +
     '.icp__foot button{height:44px;padding:0 10px;text-align:center;border:1px solid rgba(255,255,255,.2);background:none;color:#E8ECF2;font:inherit;font-size:13.5px;cursor:pointer}' +
     '.icp__foot button:hover{border-color:rgba(255,255,255,.5)}.icp__foot .icp__main{grid-column:1/-1;background:#E60028;border-color:#E60028;color:#fff;font-weight:500}' +
     '.icp__wide{grid-column:1/-1}.icp__msg{grid-column:1/-1;min-height:16px;margin:0;color:#8F9BAD;font-size:12px}' +
@@ -239,7 +239,7 @@
     '<button class="icp__x" type="button" aria-label="Закрыть">×</button></div>' +
     '<div class="icp__body"></div>' +
     '<div class="icp__foot"><button class="icp__main" type="button" data-act="copy">Скопировать выбор списком</button>' +
-    '<button type="button" data-act="reset">Все A</button><button type="button" data-act="allb">Все B</button><button type="button" data-act="allc">Все C</button><button class="icp__wide" type="button" data-act="link">Ссылка с выбором</button>' +
+    '<button class="icp__wide" type="button" data-act="link">Ссылка с выбором</button>' +
     '<p class="icp__msg" role="status"></p></div></div>';
   var tab = panel.querySelector('.icp__tab');
   var inner = panel.querySelector('.icp__in');
@@ -334,8 +334,6 @@
     var a = e.target.getAttribute('data-act');
     if (a === 'copy') copy(selectionText(), 'Список скопирован — вставьте его в сообщение.');
     if (a === 'link') copy(selectionUrl(), 'Ссылка скопирована: по ней откроется сайт с этим выбором.');
-    if (a === 'allb' || a === 'allc') { var L = a === 'allb' ? 'b' : 'c', U = L.toUpperCase(); msg.textContent = 'Загружаю варианты ' + U + '…'; Promise.all(SLOTS.map(function (s) { var v = variant(s, L); return v && v.ready ? apply(s, L, true) : null; })).then(function () { msg.textContent = 'Везде, где есть вариант ' + U + ', стоит ' + U + '.'; }); save(); }
-    if (a === 'reset') { SLOTS.forEach(function (s) { apply(s, 'a', true); }); save(); msg.textContent = 'Все места вернулись к варианту A.'; }
   });
 
   function updateBadge() {}
