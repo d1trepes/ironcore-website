@@ -318,7 +318,9 @@ window.IC_VARIANTS = [
     "id": "b",
     "label": "Открытый контейнер, видны стойки",
     "base": "demo/variants/format-container/b",
-    "ready": false
+    "ready": true,
+    "w": 1448,
+    "h": 1086
    },
    {
     "id": "c",

@@ -5,7 +5,7 @@
 ## Зачем
 Сейчас все 21 картинка из одной серии: сумерки, степь, графитовый бетон, одно и то же небо. Для подбора на каждое место есть 2 новых варианта (B, C), они отличаются от текущего (A) временем суток, сезоном, материалами фасада и типом кадра: снаружи, внутри, деталь, стройка, документы. Цвет даём материалами (светлый бетон, кортен, терракота, кирпич, белые модули) и цветовой маркировкой инженерии (трубы, кабели, ДГУ). Красный (#E60028) — только точечно, как в логотипе.
 
-Готово новых вариантов: **22 из 46**.
+Готово новых вариантов: **23 из 46**.
 
 ## Как генерировать
 1. В начало каждого промпта (или в системную инструкцию генератора) добавить общий стиль:
@@ -158,7 +158,7 @@ A row of six identical prefabricated data center modules in white with dark grey
 - Кадр: 4:3
 - A (сейчас): Текущий: сумерки, графит — `assets/images/formats/format-container.webp`
 
-**format-container-b** · Открытый контейнер, видны стойки · _ждёт генерации_
+**format-container-b** · Открытый контейнер, видны стойки · _✅ готов_
 
 ```
 A single 40-foot data center container on a concrete pad with its end doors open, showing two rows of server racks lit with cool white light inside. Container painted light grey, cable trays entering from the side, a small cooler unit on top. Overcast daylight, industrial site.
