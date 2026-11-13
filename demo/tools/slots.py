@@ -46,11 +46,11 @@ SLOTS = [
         variants=[
             dict(id="b", label="Золотой час, светлый бетон + кортен",
                  layout={"pos": {".hero__dot": [[78, 34], [51, 62], [75, 86]],
-                                 ".hero__tag": [[78, 12], [58.5, 52], [64.5, 86]]},
+                                 ".hero__tag": [[78, 20], [58.5, 52], [64.5, 86]]},
                          "points": {".hero__lines:not(.hero__lines--m) polyline":
-                                        ["780,86 780,191", "510,349 510,306", "750,484 657,484"],
+                                        ["780,128 780,191", "510,349 510,306", "750,484 657,484"],
                                     ".hero__lines--m polyline":
-                                        ["780,86 780,191", "510,349 510,404", "750,484 750,512 682,512"]}},
+                                        ["780,128 780,191", "510,349 510,404", "750,484 750,512 682,512"]}},
                  prompt="Edit the attached image. Keep the exact composition, camera angle and the positions "
                         "of all objects: the main data center building on the right, the row of container modules "
                         "in the centre-left, and the cut-away underground hall in the lower right. "
