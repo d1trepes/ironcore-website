@@ -135,7 +135,7 @@
     '.icp__foot{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:16px 24px 20px;border-top:1px solid rgba(255,255,255,.1)}' +
     '.icp__foot button{height:44px;padding:0 10px;text-align:center;border:1px solid rgba(255,255,255,.2);background:none;color:#E8ECF2;font:inherit;font-size:13.5px;cursor:pointer}' +
     '.icp__foot button:hover{border-color:rgba(255,255,255,.5)}.icp__foot .icp__main{grid-column:1/-1;background:#E60028;border-color:#E60028;color:#fff;font-weight:500}' +
-    '.icp__msg{grid-column:1/-1;min-height:16px;margin:0;color:#8F9BAD;font-size:12px}' +
+    '.icp__wide{grid-column:1/-1}.icp__msg{grid-column:1/-1;min-height:16px;margin:0;color:#8F9BAD;font-size:12px}' +
     '.icp-flash{outline:3px solid #E60028!important;outline-offset:-3px;transition:outline-color 1.4s}' +
     '@media (max-width:600px){.icp{top:auto;height:72vh;width:100vw}.icp-fab{left:12px;bottom:12px}.icp-fab span{display:none}}' +
     '@media (prefers-reduced-motion:reduce){.icp{transition:none}}';
@@ -161,7 +161,7 @@
     '<button class="icp__x" type="button" aria-label="Закрыть">×</button></div>' +
     '<div class="icp__body"></div>' +
     '<div class="icp__foot"><button class="icp__main" type="button" data-act="copy">Скопировать выбор списком</button>' +
-    '<button type="button" data-act="link">Ссылка с выбором</button><button type="button" data-act="reset">Вернуть все A</button>' +
+    '<button type="button" data-act="allb">Все B (новые)</button><button type="button" data-act="reset">Все A (как было)</button><button class="icp__wide" type="button" data-act="link">Ссылка с выбором</button>' +
     '<p class="icp__msg" role="status"></p></div>';
   var body = panel.querySelector('.icp__body');
   var msg = panel.querySelector('.icp__msg');
@@ -184,8 +184,7 @@
       if (v.ready) {
         h += '<button class="icp-th" type="button" data-v="' + v.id + '" aria-pressed="' + (v.id === cur) + '" title="' + esc(letter(v.id) + ' — ' + v.label) + '">' +
           '<img src="' + v.base + '-640w.webp" alt="" loading="lazy" decoding="async"><i>' + letter(v.id) + '</i></button>';
-      } else {
-        h += '<button class="icp-th" type="button" disabled title="' + esc(letter(v.id) + ' — ' + v.label + ' (в работе)') + '"><i>' + letter(v.id) + '</i><em>в работе</em></button>';
+
       }
     });
     var cv = variant(s, cur);
@@ -240,6 +239,7 @@
     var a = e.target.getAttribute('data-act');
     if (a === 'copy') copy(selectionText(), 'Список скопирован — вставьте его в сообщение.');
     if (a === 'link') copy(selectionUrl(), 'Ссылка скопирована: по ней откроется сайт с этим выбором.');
+    if (a === 'allb') { SLOTS.forEach(function (s) { var v = variant(s, 'b'); if (v && v.ready) apply(s, 'b', true); }); save(); msg.textContent = 'Везде, где есть вариант B, стоит B.'; }
     if (a === 'reset') { SLOTS.forEach(function (s) { apply(s, 'a', true); }); save(); msg.textContent = 'Все места вернулись к варианту A.'; }
   });
 
