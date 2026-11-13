@@ -20,7 +20,53 @@ window.IC_VARIANTS = [
     "id": "b",
     "label": "Золотой час, светлый бетон + кортен",
     "base": "demo/variants/hero/b",
-    "ready": false
+    "ready": true,
+    "w": 1672,
+    "h": 941,
+    "layout": {
+     "pos": {
+      ".hero__dot": [
+       [
+        78,
+        34
+       ],
+       [
+        51,
+        62
+       ],
+       [
+        75,
+        86
+       ]
+      ],
+      ".hero__tag": [
+       [
+        78,
+        12
+       ],
+       [
+        58.5,
+        52
+       ],
+       [
+        64.5,
+        86
+       ]
+      ]
+     },
+     "points": {
+      ".hero__lines:not(.hero__lines--m) polyline": [
+       "780,86 780,191",
+       "510,349 510,306",
+       "750,484 657,484"
+      ],
+      ".hero__lines--m polyline": [
+       "780,86 780,191",
+       "510,349 510,404",
+       "750,484 750,512 682,512"
+      ]
+     }
+    }
    },
    {
     "id": "c",
@@ -50,7 +96,39 @@ window.IC_VARIANTS = [
     "id": "b",
     "label": "Летний день, зелёная площадка",
     "base": "demo/variants/security/b",
-    "ready": false
+    "ready": true,
+    "w": 1672,
+    "h": 941,
+    "layout": {
+     "pos": {
+      ".atlas .pin": [
+       [
+        11,
+        47
+       ],
+       [
+        45,
+        30
+       ],
+       [
+        16,
+        20
+       ],
+       [
+        76,
+        43
+       ],
+       [
+        60,
+        76
+       ],
+       [
+        78,
+        74
+       ]
+      ]
+     }
+    }
    },
    {
     "id": "c",
@@ -80,7 +158,9 @@ window.IC_VARIANTS = [
     "id": "b",
     "label": "Белый корпус у кромки леса, лето",
     "base": "demo/variants/scale-compact/b",
-    "ready": false
+    "ready": true,
+    "w": 1448,
+    "h": 1086
    },
    {
     "id": "c",
@@ -110,7 +190,9 @@ window.IC_VARIANTS = [
     "id": "b",
     "label": "Ясный день, терракотовые ламели",
     "base": "demo/variants/scale-medium/b",
-    "ready": false
+    "ready": true,
+    "w": 1448,
+    "h": 1086
    },
    {
     "id": "c",
@@ -140,7 +222,9 @@ window.IC_VARIANTS = [
     "id": "b",
     "label": "Летний кампус с высоты, озеленение",
     "base": "demo/variants/scale-campus/b",
-    "ready": false
+    "ready": true,
+    "w": 1448,
+    "h": 1086
    },
    {
     "id": "c",
@@ -170,7 +254,9 @@ window.IC_VARIANTS = [
     "id": "b",
     "label": "День, светлый бетон и стекло",
     "base": "demo/variants/format-classic/b",
-    "ready": false
+    "ready": true,
+    "w": 1448,
+    "h": 1086
    },
    {
     "id": "c",
@@ -200,7 +286,9 @@ window.IC_VARIANTS = [
     "id": "b",
     "label": "Монтаж модуля краном, день",
     "base": "demo/variants/format-modular/b",
-    "ready": false
+    "ready": true,
+    "w": 1448,
+    "h": 1086
    },
    {
     "id": "c",
@@ -260,7 +348,9 @@ window.IC_VARIANTS = [
     "id": "b",
     "label": "Портал в холме, зелёная кровля, лето",
     "base": "demo/variants/format-underground/b",
-    "ready": false
+    "ready": true,
+    "w": 1448,
+    "h": 1086
    },
    {
     "id": "c",
@@ -291,7 +381,9 @@ window.IC_VARIANTS = [
     "id": "b",
     "label": "Светлая мастерская, макет и зонирование",
     "base": "demo/variants/svc-concept/b",
-    "ready": false
+    "ready": true,
+    "w": 1536,
+    "h": 1024
    },
    {
     "id": "c",
@@ -322,7 +414,9 @@ window.IC_VARIANTS = [
     "id": "b",
     "label": "Стройка: каркас и кран, день",
     "base": "demo/variants/svc-architecture/b",
-    "ready": false
+    "ready": true,
+    "w": 1536,
+    "h": 1024
    },
    {
     "id": "c",
@@ -353,7 +447,9 @@ window.IC_VARIANTS = [
     "id": "b",
     "label": "Кабельные лотки над стойками",
     "base": "demo/variants/svc-infra/b",
-    "ready": false
+    "ready": true,
+    "w": 1536,
+    "h": 1024
    },
    {
     "id": "c",
@@ -384,7 +480,9 @@ window.IC_VARIANTS = [
     "id": "b",
     "label": "Шлюз и турникеты внутри",
     "base": "demo/variants/svc-security/b",
-    "ready": false
+    "ready": true,
+    "w": 1536,
+    "h": 1024
    },
    {
     "id": "c",
@@ -415,7 +513,9 @@ window.IC_VARIANTS = [
     "id": "b",
     "label": "Сборка модулей в цехе",
     "base": "demo/variants/svc-modular/b",
-    "ready": false
+    "ready": true,
+    "w": 1536,
+    "h": 1024
    },
    {
     "id": "c",
@@ -446,7 +546,9 @@ window.IC_VARIANTS = [
     "id": "b",
     "label": "Чертежи с цветными пометками, день",
     "base": "demo/variants/svc-analysis/b",
-    "ready": false
+    "ready": true,
+    "w": 1536,
+    "h": 1024
    },
    {
     "id": "c",
@@ -476,7 +578,9 @@ window.IC_VARIANTS = [
     "id": "b",
     "label": "Зал ИБП, светлый",
     "base": "demo/variants/eng-power/b",
-    "ready": false
+    "ready": true,
+    "w": 1536,
+    "h": 1024
    },
    {
     "id": "c",
@@ -506,7 +610,9 @@ window.IC_VARIANTS = [
     "id": "b",
     "label": "Холодильный центр, цветные трубы",
     "base": "demo/variants/eng-cooling/b",
-    "ready": false
+    "ready": true,
+    "w": 1536,
+    "h": 1024
    },
    {
     "id": "c",
@@ -536,7 +642,9 @@ window.IC_VARIANTS = [
     "id": "b",
     "label": "Четыре одинаковых модуля ИБП",
     "base": "demo/variants/eng-redundancy/b",
-    "ready": false
+    "ready": true,
+    "w": 1536,
+    "h": 1024
    },
    {
     "id": "c",
@@ -566,7 +674,9 @@ window.IC_VARIANTS = [
     "id": "b",
     "label": "Изолированный холодный коридор",
     "base": "demo/variants/eng-efficiency/b",
-    "ready": false
+    "ready": true,
+    "w": 1536,
+    "h": 1024
    },
    {
     "id": "c",
@@ -595,7 +705,9 @@ window.IC_VARIANTS = [
     "id": "b",
     "label": "Панорама кампуса, золотой час",
     "base": "demo/variants/band/b",
-    "ready": false
+    "ready": true,
+    "w": 1672,
+    "h": 941
    },
    {
     "id": "c",
