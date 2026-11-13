@@ -27,6 +27,8 @@ def build():
             item = dict(id=v["id"], label=v["label"], base=rel, ready=os.path.exists(full))
             if item["ready"]:
                 item["w"], item["h"] = size_of(full)
+            if v.get("layout"):
+                item["layout"] = v["layout"]
             variants.append(item)
         # дополнительные варианты (d, e…), присланные сверх промптов
         known = {v["id"] for v in variants}

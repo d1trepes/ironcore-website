@@ -45,6 +45,12 @@ SLOTS = [
         a="Текущий: сумерки, степь, графитовый корпус",
         variants=[
             dict(id="b", label="Золотой час, светлый бетон + кортен",
+                 layout={"pos": {".hero__dot": [[78, 34], [51, 62], [75, 86]],
+                                 ".hero__tag": [[78, 12], [58.5, 52], [64.5, 86]]},
+                         "points": {".hero__lines:not(.hero__lines--m) polyline":
+                                        ["780,86 780,191", "510,349 510,306", "750,484 657,484"],
+                                    ".hero__lines--m polyline":
+                                        ["780,86 780,191", "510,349 510,404", "750,484 750,512 682,512"]}},
                  prompt="Edit the attached image. Keep the exact composition, camera angle and the positions "
                         "of all objects: the main data center building on the right, the row of container modules "
                         "in the centre-left, and the cut-away underground hall in the lower right. "
@@ -73,6 +79,7 @@ SLOTS = [
         a="Текущий: сумерки, графит",
         variants=[
             dict(id="b", label="Летний день, зелёная площадка",
+                 layout={"pos": {".atlas .pin": [[11, 47], [45, 30], [16, 20], [76, 43], [60, 76], [78, 74]]}},
                  prompt="Edit the attached image. Keep the exact composition, camera angle and every object in "
                         "the same place: checkpoint and fence on the left, the main building in the centre, "
                         "engineering yard on the right, and the cut-away underground level in front. "

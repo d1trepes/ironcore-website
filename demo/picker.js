@@ -24,9 +24,44 @@
     return v.base + '-640w.webp 640w, ' + v.base + '-1024w.webp 1024w, ' + v.base + '.webp ' + (v.w || 1920) + 'w';
   }
 
+  // Раскладка выносок/точек под конкретный кадр. Исходные значения запоминаются и возвращаются для вариантов без layout.
+  var orig = new Map();
+  function remember(e, prop, val) { var k = orig.get(e) || {}; if (!(prop in k)) k[prop] = val; orig.set(e, k); }
+  function layout(s, v) {
+    (s.layoutSels || []).forEach(function (sel) {
+      qsa(sel).forEach(function (e) {
+        var k = orig.get(e) || {};
+        if ('left' in k) { e.style.left = k.left; e.style.top = k.top; }
+        if ('points' in k) e.setAttribute('points', k.points);
+      });
+    });
+    var L = v.layout;
+    if (!L) return;
+    Object.keys(L.pos || {}).forEach(function (sel) {
+      qsa(sel).forEach(function (e, i) {
+        var p = L.pos[sel][i]; if (!p) return;
+        remember(e, 'left', e.style.left); remember(e, 'top', e.style.top);
+        e.style.left = p[0] + '%'; e.style.top = p[1] + '%';
+      });
+    });
+    Object.keys(L.points || {}).forEach(function (sel) {
+      qsa(sel).forEach(function (e, i) {
+        var p = L.points[sel][i]; if (!p) return;
+        remember(e, 'points', e.getAttribute('points'));
+        e.setAttribute('points', p);
+      });
+    });
+  }
+  SLOTS.forEach(function (s) {
+    var sels = {};
+    s.variants.forEach(function (v) { if (v.layout) { Object.keys(v.layout.pos || {}).concat(Object.keys(v.layout.points || {})).forEach(function (k) { sels[k] = 1; }); } });
+    s.layoutSels = Object.keys(sels);
+  });
+
   function apply(s, id, quiet) {
     var v = variant(s, id);
     if (!v || !v.ready) return;
+    layout(s, v);
     s.els.forEach(function (im) {
       im.srcset = srcset(v);
       im.src = v.base + '-1024w.webp';
