@@ -54,6 +54,23 @@ window.IC_VARIANTS = [
        ]
       ]
      },
+     "mpos": {
+      ".hero__tag": [
+       [
+        78,
+        20
+       ],
+       [
+        67,
+        75
+       ],
+       [
+        68.2,
+        91
+       ]
+      ]
+     },
+     "sky": "#8b9ebc",
      "points": {
       ".hero__lines:not(.hero__lines--m) polyline": [
        "780,128 780,191",
@@ -106,6 +123,23 @@ window.IC_VARIANTS = [
        ]
       ]
      },
+     "mpos": {
+      ".hero__tag": [
+       [
+        88,
+        22
+       ],
+       [
+        71,
+        75
+       ],
+       [
+        68.2,
+        91
+       ]
+      ]
+     },
+     "sky": "#5480be",
      "points": {
       ".hero__lines:not(.hero__lines--m) polyline": [
        "880,138 880,253",
