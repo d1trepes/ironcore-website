@@ -207,6 +207,27 @@
         if (strip.scrollTo) strip.scrollTo({ left: to, behavior: reduce ? 'auto' : 'smooth' }); else strip.scrollLeft = to;
       }
     }
+    // Phones: one card at a time with arrows (the strip used to hide the rest behind the edge)
+    var strip0 = tabs.length && tabs[0].parentNode;
+    if (strip0 && strip0.classList.contains('picker')) {
+      var bar = document.createElement('div');
+      bar.className = 'pickbar';
+      var chev = function (d) { return '<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="' + d + '"/></svg>'; };
+      var prev = document.createElement('button'), next = document.createElement('button'), count = document.createElement('p');
+      prev.type = next.type = 'button';
+      prev.className = 'pickbar__btn'; next.className = 'pickbar__btn';
+      prev.setAttribute('aria-label', 'Предыдущий вариант'); next.setAttribute('aria-label', 'Следующий вариант');
+      prev.innerHTML = chev('M11 4 6 9l5 5'); next.innerHTML = chev('M7 4l5 5-5 5');
+      count.className = 'pickbar__count'; count.setAttribute('aria-hidden', 'true');
+      strip0.parentNode.insertBefore(bar, strip0);
+      bar.appendChild(prev); bar.appendChild(strip0); bar.appendChild(next); bar.appendChild(count);
+      var cur = function () { for (var k = 0; k < tabs.length; k++) if (tabs[k].getAttribute('aria-selected') === 'true') return k; return 0; };
+      var upd = function () { count.textContent = (cur() + 1) + ' из ' + tabs.length; };
+      prev.addEventListener('click', function () { select(tabs[(cur() - 1 + tabs.length) % tabs.length]); upd(); });
+      next.addEventListener('click', function () { select(tabs[(cur() + 1) % tabs.length]); upd(); });
+      tabs.forEach(function (t) { t.addEventListener('click', upd); t.addEventListener('keydown', function () { setTimeout(upd, 0); }); });
+      upd();
+    }
     tabs.forEach(function (tab, i) {
       tab.addEventListener('click', function () { select(tab); });
       tab.addEventListener('keydown', function (e) {

@@ -25,7 +25,7 @@ defined( 'ABSPATH' ) || exit;
         <button role="tab" id="sc-t3" aria-controls="sc-p3" aria-selected="false" tabindex="-1"><b>Крупный ЦОД или кампус</b><span>5–15 МВт, 500–1 500 стоек</span></button>
       </div>
       <div class="scale__panel" role="tabpanel" id="sc-p1" aria-labelledby="sc-t1">
-        <figure class="scale__img"><img decoding="async" src="<?php echo IC_ASSETS; ?>images/concepts/scale-compact-1024w.webp" srcset="<?php echo IC_ASSETS; ?>images/concepts/scale-compact-640w.webp 640w, <?php echo IC_ASSETS; ?>images/concepts/scale-compact-1024w.webp 1024w, <?php echo IC_ASSETS; ?>images/concepts/scale-compact.webp 1122w" sizes="(max-width: 960px) 100vw, 720px" width="1122" height="1402" loading="lazy" alt="Компактный одноэтажный корпус ЦОД с ДГУ и трансформатором"></figure>
+        <figure class="scale__img"><img decoding="async" src="<?php echo IC_ASSETS; ?>images/concepts/scale-compact-1024w.webp" srcset="<?php echo IC_ASSETS; ?>images/concepts/scale-compact-640w.webp 640w, <?php echo IC_ASSETS; ?>images/concepts/scale-compact-1024w.webp 1024w, <?php echo IC_ASSETS; ?>images/concepts/scale-compact.webp 1448w" sizes="(max-width: 960px) 100vw, 720px" width="1448" height="1086" loading="lazy" alt="Компактный одноэтажный корпус ЦОД с белым фасадом у кромки леса, рядом ДГУ"></figure>
         <div class="scale__info">
           <p class="tag">Концепция</p>
           <h3 class="h3">Компактный ЦОД</h3>
@@ -39,7 +39,7 @@ defined( 'ABSPATH' ) || exit;
         </div>
       </div>
       <div class="scale__panel" role="tabpanel" id="sc-p2" aria-labelledby="sc-t2" hidden>
-        <figure class="scale__img"><img decoding="async" src="<?php echo IC_ASSETS; ?>images/concepts/scale-medium-1024w.webp" srcset="<?php echo IC_ASSETS; ?>images/concepts/scale-medium-640w.webp 640w, <?php echo IC_ASSETS; ?>images/concepts/scale-medium-1024w.webp 1024w, <?php echo IC_ASSETS; ?>images/concepts/scale-medium.webp 1122w" sizes="(max-width: 960px) 100vw, 720px" width="1122" height="1402" loading="lazy" alt="Двухэтажный корпус ЦОД с площадкой ДГУ и резервной площадкой под расширение"></figure>
+        <figure class="scale__img"><img decoding="async" src="<?php echo IC_ASSETS; ?>images/concepts/scale-medium-1024w.webp" srcset="<?php echo IC_ASSETS; ?>images/concepts/scale-medium-640w.webp 640w, <?php echo IC_ASSETS; ?>images/concepts/scale-medium-1024w.webp 1024w, <?php echo IC_ASSETS; ?>images/concepts/scale-medium.webp 1448w" sizes="(max-width: 960px) 100vw, 720px" width="1448" height="1086" loading="lazy" alt="Двухэтажный корпус ЦОД с терракотовыми ламелями, площадкой ДГУ и подстанцией"></figure>
         <div class="scale__info">
           <p class="tag">Концепция</p>
           <h3 class="h3">ЦОД среднего масштаба</h3>
@@ -53,7 +53,7 @@ defined( 'ABSPATH' ) || exit;
         </div>
       </div>
       <div class="scale__panel" role="tabpanel" id="sc-p3" aria-labelledby="sc-t3" hidden>
-        <figure class="scale__img"><img decoding="async" src="<?php echo IC_ASSETS; ?>images/concepts/scale-campus-1024w.webp" srcset="<?php echo IC_ASSETS; ?>images/concepts/scale-campus-640w.webp 640w, <?php echo IC_ASSETS; ?>images/concepts/scale-campus-1024w.webp 1024w, <?php echo IC_ASSETS; ?>images/concepts/scale-campus.webp 1122w" sizes="(max-width: 960px) 100vw, 720px" width="1122" height="1402" loading="lazy" alt="Кампус ЦОД: три корпуса, подстанция и фундамент следующей очереди"></figure>
+        <figure class="scale__img"><img decoding="async" src="<?php echo IC_ASSETS; ?>images/concepts/scale-campus-1024w.webp" srcset="<?php echo IC_ASSETS; ?>images/concepts/scale-campus-640w.webp 640w, <?php echo IC_ASSETS; ?>images/concepts/scale-campus-1024w.webp 1024w, <?php echo IC_ASSETS; ?>images/concepts/scale-campus.webp 1448w" sizes="(max-width: 960px) 100vw, 720px" width="1448" height="1086" loading="lazy" alt="Кампус ЦОД с высоты: три корпуса, административное здание, подстанция и озеленённая территория"></figure>
         <div class="scale__info">
           <p class="tag">Концепция</p>
           <h3 class="h3">Крупный ЦОД или кампус</h3>
@@ -74,19 +74,19 @@ defined( 'ABSPATH' ) || exit;
     </div>
     <div class="formats">
       <figure class="format">
-        <div class="format__img reveal"><img decoding="async" src="<?php echo IC_ASSETS; ?>images/formats/format-classic-1024w.webp" srcset="<?php echo IC_ASSETS; ?>images/formats/format-classic-640w.webp 640w, <?php echo IC_ASSETS; ?>images/formats/format-classic-1024w.webp 1024w, <?php echo IC_ASSETS; ?>images/formats/format-classic.webp 1448w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 320px" width="1448" height="1086" loading="lazy" alt="Капитальное здание ЦОД"></div>
+        <div class="format__img reveal"><img decoding="async" src="<?php echo IC_ASSETS; ?>images/formats/format-classic-1024w.webp" srcset="<?php echo IC_ASSETS; ?>images/formats/format-classic-640w.webp 640w, <?php echo IC_ASSETS; ?>images/formats/format-classic-1024w.webp 1024w, <?php echo IC_ASSETS; ?>images/formats/format-classic.webp 1448w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 320px" width="1448" height="1086" loading="lazy" alt="Капитальное трёхэтажное здание ЦОД из светлого бетона с остеклённым входом"></div>
         <figcaption><b>Классический</b>Отдельное здание: архитектура, конструкции и инженерия в одной концепции.</figcaption>
       </figure>
       <figure class="format">
-        <div class="format__img reveal"><img decoding="async" src="<?php echo IC_ASSETS; ?>images/formats/format-modular-1024w.webp" srcset="<?php echo IC_ASSETS; ?>images/formats/format-modular-640w.webp 640w, <?php echo IC_ASSETS; ?>images/formats/format-modular-1024w.webp 1024w, <?php echo IC_ASSETS; ?>images/formats/format-modular.webp 1448w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 320px" width="1448" height="1086" loading="lazy" alt="Ряд модулей ЦОД и площадка под следующий модуль"></div>
+        <div class="format__img reveal"><img decoding="async" src="<?php echo IC_ASSETS; ?>images/formats/format-modular-1024w.webp" srcset="<?php echo IC_ASSETS; ?>images/formats/format-modular-640w.webp 640w, <?php echo IC_ASSETS; ?>images/formats/format-modular-1024w.webp 1024w, <?php echo IC_ASSETS; ?>images/formats/format-modular.webp 1448w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 320px" width="1448" height="1086" loading="lazy" alt="Монтаж модуля ЦОД краном рядом с уже установленными модулями"></div>
         <figcaption><b>Модульный</b>Объект из функциональных модулей с поэтапным развитием, если его подтверждают требования.</figcaption>
       </figure>
       <figure class="format">
-        <div class="format__img reveal"><img decoding="async" src="<?php echo IC_ASSETS; ?>images/formats/format-container-1024w.webp" srcset="<?php echo IC_ASSETS; ?>images/formats/format-container-640w.webp 640w, <?php echo IC_ASSETS; ?>images/formats/format-container-1024w.webp 1024w, <?php echo IC_ASSETS; ?>images/formats/format-container.webp 1448w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 320px" width="1448" height="1086" loading="lazy" alt="Контейнерные модули ЦОД на бетонной площадке"></div>
+        <div class="format__img reveal"><img decoding="async" src="<?php echo IC_ASSETS; ?>images/formats/format-container-1024w.webp" srcset="<?php echo IC_ASSETS; ?>images/formats/format-container-640w.webp 640w, <?php echo IC_ASSETS; ?>images/formats/format-container-1024w.webp 1024w, <?php echo IC_ASSETS; ?>images/formats/format-container.webp 1448w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 320px" width="1448" height="1086" loading="lazy" alt="Контейнерный ЦОД с открытыми торцевыми дверями: ряды серверных стоек внутри"></div>
         <figcaption><b>Контейнерный</b>Оборудование в контейнерных блоках с учетом транспортировки, обслуживания, климата и подключений.</figcaption>
       </figure>
       <figure class="format">
-        <div class="format__img reveal"><img decoding="async" src="<?php echo IC_ASSETS; ?>images/formats/format-underground-1024w.webp" srcset="<?php echo IC_ASSETS; ?>images/formats/format-underground-640w.webp 640w, <?php echo IC_ASSETS; ?>images/formats/format-underground-1024w.webp 1024w, <?php echo IC_ASSETS; ?>images/formats/format-underground.webp 1448w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 320px" width="1448" height="1086" loading="lazy" alt="Обвалованный ЦОД: въездной портал и разрез с серверным залом"></div>
+        <div class="format__img reveal"><img decoding="async" src="<?php echo IC_ASSETS; ?>images/formats/format-underground-1024w.webp" srcset="<?php echo IC_ASSETS; ?>images/formats/format-underground-640w.webp 640w, <?php echo IC_ASSETS; ?>images/formats/format-underground-1024w.webp 1024w, <?php echo IC_ASSETS; ?>images/formats/format-underground.webp 1448w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 320px" width="1448" height="1086" loading="lazy" alt="Обвалованный ЦОД: въездной портал в холме с зелёной кровлей"></div>
         <figcaption><b>Подземный</b>Когда заглубление обосновано оценкой рисков, геологией, гидрогеологией и расчетами.</figcaption>
       </figure>
     </div>

@@ -37,7 +37,7 @@ defined( 'ABSPATH' ) || exit;
 </section>
 
 <section class="band" aria-labelledby="band-title">
-  <img decoding="async" class="band__bg" src="<?php echo IC_ASSETS; ?>images/formats/format-classic-1024w.webp" srcset="<?php echo IC_ASSETS; ?>images/formats/format-classic-640w.webp 640w, <?php echo IC_ASSETS; ?>images/formats/format-classic-1024w.webp 1024w, <?php echo IC_ASSETS; ?>images/formats/format-classic.webp 1448w" sizes="100vw" width="1448" height="1086" loading="lazy" alt="">
+  <img decoding="async" class="band__bg" src="<?php echo IC_ASSETS; ?>images/band/band-1024w.webp" srcset="<?php echo IC_ASSETS; ?>images/band/band-640w.webp 640w, <?php echo IC_ASSETS; ?>images/band/band-1024w.webp 1024w, <?php echo IC_ASSETS; ?>images/band/band.webp 1672w" sizes="100vw" width="1672" height="941" loading="lazy" alt="">
   <div class="wrap band__in">
     <h2 class="band__title" id="band-title" data-lines>
       <span>Начинаем с требований.</span>

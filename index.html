@@ -6,7 +6,7 @@
 <title>IronCore — проектирование ЦОД</title>
 <meta name="description" content="IronCore проектирует дата-центры с учетом физических угроз – от выбора площадки и архитектуры до защиты критической инженерной инфраструктуры.">
 <link rel="icon" href="assets/logos/current/ironcore-symbol.svg" type="image/svg+xml">
-<link rel="preload" as="image" href="demo/variants/hero/b-1024w.webp" imagesrcset="demo/variants/hero/b-640w.webp 640w, demo/variants/hero/b-1024w.webp 1024w, demo/variants/hero/b.webp 1672w" imagesizes="(max-width: 600px) 190vw, (max-width: 960px) 132vw, 78vw" fetchpriority="high">
+<link rel="preload" as="image" href="assets/images/hero/hero-overview-1024w.webp" imagesrcset="assets/images/hero/hero-overview-640w.webp 640w, assets/images/hero/hero-overview-1024w.webp 1024w, assets/images/hero/hero-overview.webp 1672w" imagesizes="(max-width: 600px) 190vw, (max-width: 960px) 132vw, 78vw" fetchpriority="high">
 <link rel="preload" href="assets/fonts/onest-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/onest-cyrillic-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/styles.css">
@@ -62,23 +62,24 @@
 <!-- 01 HERO -->
 <section class="hero" id="hero" aria-labelledby="hero-title">
   <div class="hero__scene" data-parallax>
-    <img decoding="async" src="demo/variants/hero/b-1024w.webp" srcset="demo/variants/hero/b-640w.webp 640w, demo/variants/hero/b-1024w.webp 1024w, demo/variants/hero/b.webp 1672w" sizes="(max-width: 600px) 190vw, (max-width: 960px) 132vw, 78vw" width="1672" height="941" alt="Корпус ЦОД в степи, рядом контейнерные модули, в разрезе грунта виден заглублённый серверный зал" fetchpriority="high">
+    <img decoding="async" src="assets/images/hero/hero-overview-1024w.webp" srcset="assets/images/hero/hero-overview-640w.webp 640w, assets/images/hero/hero-overview-1024w.webp 1024w, assets/images/hero/hero-overview.webp 1672w" sizes="(max-width: 600px) 190vw, (max-width: 960px) 132vw, 78vw" width="1672" height="941" alt="Корпус ЦОД из светлого бетона с ржаво-красными ламелями, рядом контейнерные модули, в разрезе грунта виден заглублённый серверный зал" fetchpriority="high">
+    <div class="hero__blur" aria-hidden="true"><i></i><i></i><i></i></div>
     <svg class="hero__lines" viewBox="0 0 1000 563" preserveAspectRatio="none" aria-hidden="true">
-      <polyline points="830,96 830,190"/>
-      <polyline points="600,334 600,405 588,405"/>
-      <polyline points="728,474 662,474"/>
+      <polyline points="780,128 780,191"/>
+      <polyline points="510,349 510,306"/>
+      <polyline points="750,484 657,484"/>
     </svg>
     <svg class="hero__lines hero__lines--m" viewBox="0 0 1000 563" preserveAspectRatio="none" aria-hidden="true">
-      <polyline points="830,96 830,190"/>
-      <polyline points="600,334 600,404"/>
-      <polyline points="728,474 728,512 682,512"/>
+      <polyline points="780,128 780,191"/>
+      <polyline points="510,349 510,404"/>
+      <polyline points="750,484 750,512 682,512"/>
     </svg>
-    <i class="hero__dot" style="left:83%;top:33.7%"></i>
-    <i class="hero__dot" style="left:60%;top:59.3%"></i>
-    <i class="hero__dot" style="left:72.8%;top:84.2%"></i>
-    <span class="hero__tag hero__tag--c" style="left:83%;top:14%">Наземный корпус</span>
-    <span class="hero__tag hero__tag--l" style="left:58.8%;top:72%">Контейнерные модули</span>
-    <span class="hero__tag hero__tag--l" style="left:66.2%;top:84.2%">Заглублённый уровень</span>
+    <i class="hero__dot" style="left:78%;top:34%"></i>
+    <i class="hero__dot" style="left:51%;top:62%"></i>
+    <i class="hero__dot" style="left:75%;top:86%"></i>
+    <span class="hero__tag hero__tag--c" style="left:78%;top:20%">Наземный корпус</span>
+    <span class="hero__tag hero__tag--l" style="left:58.5%;top:52%">Контейнерные модули</span>
+    <span class="hero__tag hero__tag--l" style="left:64.5%;top:86%">Заглублённый уровень</span>
   </div>
   <div class="hero__in wrap">
     <h1 class="hero__title" id="hero-title">Защищенность начинается с&nbsp;проекта</h1>
@@ -178,7 +179,7 @@
         <button role="tab" id="sc-t3" aria-controls="sc-p3" aria-selected="false" tabindex="-1"><b>Крупный ЦОД или кампус</b><span>5–15 МВт, 500–1 500 стоек</span></button>
       </div>
       <div class="scale__panel" role="tabpanel" id="sc-p1" aria-labelledby="sc-t1">
-        <figure class="scale__img"><img decoding="async" src="assets/images/concepts/scale-compact-1024w.webp" srcset="assets/images/concepts/scale-compact-640w.webp 640w, assets/images/concepts/scale-compact-1024w.webp 1024w, assets/images/concepts/scale-compact.webp 1122w" sizes="(max-width: 960px) 100vw, 720px" width="1122" height="1402" loading="lazy" alt="Компактный одноэтажный корпус ЦОД с ДГУ и трансформатором"></figure>
+        <figure class="scale__img"><img decoding="async" src="assets/images/concepts/scale-compact-1024w.webp" srcset="assets/images/concepts/scale-compact-640w.webp 640w, assets/images/concepts/scale-compact-1024w.webp 1024w, assets/images/concepts/scale-compact.webp 1448w" sizes="(max-width: 960px) 100vw, 720px" width="1448" height="1086" loading="lazy" alt="Компактный одноэтажный корпус ЦОД с белым фасадом у кромки леса, рядом ДГУ"></figure>
         <div class="scale__info">
           <p class="tag">Концепция</p>
           <h3 class="h3">Компактный ЦОД</h3>
@@ -192,7 +193,7 @@
         </div>
       </div>
       <div class="scale__panel" role="tabpanel" id="sc-p2" aria-labelledby="sc-t2" hidden>
-        <figure class="scale__img"><img decoding="async" src="assets/images/concepts/scale-medium-1024w.webp" srcset="assets/images/concepts/scale-medium-640w.webp 640w, assets/images/concepts/scale-medium-1024w.webp 1024w, assets/images/concepts/scale-medium.webp 1122w" sizes="(max-width: 960px) 100vw, 720px" width="1122" height="1402" loading="lazy" alt="Двухэтажный корпус ЦОД с площадкой ДГУ и резервной площадкой под расширение"></figure>
+        <figure class="scale__img"><img decoding="async" src="assets/images/concepts/scale-medium-1024w.webp" srcset="assets/images/concepts/scale-medium-640w.webp 640w, assets/images/concepts/scale-medium-1024w.webp 1024w, assets/images/concepts/scale-medium.webp 1448w" sizes="(max-width: 960px) 100vw, 720px" width="1448" height="1086" loading="lazy" alt="Двухэтажный корпус ЦОД с терракотовыми ламелями, площадкой ДГУ и подстанцией"></figure>
         <div class="scale__info">
           <p class="tag">Концепция</p>
           <h3 class="h3">ЦОД среднего масштаба</h3>
@@ -206,7 +207,7 @@
         </div>
       </div>
       <div class="scale__panel" role="tabpanel" id="sc-p3" aria-labelledby="sc-t3" hidden>
-        <figure class="scale__img"><img decoding="async" src="assets/images/concepts/scale-campus-1024w.webp" srcset="assets/images/concepts/scale-campus-640w.webp 640w, assets/images/concepts/scale-campus-1024w.webp 1024w, assets/images/concepts/scale-campus.webp 1122w" sizes="(max-width: 960px) 100vw, 720px" width="1122" height="1402" loading="lazy" alt="Кампус ЦОД: три корпуса, подстанция и фундамент следующей очереди"></figure>
+        <figure class="scale__img"><img decoding="async" src="assets/images/concepts/scale-campus-1024w.webp" srcset="assets/images/concepts/scale-campus-640w.webp 640w, assets/images/concepts/scale-campus-1024w.webp 1024w, assets/images/concepts/scale-campus.webp 1448w" sizes="(max-width: 960px) 100vw, 720px" width="1448" height="1086" loading="lazy" alt="Кампус ЦОД с высоты: три корпуса, административное здание, подстанция и озеленённая территория"></figure>
         <div class="scale__info">
           <p class="tag">Концепция</p>
           <h3 class="h3">Крупный ЦОД или кампус</h3>
@@ -227,19 +228,19 @@
     </div>
     <div class="formats">
       <figure class="format">
-        <div class="format__img reveal"><img decoding="async" src="assets/images/formats/format-classic-1024w.webp" srcset="assets/images/formats/format-classic-640w.webp 640w, assets/images/formats/format-classic-1024w.webp 1024w, assets/images/formats/format-classic.webp 1448w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 320px" width="1448" height="1086" loading="lazy" alt="Капитальное здание ЦОД"></div>
+        <div class="format__img reveal"><img decoding="async" src="assets/images/formats/format-classic-1024w.webp" srcset="assets/images/formats/format-classic-640w.webp 640w, assets/images/formats/format-classic-1024w.webp 1024w, assets/images/formats/format-classic.webp 1448w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 320px" width="1448" height="1086" loading="lazy" alt="Капитальное трёхэтажное здание ЦОД из светлого бетона с остеклённым входом"></div>
         <figcaption><b>Классический</b>Отдельное здание: архитектура, конструкции и инженерия в одной концепции.</figcaption>
       </figure>
       <figure class="format">
-        <div class="format__img reveal"><img decoding="async" src="assets/images/formats/format-modular-1024w.webp" srcset="assets/images/formats/format-modular-640w.webp 640w, assets/images/formats/format-modular-1024w.webp 1024w, assets/images/formats/format-modular.webp 1448w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 320px" width="1448" height="1086" loading="lazy" alt="Ряд модулей ЦОД и площадка под следующий модуль"></div>
+        <div class="format__img reveal"><img decoding="async" src="assets/images/formats/format-modular-1024w.webp" srcset="assets/images/formats/format-modular-640w.webp 640w, assets/images/formats/format-modular-1024w.webp 1024w, assets/images/formats/format-modular.webp 1448w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 320px" width="1448" height="1086" loading="lazy" alt="Монтаж модуля ЦОД краном рядом с уже установленными модулями"></div>
         <figcaption><b>Модульный</b>Объект из функциональных модулей с поэтапным развитием, если его подтверждают требования.</figcaption>
       </figure>
       <figure class="format">
-        <div class="format__img reveal"><img decoding="async" src="assets/images/formats/format-container-1024w.webp" srcset="assets/images/formats/format-container-640w.webp 640w, assets/images/formats/format-container-1024w.webp 1024w, assets/images/formats/format-container.webp 1448w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 320px" width="1448" height="1086" loading="lazy" alt="Контейнерные модули ЦОД на бетонной площадке"></div>
+        <div class="format__img reveal"><img decoding="async" src="assets/images/formats/format-container-1024w.webp" srcset="assets/images/formats/format-container-640w.webp 640w, assets/images/formats/format-container-1024w.webp 1024w, assets/images/formats/format-container.webp 1448w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 320px" width="1448" height="1086" loading="lazy" alt="Контейнерный ЦОД с открытыми торцевыми дверями: ряды серверных стоек внутри"></div>
         <figcaption><b>Контейнерный</b>Оборудование в контейнерных блоках с учетом транспортировки, обслуживания, климата и подключений.</figcaption>
       </figure>
       <figure class="format">
-        <div class="format__img reveal"><img decoding="async" src="assets/images/formats/format-underground-1024w.webp" srcset="assets/images/formats/format-underground-640w.webp 640w, assets/images/formats/format-underground-1024w.webp 1024w, assets/images/formats/format-underground.webp 1448w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 320px" width="1448" height="1086" loading="lazy" alt="Обвалованный ЦОД: въездной портал и разрез с серверным залом"></div>
+        <div class="format__img reveal"><img decoding="async" src="assets/images/formats/format-underground-1024w.webp" srcset="assets/images/formats/format-underground-640w.webp 640w, assets/images/formats/format-underground-1024w.webp 1024w, assets/images/formats/format-underground.webp 1448w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 320px" width="1448" height="1086" loading="lazy" alt="Обвалованный ЦОД: въездной портал в холме с зелёной кровлей"></div>
         <figcaption><b>Подземный</b>Когда заглубление обосновано оценкой рисков, геологией, гидрогеологией и расчетами.</figcaption>
       </figure>
     </div>
@@ -458,7 +459,7 @@
 </section>
 
 <section class="band" aria-labelledby="band-title">
-  <img decoding="async" class="band__bg" src="assets/images/formats/format-classic-1024w.webp" srcset="assets/images/formats/format-classic-640w.webp 640w, assets/images/formats/format-classic-1024w.webp 1024w, assets/images/formats/format-classic.webp 1448w" sizes="100vw" width="1448" height="1086" loading="lazy" alt="">
+  <img decoding="async" class="band__bg" src="assets/images/band/band-1024w.webp" srcset="assets/images/band/band-640w.webp 640w, assets/images/band/band-1024w.webp 1024w, assets/images/band/band.webp 1672w" sizes="100vw" width="1672" height="941" loading="lazy" alt="">
   <div class="wrap band__in">
     <h2 class="band__title" id="band-title" data-lines>
       <span>Начинаем с требований.</span>
@@ -618,8 +619,5 @@
 </template>
 
 <script src="js/main.js" defer></script>
-<!-- Только демо: подбор изображений (в WordPress-тему не входит) -->
-<script src="demo/variants.js?v=13" defer></script>
-<script src="demo/picker.js?v=13" defer></script>
 </body>
 </html>
