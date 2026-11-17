@@ -25,7 +25,7 @@
       <a href="#services">Услуги</a>
       <a href="#process">Как мы работаем</a>
       <a href="#why">Почему IronCore</a>
-      <a href="#materials">Для заказчика</a>
+      <a href="#faq">Для заказчика</a>
       <a href="#contact">Контакты</a>
     </nav>
     <div class="header__end">
@@ -47,7 +47,7 @@
       <a href="#services">Услуги</a>
       <a href="#process">Как мы работаем</a>
       <a href="#why">Почему IronCore</a>
-      <a href="#materials">Для заказчика</a>
+      <a href="#faq">Для заказчика</a>
       <a href="#contact">Контакты</a>
     </nav>
     <div class="drawer__end">
@@ -174,9 +174,9 @@
 
     <div class="scale" data-tabs>
       <div class="picker" role="tablist" aria-label="Типовые концепции">
-        <button role="tab" id="sc-t1" aria-controls="sc-p1" aria-selected="true"><b>Компактный ЦОД</b><span>0,5–1,5 МВт, 50–150 стоек</span></button>
-        <button role="tab" id="sc-t2" aria-controls="sc-p2" aria-selected="false" tabindex="-1"><b>ЦОД среднего масштаба</b><span>1,5–5 МВт, 150–500 стоек</span></button>
-        <button role="tab" id="sc-t3" aria-controls="sc-p3" aria-selected="false" tabindex="-1"><b>Крупный ЦОД или кампус</b><span>5–15 МВт, 500–1 500 стоек</span></button>
+        <button role="tab" id="sc-t1" aria-controls="sc-p1" aria-selected="true"><b>Компактный ЦОД</b><span>0,5–1,5 МВт, 20–60 стоек</span></button>
+        <button role="tab" id="sc-t2" aria-controls="sc-p2" aria-selected="false" tabindex="-1"><b>ЦОД среднего масштаба</b><span>1,5–5 МВт, 70–200 стоек</span></button>
+        <button role="tab" id="sc-t3" aria-controls="sc-p3" aria-selected="false" tabindex="-1"><b>Крупный ЦОД или кампус</b><span>5–15 МВт, 200–1 000 стоек</span></button>
       </div>
       <div class="scale__panel" role="tabpanel" id="sc-p1" aria-labelledby="sc-t1">
         <figure class="scale__img"><img decoding="async" src="assets/images/concepts/scale-compact-1024w.webp" srcset="assets/images/concepts/scale-compact-640w.webp 640w, assets/images/concepts/scale-compact-1024w.webp 1024w, assets/images/concepts/scale-compact.webp 1448w" sizes="(max-width: 960px) 100vw, 720px" width="1448" height="1086" loading="lazy" alt="Компактный одноэтажный корпус ЦОД с белым фасадом у кромки леса, рядом ДГУ"></figure>
@@ -187,7 +187,7 @@
           <dl class="figs">
             <div><dt>Площадь здания</dt><dd>1&nbsp;000–2&nbsp;500<small>м²</small></dd></div>
             <div><dt>IT-мощность</dt><dd>0,5–1,5<small>МВт</small></dd></div>
-            <div><dt>Количество</dt><dd>50–150<small>стоек</small></dd></div>
+            <div><dt>Количество</dt><dd>20–60<small>стоек</small></dd></div>
           </dl>
           <p class="scale__fmt"><span>Возможные форматы</span>Классическое здание, модульное исполнение, контейнерная конфигурация.</p>
         </div>
@@ -201,7 +201,7 @@
           <dl class="figs">
             <div><dt>Площадь здания</dt><dd>3&nbsp;000–8&nbsp;000<small>м²</small></dd></div>
             <div><dt>IT-мощность</dt><dd>1,5–5<small>МВт</small></dd></div>
-            <div><dt>Количество</dt><dd>150–500<small>стоек</small></dd></div>
+            <div><dt>Количество</dt><dd>70–200<small>стоек</small></dd></div>
           </dl>
           <p class="scale__fmt"><span>Возможные форматы</span>Отдельное здание, поэтапно развиваемый комплекс, модульная структура.</p>
         </div>
@@ -215,7 +215,7 @@
           <dl class="figs">
             <div><dt>Площадь здания</dt><dd>10&nbsp;000–30&nbsp;000<small>м²</small></dd></div>
             <div><dt>IT-мощность</dt><dd>5–15<small>МВт</small></dd></div>
-            <div><dt>Количество</dt><dd>500–1&nbsp;500<small>стоек</small></dd></div>
+            <div><dt>Количество</dt><dd>200–1&nbsp;000<small>стоек</small></dd></div>
           </dl>
           <p class="scale__fmt"><span>Возможные форматы</span>Несколько зданий, очереди строительства, сочетание капитальных и модульных решений.</p>
         </div>
@@ -474,6 +474,9 @@
 </section>
 
 <!-- 08 MATERIALS -->
+<!-- 08 «От идеи к концепции ЦОД» (материалы) — скрыт по просьбе заказчика 17.11.2026: материалов пока нет.
+     Чтобы вернуть: убрать обёртку <template> и вернуть пункт «Для заказчика» → #materials в меню. -->
+<template id="materials-later">
 <section class="sec sec--dark" id="materials" aria-labelledby="mat-title">
   <div class="wrap">
     <div class="head">
@@ -507,6 +510,7 @@
     </div>
   </div>
 </section>
+</template>
 
 <!-- 09 FAQ -->
 <section class="sec sec--light" id="faq" aria-labelledby="faq-title">
@@ -515,11 +519,11 @@
     <div class="acc">
       <details><summary>Можно ли разместить ЦОД под землей?</summary><p>Да, заглублённое или частично заглублённое размещение — один из вариантов исполнения. Применимость зависит от геологии и гидрогеологии, уровня грунтовых вод, водоотведения, пожарной безопасности, эвакуации, охлаждения и доступа к оборудованию. Сначала оцениваем ограничения площадки.</p></details>
       <details><summary>Сколько стоит проектирование ЦОД?</summary><p>Зависит от масштаба, IT-нагрузки, сложности инженерии, формата, площадки и состава документации. После уточнения задачи готовим предложение с составом работ, результатами и допущениями.</p></details>
+      <details><summary>Из чего состоит работа над проектом ЦОД?</summary><p>Работа начинается с анализа задачи заказчика, исходных данных и требований к будущему дата-центру. Затем рассматриваются возможные варианты размещения и инженерных решений, разрабатывается концепция ЦОД и согласовываются ключевые параметры объекта.</p><p>На следующем этапе выполняется архитектурное, конструктивное и инженерное проектирование с учётом требований к надёжности, физической защищённости, эксплуатации и масштабированию.</p><p><strong>Каждый этап предполагает согласование ключевых решений с заказчиком.</strong> Состав работ, последовательность этапов и итоговые материалы определяются техническим заданием и условиями договора.</p></details>
       <details><summary>Какой формат лучше: классический, модульный, контейнерный или подземный?</summary><p>Универсального варианта нет. На этапе концепции сравниваем применимые варианты по единым критериям: мощность, площадка, инженерные ресурсы, надежность, расширение и эксплуатация.</p></details>
       <details><summary>Можно ли получить оценку без готового ТЗ?</summary><p>Да. Достаточно известных параметров: IT-мощность, количество стоек, регион, наличие площадки, требования к надежности и желаемый формат. Если данных не хватает, составим список вопросов для уточнения.</p></details>
       <details><summary>Сколько времени занимает проектирование?</summary><p>Зависит от масштаба, состава работ, числа вариантов, полноты данных и согласований. Концепция и полный комплект документации — разные по объёму этапы, поэтому сроки определяются после уточнения задачи.</p></details>
       <details><summary>Можно ли заложить физическую защиту на этапе проекта?</summary><p>Да: зонирование, маршруты доступа, размещение критических помещений, конструктивные решения, защита инженерных вводов. Набор мер зависит от требований, оценки рисков, площадки и норм. Проект снижает риски, но не гарантирует абсолютной защищенности.</p></details>
-      <details><summary>С чего начинается работа?</summary><p>С обсуждения задачи и исходных данных: назначение, IT-нагрузка, надежность, площадка, ограничения. Затем определяем, чего не хватает и какая предварительная проработка нужна.</p></details>
     </div>
   </div>
 </section>
@@ -558,7 +562,6 @@
         <li><a href="#services">Услуги</a></li>
         <li><a href="#process">Как мы работаем</a></li>
         <li><a href="#why">Почему IronCore</a></li>
-        <li><a href="#materials">Для заказчика</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Контакты</a></li>
       </ul>

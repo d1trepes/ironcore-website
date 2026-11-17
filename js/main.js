@@ -188,17 +188,45 @@
   window.addEventListener('resize', frame);
   onScroll(); frame();
 
+  /* ---- Switch only when the picture is ready: load + decode first, keep the old one meanwhile ---- */
+  function shownImgs(scope) {
+    return $$('img', scope).filter(function (im) {
+      var box = im.closest('.svc__media, .svc__pic');
+      return !(box && getComputedStyle(box).display === 'none');
+    });
+  }
+  function whenReady(imgs, ms) {
+    return new Promise(function (res) {
+      var left = imgs.length, t;
+      if (!left) return res();
+      t = setTimeout(res, ms);
+      imgs.forEach(function (im) {
+        var fin = function () { if (--left <= 0) { clearTimeout(t); res(); } };
+        var dec = function () { if (im.decode) im.decode().then(fin, fin); else fin(); };
+        im.loading = 'eager';
+        if (im.complete && im.naturalWidth) dec();
+        else { im.addEventListener('load', dec, { once: true }); im.addEventListener('error', fin, { once: true }); }
+      });
+    });
+  }
+  function prefetch(imgs) { imgs.forEach(function (im) { if (!(im.complete && im.naturalWidth)) im.loading = 'eager'; }); }
+
   /* ---- Tabs (scale switcher, engineering) ---- */
   $$('[data-tabs]').forEach(function (root) {
     var tabs = $$('[role="tab"]', root);
+    var token = 0;
     function select(tab, focus) {
       tabs.forEach(function (t) {
         var on = t === tab;
         t.setAttribute('aria-selected', String(on));
         t.tabIndex = on ? 0 : -1;
-        document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
       });
       if (focus) tab.focus({ preventScroll: true });
+      var my = ++token, panel = document.getElementById(tab.getAttribute('aria-controls'));
+      whenReady(shownImgs(panel), 1500).then(function () {
+        if (my !== token) return;
+        tabs.forEach(function (t) { document.getElementById(t.getAttribute('aria-controls')).hidden = t !== tab; });
+      });
       // On phones the picker is a swipe strip: bring the chosen card into view inside it, never scroll the page
       var strip = tab.parentNode;
       if (strip.scrollWidth > strip.clientWidth + 2) {
@@ -226,9 +254,14 @@
       prev.addEventListener('click', function () { select(tabs[(cur() - 1 + tabs.length) % tabs.length]); upd(); });
       next.addEventListener('click', function () { select(tabs[(cur() + 1) % tabs.length]); upd(); });
       tabs.forEach(function (t) { t.addEventListener('click', upd); t.addEventListener('keydown', function () { setTimeout(upd, 0); }); });
+      var warmAll = function () { tabs.forEach(function (t) { prefetch(shownImgs(document.getElementById(t.getAttribute('aria-controls')))); }); };
+      prev.addEventListener('touchstart', warmAll, { passive: true }); next.addEventListener('touchstart', warmAll, { passive: true });
+      prev.addEventListener('pointerenter', warmAll); next.addEventListener('pointerenter', warmAll);
       upd();
     }
     tabs.forEach(function (tab, i) {
+      var warmTab = function () { prefetch(shownImgs(document.getElementById(tab.getAttribute('aria-controls')))); };
+      tab.addEventListener('pointerenter', warmTab); tab.addEventListener('touchstart', warmTab, { passive: true }); tab.addEventListener('focus', warmTab);
       tab.addEventListener('click', function () { select(tab); });
       tab.addEventListener('keydown', function (e) {
         var j = null;
@@ -244,18 +277,33 @@
   /* ---- Services: click opens one service, image follows ---- */
   $$('[data-svc]').forEach(function (root) {
     var btns = $$('.svc__btn', root), imgs = $$('.svc__media img', root);
+    var token = 0;
+    function forBtn(btn) {
+      var id = btn.getAttribute('aria-controls');
+      return shownImgs(root).filter(function (im) { return im.getAttribute('data-for') === id || im.closest('#' + id); });
+    }
     function open(btn) {
       var closing = btn.getAttribute('aria-expanded') === 'true';
-      btns.forEach(function (b) {
-        var on = b === btn && !closing;
-        b.setAttribute('aria-expanded', String(on));
-        document.getElementById(b.getAttribute('aria-controls')).hidden = !on;
-      });
-      if (closing) return;
+      var my = ++token;
+      btns.forEach(function (b) { b.setAttribute('aria-expanded', String(b === btn && !closing)); });
+      if (closing) { document.getElementById(btn.getAttribute('aria-controls')).hidden = true; return; }
       var id = btn.getAttribute('aria-controls');
-      imgs.forEach(function (im) { im.classList.toggle('is-on', im.getAttribute('data-for') === id); });
+      whenReady(forBtn(btn), 1200).then(function () {
+        if (my !== token) return;
+        btns.forEach(function (b) { document.getElementById(b.getAttribute('aria-controls')).hidden = b !== btn; });
+        // Cross-fade: the new picture fades in over the old one, the old one stays until it is covered
+        imgs.forEach(function (im) {
+          var on = im.getAttribute('data-for') === id;
+          if (im.classList.contains('is-on') && !on) { im.classList.add('was-on'); setTimeout(function () { im.classList.remove('was-on'); }, 800); }
+          im.classList.toggle('is-on', on);
+        });
+      });
     }
-    btns.forEach(function (b) { b.addEventListener('click', function () { open(b); }); });
+    btns.forEach(function (b) {
+      var w = function () { prefetch(forBtn(b)); };
+      b.addEventListener('pointerenter', w); b.addEventListener('touchstart', w, { passive: true }); b.addEventListener('focus', w);
+      b.addEventListener('click', function () { open(b); });
+    });
   });
 
   /* ---- Security atlas: pins and legend share one state; a second click closes ---- */

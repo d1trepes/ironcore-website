@@ -20,9 +20,9 @@ defined( 'ABSPATH' ) || exit;
 
     <div class="scale" data-tabs>
       <div class="picker" role="tablist" aria-label="Типовые концепции">
-        <button role="tab" id="sc-t1" aria-controls="sc-p1" aria-selected="true"><b>Компактный ЦОД</b><span>0,5–1,5 МВт, 50–150 стоек</span></button>
-        <button role="tab" id="sc-t2" aria-controls="sc-p2" aria-selected="false" tabindex="-1"><b>ЦОД среднего масштаба</b><span>1,5–5 МВт, 150–500 стоек</span></button>
-        <button role="tab" id="sc-t3" aria-controls="sc-p3" aria-selected="false" tabindex="-1"><b>Крупный ЦОД или кампус</b><span>5–15 МВт, 500–1 500 стоек</span></button>
+        <button role="tab" id="sc-t1" aria-controls="sc-p1" aria-selected="true"><b>Компактный ЦОД</b><span>0,5–1,5 МВт, 20–60 стоек</span></button>
+        <button role="tab" id="sc-t2" aria-controls="sc-p2" aria-selected="false" tabindex="-1"><b>ЦОД среднего масштаба</b><span>1,5–5 МВт, 70–200 стоек</span></button>
+        <button role="tab" id="sc-t3" aria-controls="sc-p3" aria-selected="false" tabindex="-1"><b>Крупный ЦОД или кампус</b><span>5–15 МВт, 200–1 000 стоек</span></button>
       </div>
       <div class="scale__panel" role="tabpanel" id="sc-p1" aria-labelledby="sc-t1">
         <figure class="scale__img"><img decoding="async" src="<?php echo IC_ASSETS; ?>images/concepts/scale-compact-1024w.webp" srcset="<?php echo IC_ASSETS; ?>images/concepts/scale-compact-640w.webp 640w, <?php echo IC_ASSETS; ?>images/concepts/scale-compact-1024w.webp 1024w, <?php echo IC_ASSETS; ?>images/concepts/scale-compact.webp 1448w" sizes="(max-width: 960px) 100vw, 720px" width="1448" height="1086" loading="lazy" alt="Компактный одноэтажный корпус ЦОД с белым фасадом у кромки леса, рядом ДГУ"></figure>
@@ -33,7 +33,7 @@ defined( 'ABSPATH' ) || exit;
           <dl class="figs">
             <div><dt>Площадь здания</dt><dd>1&nbsp;000–2&nbsp;500<small>м²</small></dd></div>
             <div><dt>IT-мощность</dt><dd>0,5–1,5<small>МВт</small></dd></div>
-            <div><dt>Количество</dt><dd>50–150<small>стоек</small></dd></div>
+            <div><dt>Количество</dt><dd>20–60<small>стоек</small></dd></div>
           </dl>
           <p class="scale__fmt"><span>Возможные форматы</span>Классическое здание, модульное исполнение, контейнерная конфигурация.</p>
         </div>
@@ -47,7 +47,7 @@ defined( 'ABSPATH' ) || exit;
           <dl class="figs">
             <div><dt>Площадь здания</dt><dd>3&nbsp;000–8&nbsp;000<small>м²</small></dd></div>
             <div><dt>IT-мощность</dt><dd>1,5–5<small>МВт</small></dd></div>
-            <div><dt>Количество</dt><dd>150–500<small>стоек</small></dd></div>
+            <div><dt>Количество</dt><dd>70–200<small>стоек</small></dd></div>
           </dl>
           <p class="scale__fmt"><span>Возможные форматы</span>Отдельное здание, поэтапно развиваемый комплекс, модульная структура.</p>
         </div>
@@ -61,7 +61,7 @@ defined( 'ABSPATH' ) || exit;
           <dl class="figs">
             <div><dt>Площадь здания</dt><dd>10&nbsp;000–30&nbsp;000<small>м²</small></dd></div>
             <div><dt>IT-мощность</dt><dd>5–15<small>МВт</small></dd></div>
-            <div><dt>Количество</dt><dd>500–1&nbsp;500<small>стоек</small></dd></div>
+            <div><dt>Количество</dt><dd>200–1&nbsp;000<small>стоек</small></dd></div>
           </dl>
           <p class="scale__fmt"><span>Возможные форматы</span>Несколько зданий, очереди строительства, сочетание капитальных и модульных решений.</p>
         </div>

@@ -56,7 +56,7 @@ function ic_menu_links( $location ) {
 			'#services'  => 'Услуги',
 			'#process'   => 'Как мы работаем',
 			'#why'       => 'Почему IronCore',
-			'#materials' => 'Для заказчика',
+			'#faq'       => 'Для заказчика', // #materials скрыт 17.11.2026
 			'#contact'   => 'Контакты',
 		),
 		'footer'  => array(
@@ -64,7 +64,6 @@ function ic_menu_links( $location ) {
 			'#services'  => 'Услуги',
 			'#process'   => 'Как мы работаем',
 			'#why'       => 'Почему IronCore',
-			'#materials' => 'Для заказчика',
 			'#faq'       => 'FAQ',
 			'#contact'   => 'Контакты',
 		),
