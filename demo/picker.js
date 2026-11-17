@@ -5,7 +5,10 @@
   'use strict';
   var SLOTS = window.IC_VARIANTS || [];
   if (!SLOTS.length) return;
-  var LS = 'ic-img-pick-v1';
+  var LS = 'ic-img-pick-v2';
+  // Согласованная подборка (17.11): светлые разделы и первый экран — B, тёмные разделы — A.
+  var PRESET = { hero: 'b', 'scale-compact': 'b', 'scale-medium': 'b', 'scale-campus': 'b',
+    'format-classic': 'b', 'format-modular': 'b', 'format-container': 'b', 'format-underground': 'b', band: 'b' };
   var params = new URLSearchParams(location.search);
   var state = {};
 
@@ -139,7 +142,9 @@
 
   function load() {
     var saved = {};
-    try { saved = JSON.parse(localStorage.getItem(LS) || '{}') || {}; } catch (e) { saved = {}; }
+    var raw = null;
+    try { raw = localStorage.getItem(LS); } catch (e) { raw = null; }
+    try { saved = raw ? JSON.parse(raw) || {} : JSON.parse(JSON.stringify(PRESET)); } catch (e) { saved = {}; }
     var fromUrl = params.get('img');
     if (fromUrl) {
       saved = {};
@@ -172,8 +177,8 @@
 
   // ---------- UI ----------
   var css = '' +
-    '.icp{position:fixed;top:0;right:0;bottom:0;z-index:9999;width:400px;max-width:calc(100vw - 44px);background:#0E1521;color:#E8ECF2;font-family:inherit;box-shadow:-12px 0 40px rgba(0,0,0,.4);transform:translateX(100%);transition:transform .35s cubic-bezier(.22,.7,.18,1)}' +
-    '.icp.is-open{transform:none}' +
+    '.icp{position:fixed;top:0;right:0;bottom:0;z-index:9999;width:400px;max-width:calc(100vw - 44px);background:#0E1521;color:#E8ECF2;font-family:inherit;transform:translateX(100%);transition:transform .35s cubic-bezier(.22,.7,.18,1)}' +
+    '.icp.is-open{transform:none;box-shadow:-12px 0 40px rgba(0,0,0,.4)}' +
     '.icp__in{display:flex;flex-direction:column;height:100%}' +
     '.icp__tab{position:absolute;top:50%;left:-40px;width:40px;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:14px;padding:18px 0 20px;border:1px solid rgba(255,255,255,.12);border-right:0;border-radius:6px 0 0 6px;background:#0E1521;color:#E8ECF2;font-family:inherit;font-size:13px;font-weight:500;letter-spacing:.01em;line-height:1;cursor:pointer;box-shadow:-6px 0 20px rgba(0,0,0,.28);transition:background .2s}' +
     '.icp__tab:hover{background:#162133}.icp__tab span{writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap}' +
@@ -234,8 +239,8 @@
     '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg>' +
     '<span>Подбор изображений</span></button>' +
     '<div class="icp__in" id="icp-in"><div class="icp__head"><h2>Подбор изображений</h2>' +
-    '<p>Демо-режим. Выберите вариант для каждого места — картинка сразу меняется на странице. ' +
-    'A — текущая. Выбор сохраняется в этом браузере; кнопками ниже его можно отправить нам.</p>' +
+    '<p>Сейчас стоит согласованная подборка: первый экран и светлые разделы — B, тёмные разделы — A. Любое место можно переключить — картинка сразу меняется на странице. ' +
+    'A — тёмная серия, B и C — светлые. Выбор сохраняется в этом браузере; кнопками ниже его можно отправить нам.</p>' +
     '<button class="icp__x" type="button" aria-label="Закрыть">×</button></div>' +
     '<div class="icp__body"></div>' +
     '<div class="icp__foot"><button class="icp__main" type="button" data-act="copy">Скопировать выбор списком</button>' +
