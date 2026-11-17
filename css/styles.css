@@ -128,7 +128,7 @@ section[id] { scroll-margin-top: 24px; }
 @keyframes draw { to { stroke-dashoffset: 0; } }
 @keyframes fade { to { opacity: 1; } }
 @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
-@keyframes settle { from { opacity: 0; transform: scale(1.04); } to { opacity: 1; transform: none; } }
+@keyframes settle { from { transform: scale(1.03); } to { transform: none; } }
 
 /* ---------- Section shells ---------- */
 .sec { padding: clamp(96px, 10vw, 160px) 0; position: relative; }
@@ -223,7 +223,8 @@ section[id] { scroll-margin-top: 24px; }
 .svc { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 72px; align-items: start; }
 .svc__media { position: sticky; top: 112px; aspect-ratio: 5 / 4; background: var(--night-2); overflow: hidden; }
 .svc__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.03); transition: opacity .7s ease, transform 1.2s var(--ease), clip-path 1.2s var(--ease); }
-.svc__media img.is-on { opacity: 1; transform: none; }
+.svc__media img.is-on { opacity: 1; transform: none; z-index: 1; }
+.svc__media img.was-on { opacity: 1; transform: none; transition: none; z-index: 0; }
 .svc__list { border-top: 1px solid var(--line-d); }
 .svc__btn { display: grid; grid-template-columns: 1fr 14px; column-gap: 20px; align-items: center; width: 100%; padding: 22px 0; border-top: 1px solid var(--line-d); color: var(--on-2); transition: color .25s; }
 .svc__btn:first-child { border-top: 0; }
@@ -807,3 +808,7 @@ body.no-scroll { overflow: hidden; }
 }
 .pickbar__count { display: none; }
 @media (max-width: 600px) { .pickbar__count { display: block; } }
+
+/* FAQ: ответ из нескольких абзацев */
+.acc details p:not(:last-child) { padding-bottom: 12px; }
+.acc details strong { font-weight: 600; color: var(--ink); }
